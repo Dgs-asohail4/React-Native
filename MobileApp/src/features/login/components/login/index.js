@@ -15,13 +15,33 @@ import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 
 
 export default class Login extends Component {
-  state = {
-    username: '', password: ''
+
+  constructor(props){
+    super(props)
+    this.state = {
+      username: 'ahsan.sohail@ibex.co', password: 'Password123'
+    }
+    this.props.navigator.setDrawerEnabled({
+      side: "left",
+      enabled: false,
+      screen: "global.drawer"
+    });
   }
+
+
+  storeAuthData = async (response) => {
+    var data = response.data;
+    var authData = { token: data.access_token };
+    const user = await AsyncStorage.setItem(USER_KEY, authData)
+    return this.props.requireAuthentication();
+  };
+
   onChangeText = (key, value) => {
     this.setState({ [key]: value })
   }
   signIn = async () => {
+    console.log(this.props);
+    return;
     const { username, password } = this.state
     try {
        // login with provider
@@ -31,9 +51,19 @@ export default class Login extends Component {
        if(password == undefined || password == ""){
         return;
        }
-       const user = await AsyncStorage.setItem(USER_KEY, username)
-       console.log('user successfully signed in!', user)
-       ChangeStack(this.props, "app.home", "Home");
+       this.props.loginAction({username,password}).then(
+          response => {
+              console.log(this.props);
+              storeAuthDate(response);
+        //      dispatch({type: types.LOGIN + SUCCESS_PREFIX, response})
+          },
+          error => {
+              console.log(error);
+          }
+        )
+       //const user = await AsyncStorage.setItem(USER_KEY, username)
+       //console.log('user successfully signed in!', user)
+      // ChangeStack(this.props, "app.home", "Home", true);
     } catch (err) {
       console.log('error:', err)
     }
@@ -46,6 +76,7 @@ export default class Login extends Component {
           placeholder='Username'
           autoCapitalize="none"
           autoCorrect={false}
+          value={this.state.username}
           placeholderTextColor='white'
           onChangeText={val => this.onChangeText('username', val)}
         />
@@ -53,6 +84,7 @@ export default class Login extends Component {
           style={styles.input}
           placeholder='Password'
           autoCapitalize="none"
+          value={this.state.password}
           secureTextEntry={true}
           placeholderTextColor='white'
           onChangeText={val => this.onChangeText('password', val)}
@@ -64,7 +96,7 @@ export default class Login extends Component {
 
         <Button
           title='Sign up'
-          onPress={()=>PushNewScreen(this.props, "auth.signup", "")}
+          onPress={()=>PushNewScreen(this.props, "auth.signup", "", false)}
         />
       </View>
     )

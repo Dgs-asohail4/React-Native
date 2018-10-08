@@ -1,9 +1,23 @@
 
-import * as actionTypes from '../constants'
+import {types} from '../constants'
+import { SUCCESS_PREFIX, ERROR_PREFIX } from '../../../api/constant';
 
-const DEFAULT_STATE = {title:"Hello World"}
+const DEFAULT_STATE = {
+    title:"Hello World",
+    login:false,
+    loading : false,
+    error:false,
+    errorMessage: "",
+    payload :{}
+}
 export default function reducer(state = DEFAULT_STATE, action){
     switch(action.type){
+        case types.LOGIN:
+            return {...state, loading: true, login:false, erorr:false, errorMessage: ""}
+        case types.LOGIN + SUCCESS_PREFIX:
+            return {...state, loading:false, login:true, error:false, errorMessage:"", payload:action.payload}
+        case types.LOGIN + ERROR_PREFIX:
+            return {...state, loading:false,login:false,error:true, errorMessage:""}
         default:
             return state;
     }

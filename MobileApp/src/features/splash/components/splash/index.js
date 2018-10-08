@@ -15,13 +15,13 @@ export default class Splash extends React.Component {
       const user = await AsyncStorage.getItem(USER_KEY)
       console.log('user: ', user)
       if (user) {
-        ChangeStack(this.props, "app.home", "Home");
+        ChangeStack(this.props, "app.home", "Home", true);
       } else {
-        ChangeStack(this.props, "auth.login", "");
+        ChangeStack(this.props, "auth.login", "", false);
       }
     } catch (err) {
       console.log('error: ', err)
-      ChangeStack(this.props, "auth.login", "");
+      ChangeStack(this.props, "auth.login", "", false);
     }
 
   //  ChangeStack(this.props, "app.home", "Home");

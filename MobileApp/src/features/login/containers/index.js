@@ -4,8 +4,10 @@ import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
 import { bindActionCreators } from 'redux';
-const mapStateToProps = (state) => ({
+import {getPayload} from '../selectors'
 
+const mapStateToProps = (state) => ({
+    ...getPayload(state)
 });
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(actions, dispatch),

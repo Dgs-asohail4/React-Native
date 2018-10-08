@@ -36,6 +36,8 @@ if(allFeaturesNames.includes(feature_name)){
 
 var fs = require('fs');
 var dir = './src/features/' + feature_name;
+var apidir = './src/api/' + feature_name;
+
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
@@ -117,12 +119,15 @@ create_folder(dir, 'containers');
 create_folder(dir, 'reducers');
 create_folder(dir, 'selectors');
 create_folder(dir, 'components/'+feature_name);
+if (!fs.existsSync(apidir)){
+    fs.mkdirSync(apidir);
+}
 
 var camelCaseFeatureName = feature_name.charAt(0).toUpperCase() + feature_name.slice(1);
 
 //Generate Files
 create_file(dir, 'constants.js');
-create_file('./src/api', camelCaseFeatureName +'.js');
+create_file(apidir, camelCaseFeatureName +'.js');
 create_file(dir, 'components/'+camelCaseFeatureName+'/index.js');
 create_file(dir, 'reducers/index.js');
 create_file(dir, 'components/'+camelCaseFeatureName+'/styles.js');

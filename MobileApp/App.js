@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 
 import { registerScreens } from './src/navigation/screen_name';
 import configureStore from './src/store/configureStore';
-import {navigatorStyle} from './src/global/styles/navigator';
+import {navigatorStyle, navigatorWithoutNavbar} from './src/global/styles/navigator';
 
 const store = configureStore();
 
@@ -13,8 +13,7 @@ registerScreens(store, Provider);
 Navigation.startSingleScreenApp({
 	screen: {
 		screen: 'app.splash',
-//		title: 'Home',
-//		navigatorStyle
+		navigatorStyle: navigatorWithoutNavbar
 	},
 	drawer: {
 		left: {

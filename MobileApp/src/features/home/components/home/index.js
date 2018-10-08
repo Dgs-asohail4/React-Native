@@ -10,7 +10,7 @@ export default class Home extends Component {
     logout = async () => {
       try {
         await AsyncStorage.removeItem(USER_KEY)
-        ChangeStack(this.props, "auth.login", "");
+        ChangeStack(this.props, "auth.login", "", false);
       } catch (err) {
         console.log('error signing out...: ', err)
       }
@@ -27,7 +27,7 @@ export default class Home extends Component {
         />
         <Button
           onPress={() => {
-            PushNewScreen(this.props, "app.screen2", "Screen2");
+            PushNewScreen(this.props, "app.screen2", "Screen2", true);
           }}
           title="View next screen"
         />
