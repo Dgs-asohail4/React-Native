@@ -6,6 +6,7 @@ import Splash from '../features/splash/containers';
 import Login from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
+import buttonScreen from '../features/buttonScreen/containers'
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -15,6 +16,7 @@ const screens = [
     {name:'auth.login', component: Login},
     {name:'auth.signup', component: Signup},
     {name:'app.screen2', component: ScreenNew},
+    {name:'app.buttonlist',component: buttonScreen},
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))
