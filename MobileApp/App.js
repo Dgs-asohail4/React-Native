@@ -18,6 +18,9 @@ Navigation.startSingleScreenApp({
 	drawer: {
 		left: {
 			screen: 'global.drawer'
+		},
+		style: {
+			leftDrawerWidth: 40,
 		}
 	}
 });

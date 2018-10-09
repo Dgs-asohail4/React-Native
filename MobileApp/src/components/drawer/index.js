@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import items from './draweritems';
 import {ChangeDrawerScreen} from '../../navigation/helper';
-import { DRAWER_GRADIENT } from '../../global/theme/default';
+import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY } from '../../global/theme/default';
 
 class Drawer extends Component {
 	constructor(props) {
@@ -45,7 +45,7 @@ class Drawer extends Component {
 
 	render() {
     return (
-      <LinearGradient colors={[DRAWER_GRADIENT,DRAWER_GRADIENT, DRAWER_GRADIENT]} style={styles.linearGradient}>
+      <LinearGradient colors={[TEXT_COLOR_PRIMARY, DRAWER_GRADIENT, TEXT_COLOR_PRIMARY]} style={styles.linearGradient}>
 				<View style={styles.container}>
           <View style={styles.drawerList}>
             {items.map(item => (
