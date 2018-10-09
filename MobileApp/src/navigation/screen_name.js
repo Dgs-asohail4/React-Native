@@ -9,6 +9,7 @@ import ScreenNew from '../features/screen2/containers';
 import buttonScreen from '../features/buttonScreen/containers'
 import Swiperlist from '../features/swiperlist/containers';
 import ProgressBarScreen from '../features/progressbarexample/containers';
+import Floatactionbuttonexample from '../features/floatingactionbuttonexample/containers';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -21,6 +22,7 @@ const screens = [
     {name:'app.buttonlist',component: buttonScreen},
     {name:'app.swipelist', component: Swiperlist},
     {name:'app.progressbarscreen', component: ProgressBarScreen},
+    {name:'app.floatingactionbutton', component: Floatactionbuttonexample}
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))

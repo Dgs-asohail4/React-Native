@@ -99,6 +99,6 @@ create_file(dir, 'index.js');
 create_file(dir, 'styles.js');
 create_file(dir, 'container.js');
 
-writetofile(dir+'/index.js', basic_component.replace(/[COMPONENT_NAME]/g,  component_name.charAt(0).toUpperCase() + component_name.slice(1)));
+writetofile(dir+'/index.js', basic_component.replace(/\bCOMPONENT_NAME\b/g,  component_name.charAt(0).toUpperCase() + component_name.slice(1)));
 writetofile(dir+'/styles.js', basic_styles);
-writetofile(dir+'/container.js', basic_container.replace(/[COMPONENT_NAME]/g,  component_name.charAt(0).toUpperCase() + component_name.slice(1)));
+writetofile(dir+'/container.js', basic_container.replace(/\bCOMPONENT_NAME\b/g,  component_name.charAt(0).toUpperCase() + component_name.slice(1)));

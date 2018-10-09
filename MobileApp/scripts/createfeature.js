@@ -89,7 +89,7 @@ export default function reducer(state = DEFAULT_STATE, action){
 
 var basic_container =
 `
-import COMPONENT_NAME from '../components/COMPONENT_NAME'
+import COMPONENT_NAME from '../components/COMPONENT_NAME_SMALL'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
@@ -139,6 +139,6 @@ create_file(dir, 'selectors/index.js');
 writetofile(dir+'/components/'+feature_name+'/index.js', basic_component.replace(/\bCOMPONENT_NAME\b/g,  camelCaseFeatureName));
 writetofile(dir+'/components/'+feature_name+'/styles.js', basic_styles);
 writetofile(dir+'/reducers/index.js', basic_reducer);
-writetofile(dir+'/containers/index.js', basic_container.replace(/\bCOMPONENT_NAME\b/g,camelCaseFeatureName));
+writetofile(dir+'/containers/index.js', basic_container.replace(/\bCOMPONENT_NAME\b/g,camelCaseFeatureName).replace(/\bCOMPONENT_NAME_SMALL\b/g, feature_name));
 writetofile(dir+'/selectors/index.js', basic_selector);
 

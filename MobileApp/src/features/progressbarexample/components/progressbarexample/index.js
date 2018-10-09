@@ -5,6 +5,8 @@ import styles from './styles';
 import Bar from '../../../../components/progress/Bar'
 import Pie from '../../../../components/progress/Pie'
 import Circle from '../../../../components/progress/Circle'
+import CircleSnail from '../../../../components/progress/CircleSnail'
+
 
 export default class Progressbarexample extends Component {
   constructor(props) {
@@ -61,6 +63,13 @@ export default class Progressbarexample extends Component {
           indeterminate={this.state.indeterminate}
           direction="counter-clockwise"
         />
+        <View style={styles.circles}>
+        <CircleSnail style={styles.progress} />
+        <CircleSnail
+          style={styles.progress}
+          color={['#F44336', '#2196F3', '#009688']}
+        />
+      </View>
       </View>
       </View>
     );
