@@ -7,6 +7,8 @@ import Login from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
 import buttonScreen from '../features/buttonScreen/containers'
+import Swiperlist from '../features/swiperlist/containers';
+import ProgressBarScreen from '../features/progressbarexample/containers';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -17,6 +19,8 @@ const screens = [
     {name:'auth.signup', component: Signup},
     {name:'app.screen2', component: ScreenNew},
     {name:'app.buttonlist',component: buttonScreen},
+    {name:'app.swipelist', component: Swiperlist},
+    {name:'app.progressbarscreen', component: ProgressBarScreen},
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))
