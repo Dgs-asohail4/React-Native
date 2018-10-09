@@ -41,7 +41,6 @@ export default class Login extends Component {
   }
   signIn = async () => {
     console.log(this.props);
-    return;
     const { username, password } = this.state
     try {
        // login with provider
@@ -51,22 +50,32 @@ export default class Login extends Component {
        if(password == undefined || password == ""){
         return;
        }
-       this.props.loginAction({username,password}).then(
-          response => {
-              console.log(this.props);
-              storeAuthDate(response);
-        //      dispatch({type: types.LOGIN + SUCCESS_PREFIX, response})
-          },
-          error => {
-              console.log(error);
-          }
-        )
-       //const user = await AsyncStorage.setItem(USER_KEY, username)
-       //console.log('user successfully signed in!', user)
-      // ChangeStack(this.props, "app.home", "Home", true);
-    } catch (err) {
+
+       const user = await AsyncStorage.setItem(USER_KEY, username)
+       console.log('user successfully signed in!', user)
+       ChangeStack(this.props, "app.home", "Home", true);
+
+    }catch (err) {
       console.log('error:', err)
     }
+    //    this.props.loginAction({username,password}).then(
+    //       response => {
+    //           console.log(this.props);
+    //           storeAuthDate(response);
+    //     //      dispatch({type: types.LOGIN + SUCCESS_PREFIX, response})
+    //       },
+    //       error => {
+    //           console.log(error);
+    //       }
+    //     )
+    //    //const user = await AsyncStorage.setItem(USER_KEY, username)
+    //    //console.log('user successfully signed in!', user)
+    //   // ChangeStack(this.props, "app.home", "Home", true);
+    // } catch (err) {
+    //   console.log('error:', err)
+    // }
+
+
   }
   render() {
     return (

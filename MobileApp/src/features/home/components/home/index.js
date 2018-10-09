@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Button, AsyncStorage } from 'react-native';
 import styles from './styles';
 
-import {PushNewScreen, ChangeStack} from '../../../../navigation/helper';
+import {PushNewScreen, ChangeStack, ChangeToTabView} from '../../../../navigation/helper';
 
 import {USER_KEY} from '.././../../../global/config';
 export default class Home extends Component {
@@ -30,6 +30,13 @@ export default class Home extends Component {
             PushNewScreen(this.props, "app.screen2", "Screen2", true);
           }}
           title="View next screen"
+        />
+
+        <Button
+          onPress={() => {
+            ChangeToTabView();
+          }}
+          title="Change to tabview"
         />
         </View>
       )

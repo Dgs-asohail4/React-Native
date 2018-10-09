@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingLeft: 25,
-		justifyContent: 'center'
+		justifyContent: 'center',
+		width:280
 	},
 	drawerList: {
 
