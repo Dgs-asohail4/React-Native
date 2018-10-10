@@ -11,6 +11,8 @@ import Swiperlist from '../features/swiperlist/containers';
 import ProgressBarScreen from '../features/progressbarexample/containers';
 import Floatactionbuttonexample from '../features/floatingactionbuttonexample/containers';
 import textInput from '../features/textInput/containers';
+import ModalScreenExample from '../features/ModalScreenExample/containers';
+import LightBoxScreen from '../features/LightBoxScreen/containers';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -24,7 +26,9 @@ const screens = [
     {name:'app.swipelist', component: Swiperlist},
     {name:'app.progressbarscreen', component: ProgressBarScreen},
     {name:'app.floatingactionbutton', component: Floatactionbuttonexample},
-    {name:'app.textInput', component:textInput}
+    {name:'app.textInput', component:textInput},
+    {name:'app.modalscreen', component:ModalScreenExample},
+    {name:'app.lightboxscreen', component:LightBoxScreen}
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))

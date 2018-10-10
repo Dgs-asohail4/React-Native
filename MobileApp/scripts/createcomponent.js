@@ -54,7 +54,7 @@ import { Text, View } from 'react-native';
 
 import styles from './styles';
 
-export default class [COMPONENT_NAME] extends Component {
+export default class COMPONENT_NAME extends Component {
   render() {
     return (
       <View>
@@ -75,7 +75,7 @@ export default styles;`
 
 var basic_container =
 `
-import [COMPONENT_NAME] from './index.js'
+import COMPONENT_NAME from './index.js'
 import {connect} from 'react-redux'
 import * as actions from './actions.js'
 import * as actionsNav from '../../navigation/actions'
@@ -89,7 +89,7 @@ const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(actions, dispatch),
     ...bindActionCreators(actionsNav,dispatch)
 });
-export default connect(mapStateToProps, mapDispatchToProps)([COMPONENT_NAME]);
+export default connect(mapStateToProps, mapDispatchToProps)(COMPONENT_NAME);
 
 `
 

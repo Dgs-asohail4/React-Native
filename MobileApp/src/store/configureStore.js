@@ -1,10 +1,8 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers/rootReducer';
-import {createLogger}  from 'redux-logger'
+// import {createLogger}  from 'redux-logger'
 
-const logger = createLogger({
-	collapsed: (getState, action) => action.type === "FORM_CHANGE"
-});
+// const logger = createLogger();
 
 // if (__DEV__) {
 // 	const reduxImmutableStateInvariant = require('redux-immutable-state-invariant').default();
@@ -16,6 +14,6 @@ const logger = createLogger({
 export default function configureStore(initialState) {
 	return createStore(
 		rootReducer,
-		applyMiddleware(logger)
+		applyMiddleware()
 	  );
 }
