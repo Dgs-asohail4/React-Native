@@ -6,14 +6,11 @@ import Splash from '../features/splash/containers';
 import Login from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
-<<<<<<< Updated upstream
 import buttonScreen from '../features/buttonScreen/containers'
 import Swiperlist from '../features/swiperlist/containers';
 import ProgressBarScreen from '../features/progressbarexample/containers';
 import Floatactionbuttonexample from '../features/floatingactionbuttonexample/containers';
-=======
 import textInput from '../features/textInput/containers';
->>>>>>> Stashed changes
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -23,14 +20,11 @@ const screens = [
     {name:'auth.login', component: Login},
     {name:'auth.signup', component: Signup},
     {name:'app.screen2', component: ScreenNew},
-<<<<<<< Updated upstream
     {name:'app.buttonlist',component: buttonScreen},
     {name:'app.swipelist', component: Swiperlist},
     {name:'app.progressbarscreen', component: ProgressBarScreen},
-    {name:'app.floatingactionbutton', component: Floatactionbuttonexample}
-=======
+    {name:'app.floatingactionbutton', component: Floatactionbuttonexample},
     {name:'app.textInput', component:textInput}
->>>>>>> Stashed changes
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))
