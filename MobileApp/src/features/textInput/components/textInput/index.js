@@ -1,46 +1,57 @@
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 import styles from './styles';
-export default class MyTextInput extends Component {
+import MyTextInput from '../../../../components/textInput';
+export default class TextInputScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {text: ''};
+    this._onClick = this._onClick.bind(this);
   }
-  render() {
+
+  _onClick = () => {
+    this.setState({text:'Ahsan'})
+  }
+  render(){
     return (
-      <View>
-        <View style={[styles.searchSection,styles.Background]}>
-          <Icon style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
-          <TextInput 
-            style={styles.input}
-            placeholder="Type here to translate!"
-            onChangeText={(searchString) => {this.setState({searchString})}}
-            underlineColorAndroid="transparent"
-          />
-        </View>
+            <View style={{flex:1, justifyContent:'center'}}>
+            
+              <MyTextInput 
+                backgroundColor = 'brown' 
+                alignSelf = 'center' 
+                // borderRadius = {30} 
+                iconColor = 'black'
+                inputColor = 'black'
+                placeholderTextColor = 'black' />
+              
+              <MyTextInput 
+                backgroundColor = 'green' 
+                alignSelf = 'center' 
+                borderRadius = {10} 
+                iconColor = 'black'
+                inputColor = 'black'
+                placeholderTextColor = 'black' />
 
-        <View style={[styles.searchSection,styles.Background]}>
-          <Icon style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
-          <TextInput 
-            style={styles.input}
-            placeholder="Type here to translate!"
-            onChangeText={(searchString) => {this.setState({searchString})}}
-            underlineColorAndroid="transparent"
-          />
-        </View>
+                <MyTextInput 
+                backgroundColor = 'green' 
+                alignSelf = 'center' 
+                borderRadius = {20} 
+                iconColor = 'black'
+                inputColor = 'black'
+                placeholderTextColor = 'black' />
 
-        <View style={[styles.searchSection,styles.Background]}>
-          <Icon style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
-          <TextInput 
-            style={styles.input}
-            placeholder="Type here to translate!"
-            onChangeText={(searchString) => {this.setState({searchString})}}
-            underlineColorAndroid="transparent"
-          />
-        </View>
+                <MyTextInput 
+                backgroundColor = 'blue' 
+                alignSelf = 'center' 
+                borderRadius = {30} 
+                iconColor = 'black'
+                inputColor = 'black'
+                placeholderTextColor = 'black' />
 
-      </View>
-    );
+
+            
+            </View>
+          )
   }
 }
