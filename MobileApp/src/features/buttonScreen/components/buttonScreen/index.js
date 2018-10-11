@@ -16,7 +16,7 @@ export default class ButtonScreen extends Component {
      onPress={()=>{}}
      text="Square"
      />
-      <Button  color='blue'borderRadius={10}style={styles.button2}
+      <Button  color='blue'borderRadius={5}style={styles.button2}
      onPress={()=>{}}
      text="rounded"
      />
@@ -31,7 +31,7 @@ export default class ButtonScreen extends Component {
         }}
         text="alert"
        />
-       <Button  color='grey'borderRadius={100}style={styles.button4}
+       <Button  color='grey'borderRadius={150}style={styles.button4}
         onPress={()=>{
         }}
         text="toast"
