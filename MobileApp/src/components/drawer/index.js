@@ -4,14 +4,15 @@ import {
 	Text,
 	View,
 	TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import items from './draweritems';
 import {ChangeDrawerScreen} from '../../navigation/helper';
-import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY } from '../../global/theme/default';
-
+import Header from './header'
+import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY, DRAWER_GRADIENT_2 } from '../../global/theme/default';
 class Drawer extends Component {
 	constructor(props) {
     super(props);
@@ -45,23 +46,28 @@ class Drawer extends Component {
 
 	render() {
     return (
-      <LinearGradient colors={[TEXT_COLOR_PRIMARY, DRAWER_GRADIENT, TEXT_COLOR_PRIMARY]} style={styles.linearGradient}>
-				<View style={styles.container}>
-          <View style={styles.drawerList}>
+      <LinearGradient colors={[DRAWER_GRADIENT_2, DRAWER_GRADIENT, DRAWER_GRADIENT_2]} style={styles.linearGradient}>
+        <View style={styles.container}>
+           <Header/>
+          <ScrollView
+              contentContainerStyle={{paddingLeft:15,marginTop:20, marginBottom:20}}>
             {items.map(item => (
               <TouchableOpacity key={item.id} onPress={() => this._onPress(item.navigateTo, false, item.name)}>
                 <View style={styles.drawerListItem}>
-                  <Icon name={item.icon} size={26} color="#9F9F9F" style={[styles.drawerListIcon]} />
+                  <Icon name={item.icon} size={26} color="white" style={[styles.drawerListIcon]} />
                   <Text style={styles.drawerListItemText}>
                     {item.name}
                   </Text>
                 </View>
 						</TouchableOpacity>
             ))}
-					</View>
-					<Text style={styles._version}>
-						v1.0.0
-					</Text>
+            </ScrollView>
+            <View style={{height:30}}>
+              <Text style={styles._version}>
+                v1.0.0
+              </Text>
+            </View>
+
         </View>
 			</LinearGradient>
 		);

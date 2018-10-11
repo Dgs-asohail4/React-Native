@@ -13,6 +13,9 @@ import Floatactionbuttonexample from '../features/floatingactionbuttonexample/co
 import textInput from '../features/textInput/containers';
 import ModalScreenExample from '../features/ModalScreenExample/containers';
 import LightBoxScreen from '../features/LightBoxScreen/containers';
+import FoldViewScreen from '../features/FoldViewScreen/containers';
+import TabViewScreen from '../features/TabViewExample/containers';
+import TimeLineScreen from '../features/TimeLineViewExample/containers';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -28,7 +31,10 @@ const screens = [
     {name:'app.floatingactionbutton', component: Floatactionbuttonexample},
     {name:'app.textInput', component:textInput},
     {name:'app.modalscreen', component:ModalScreenExample},
-    {name:'app.lightboxscreen', component:LightBoxScreen}
+    {name:'app.lightboxscreen', component:LightBoxScreen},
+    {name:'app.foldviewscreen',  component:FoldViewScreen},
+    {name:'app.tabviewscreen',  component:TabViewScreen},
+    {name:'app.timelinescreen',  component:TimeLineScreen}
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))

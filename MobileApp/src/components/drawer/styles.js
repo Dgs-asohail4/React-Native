@@ -3,9 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingLeft: 25,
 		justifyContent: 'center',
-		width:280
 	},
 	drawerList: {
 
@@ -20,8 +18,7 @@ const styles = StyleSheet.create({
 	},
 	drawerListItemText: {
 		color: 'white',
-		fontWeight: 'bold',
-		fontSize: 23,
+		fontSize: 16,
 		paddingLeft: 15,
 		flex: 1
 	},
@@ -35,9 +32,15 @@ const styles = StyleSheet.create({
 	},
 	_version: {
 		color: '#3c3c3c',
-		position: 'absolute',
-		bottom: 25,
-		marginLeft: 53
+		textAlign:'center',
+		justifyContent:'center'
+
+	},
+	drawerHeader: {
+		height:150,
+		backgroundColor:'pink',
+		justifyContent:'center',
+		alignItems:'center'
 	}
 });
 
