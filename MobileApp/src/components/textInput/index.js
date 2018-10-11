@@ -24,6 +24,9 @@ export default class MyTextInput extends Component {
     inputColor:'#424242',
     placeholderTextColor : '#424242',
     placeholder: 'Type your Input Address',
+    error : false,
+    iconName : null,
+    iconPos : 'left'
     
   };
 
@@ -40,8 +43,12 @@ export default class MyTextInput extends Component {
           inputColor,
           placeholderTextColor,
           placeholder,
-          
+          error,
+          iconName,
+          iconPos,
+          ...attributes
           } = this.props;
+          console.log(this.props)
     const containerStyle = {...styles.searchSection,
                            borderRadius, 
                            backgroundColor,
@@ -51,20 +58,29 @@ export default class MyTextInput extends Component {
                            borderColor,
                           };
 
-    const inputStyle = {flex:1,color:inputColor}
+    const inputStyle = {flex:1,color:inputColor,paddingRight : 46}
 
     return (
-        <View style={[containerStyle]}>
-          <Icon style={[styles.searchIcon]} name="ios-search" size={20} color = {iconColor} />
-          <TextInput
-            style={[inputStyle]}
-            placeholder={placeholder}
-            onChangeText={(searchString) => {this.setState({searchString})}}
-            underlineColorAndroid="transparent"
-            placeholderTextColor={placeholderTextColor}
-            
-          />
+        <View style={[containerStyle, error ? styles.textInvalid : containerStyle]}>
+        {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={20} color = {iconColor} /> }
+        {!this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> }
+        
+        <TextInput
+          {...attributes}
+          style={[inputStyle,iconPos == 'right' ? styles.searchSectionLeft : inputStyle]}
+          placeholder={placeholder}
+          onChangeText={(searchString) => {this.setState({searchString})}}
+          underlineColorAndroid="transparent"
+          placeholderTextColor={placeholderTextColor}
+          
+        />
+
+        {this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchIconRight]} name={iconName} size={20} color = {iconColor} /> }
+        {/* {!this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> } */}
+
         </View>
+      
+        
 
     );
   
