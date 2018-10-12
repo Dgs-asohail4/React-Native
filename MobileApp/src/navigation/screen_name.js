@@ -13,11 +13,8 @@ import Floatactionbuttonexample from '../features/floatingactionbuttonexample/co
 import textInput from '../features/textInput/containers';
 import ModalScreenExample from '../features/ModalScreenExample/containers';
 import LightBoxScreen from '../features/LightBoxScreen/containers';
-<<<<<<< HEAD
 import ListScreenExample from '../features/ListViewScreenExample/containers'
-=======
 import CardView from '../features/CardView/components/CardView';
->>>>>>> 64ea2015f71dfec6e113d118de979ed8111e4e28
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -34,13 +31,10 @@ const screens = [
     {name:'app.textInput', component:textInput},
     {name:'app.modalscreen', component:ModalScreenExample},
     {name:'app.lightboxscreen', component:LightBoxScreen},
-<<<<<<< HEAD
-    {name:'app.listscreen',component:ListScreenExample}
-=======
-    {name:'app.cardView', component:CardView},
+    {name:'app.listscreen',component:ListScreenExample},
+    {name:'app.cardView', component:CardView}
 
     
->>>>>>> 64ea2015f71dfec6e113d118de979ed8111e4e28
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))
