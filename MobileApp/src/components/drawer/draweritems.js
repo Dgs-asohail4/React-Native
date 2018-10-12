@@ -8,7 +8,8 @@ const items = [
     {id:7,name:'TextInput', icon: 'md-film', navigateTo: 'app.textInput'},
     {id:8,name:'ModalScreen', icon: 'md-film', navigateTo: 'app.modalscreen'},
     {id:9,name:'LightScreen', icon: 'md-film', navigateTo: 'app.lightboxscreen'},
-    {id:10,name:'ListScreen',icon:'md-film',navigateTo:'app.listscreen'}
+    {id:10,name:'CardView', icon: 'md-film', navigateTo: 'app.cardView'},
+    {id:11,name:'ListScreen',icon:'md-film',navigateTo:'app.listscreen'}
 ]
 
 

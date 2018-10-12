@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput } from 'react-native';
+import { View, Text,Image } from 'react-native';
 
 import styles from './styles';
 import MyTextInput from '../../../../components/textInput';
@@ -13,6 +13,7 @@ export default class TextInputScreen extends Component {
   _onClick = (key, value) => {
     this.setState({[key]: value })
   }
+  
   render(){
     return (
             <View style={{flex:1, justifyContent:'center'}}>
