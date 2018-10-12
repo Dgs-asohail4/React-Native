@@ -18,6 +18,8 @@ import TabViewScreen from '../features/TabViewExample/containers';
 import TimeLineScreen from '../features/TimeLineViewExample/containers';
 import DropDown from '../features/DropDownExample/containers';
 import ChartScreen from '../features/ChartExamples/containers';
+import ListScreenExample from '../features/ListViewScreenExample/containers'
+import CardView from '../features/CardView/components/CardView';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -38,7 +40,11 @@ const screens = [
     {name:'app.tabviewscreen',  component:TabViewScreen},
     {name:'app.timelinescreen',  component:TimeLineScreen},
     {name:'app.dropdown', component:DropDown},
-    {name:'app.chartexample', component:ChartScreen}
+    {name:'app.chartexample', component:ChartScreen},
+    {name:'app.listscreen',component:ListScreenExample},
+    {name:'app.cardView', component:CardView}
+
+
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))

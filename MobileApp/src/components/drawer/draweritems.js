@@ -12,8 +12,8 @@ const items = [
     {id:11,name:'Tab View Example', icon: 'md-paper', navigateTo: 'app.tabviewscreen'},
     {id:12,name:'TimeLine View Example', icon: 'md-paper', navigateTo: 'app.timelinescreen'},
     {id:13,name:'Dropdown Example', icon: 'md-paper', navigateTo: 'app.dropdown'},
-    {id:14,name:'Chart Example', icon: 'md-paper', navigateTo: 'app.chartexample'}
-
+    {id:14,name:'Chart Example', icon: 'md-paper', navigateTo: 'app.chartexample'},
+    {id:15,name:'ListScreen',icon:'md-film',navigateTo:'app.listscreen'}
 ]
 
 
