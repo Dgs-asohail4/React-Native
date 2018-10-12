@@ -16,6 +16,8 @@ import LightBoxScreen from '../features/LightBoxScreen/containers';
 import FoldViewScreen from '../features/FoldViewScreen/containers';
 import TabViewScreen from '../features/TabViewExample/containers';
 import TimeLineScreen from '../features/TimeLineViewExample/containers';
+import DropDown from '../features/DropDownExample/containers';
+import ChartScreen from '../features/ChartExamples/containers';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -34,7 +36,9 @@ const screens = [
     {name:'app.lightboxscreen', component:LightBoxScreen},
     {name:'app.foldviewscreen',  component:FoldViewScreen},
     {name:'app.tabviewscreen',  component:TabViewScreen},
-    {name:'app.timelinescreen',  component:TimeLineScreen}
+    {name:'app.timelinescreen',  component:TimeLineScreen},
+    {name:'app.dropdown', component:DropDown},
+    {name:'app.chartexample', component:ChartScreen}
 ]
 
 export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))

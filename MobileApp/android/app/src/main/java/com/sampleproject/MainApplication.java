@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import com.reactnativenavigation.NavigationApplication;
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.horcrux.svg.SvgPackage;
 
 public class MainApplication extends NavigationApplication {
 
@@ -27,7 +28,8 @@ public class MainApplication extends NavigationApplication {
         return Arrays.<ReactPackage>asList(
             // eg. new VectorIconsPackage()
 
-            new LinearGradientPackage()
+            new LinearGradientPackage(),
+            new SvgPackage()
         );
     }
 
