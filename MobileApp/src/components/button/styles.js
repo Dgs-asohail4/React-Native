@@ -8,14 +8,12 @@ const styles = StyleSheet.create({
   },
   
   buttonStyle: {
-      alignSelf:"center",
-      marginBottom:30,
-      marginTop:10,
-      borderColor:'white',
+    alignSelf:"center",
+    marginBottom:30,
+    marginTop:10,
+    borderColor:'white',
     padding:10,
-    backgroundColor: 'green',
-    width:200,
-    height:50
+    backgroundColor: 'green'
 
   }
 });
