@@ -6,32 +6,41 @@ export default class ButtonScreen extends Component {
   constructor(props) {
     super(props);
     this.state ={}
-    
+
   }
 
   render() {
     return (
       <View >
-     <Button  color='brown'style={styles.button1}
+     <Button
+     color='brown'
      onPress={()=>{}}
      text="Square"
      />
-      <Button  color='blue'borderRadius={5}style={styles.button2}
-     onPress={()=>{}}
-     text="rounded"
+      <Button
+      color='blue'
+      borderRadius={5}
+      onPress={()=>{}}
+      text="rounded"
      />
-     
-       <Button  color='green'borderRadius={20}style={styles.button3}
+
+       <Button
+       color='green'
+       borderRadius={20}
        onPress={()=>{}}
        text="oval"
        />
-        <Button  color='red'borderColor='black'style={styles.button4}
+        <Button
+        color='red'
+        borderColor='black'
         onPress={()=>{
           alert("alert button")
         }}
         text="alert"
        />
-       <Button  color='grey'borderRadius={150}style={styles.button4}
+       <Button
+        color='grey'
+        borderRadius={150}
         onPress={()=>{
         }}
         text="toast"

@@ -9,7 +9,10 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center'
-    }
+    },
+    progress: {
+      margin: 10,
+  }
 })
 
 export default styles;

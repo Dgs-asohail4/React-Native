@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
 
 	},
 	drawerHeader: {
-		height:150,
-		backgroundColor:'pink',
+		height:120,
+		backgroundColor:'#21292f',
 		justifyContent:'center',
 		alignItems:'center'
 	}

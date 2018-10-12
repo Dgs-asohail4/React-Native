@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   AsyncStorage
 } from 'react-native'
 
@@ -13,6 +12,10 @@ import styles from './styles';
 import {USER_KEY} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 
+import {COLOR_PRIMARY, TEXT_COLOR_PRIMARY} from '../../../../global/theme/default';
+
+import CustomizedTextInput from '../../../../components/textInput';
+import Button from '../../../../components/button';
 
 export default class Login extends Component {
 
@@ -80,34 +83,40 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
+        <CustomizedTextInput
           style={styles.input}
           placeholder='Username'
           autoCapitalize="none"
           autoCorrect={false}
+          backgroundColor={COLOR_PRIMARY}
           value={this.state.username}
           placeholderTextColor='white'
+          inputColor={TEXT_COLOR_PRIMARY}
           onChangeText={val => this.onChangeText('username', val)}
         />
-        <TextInput
+        <CustomizedTextInput
           style={styles.input}
           placeholder='Password'
           autoCapitalize="none"
           value={this.state.password}
           secureTextEntry={true}
+          backgroundColor={COLOR_PRIMARY}
+          inputColor={TEXT_COLOR_PRIMARY}
           placeholderTextColor='white'
           onChangeText={val => this.onChangeText('password', val)}
         />
         <Button
-          title='Sign In'
+          text='Sign In'
+          color={COLOR_PRIMARY}
           onPress={this.signIn}
         />
+        </View>
 
-        <Button
-          title='Sign up'
-          onPress={()=>PushNewScreen(this.props, "auth.signup", "", false)}
-        />
-      </View>
+        // <Button
+        //   text='Sign up'
+        //   color={COLOR_PRIMARY}
+        //   onPress={()=>PushNewScreen(this.props, "auth.signup", "", false)}
+        // />
     )
   }
 }

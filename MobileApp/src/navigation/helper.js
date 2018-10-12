@@ -2,6 +2,7 @@ import { Navigation } from 'react-native-navigation'
 import {navigatorStyle, navigatorWithoutNavbar} from '../global/styles/navigator'
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react'
+import { TEXT_COLOR_PRIMARY } from '../global/theme/default';
 
 export const ChangeDrawerScreen = (props, navigateTo, title, showHeader) => {
     props.changeScene(navigateTo);
@@ -12,7 +13,9 @@ export const ChangeDrawerScreen = (props, navigateTo, title, showHeader) => {
         navigatorStyle : showHeader ? navigatorStyle : navigatorWithoutNavbar,
         leftButtons: [
           {
-            id: 'sideMenu'
+            id: 'sideMenu',
+            buttonFontSize:100,
+            buttonColor: TEXT_COLOR_PRIMARY
           }
         ]
     })
@@ -37,7 +40,9 @@ export const ChangeStack = (props, navigateTo,title, showHeader) => {
         navigatorStyle : showHeader ? navigatorStyle : navigatorWithoutNavbar,
         leftButtons: showHeader ? [
           {
-            id: 'sideMenu'
+            id: 'sideMenu',
+            buttonFontSize:100,
+            buttonColor:TEXT_COLOR_PRIMARY
           }
         ] : []
     })

@@ -12,18 +12,19 @@ import {
   View
 } from "react-native";
 import Modal from "../../../../components/modals";
+import Button from '../../../../components/button';
+
 import styles from  './styles'
+import { COLOR_PRIMARY } from "../../../../global/theme/default";
 export default class Example extends Component {
   state = {
     visibleModal: null
   };
 
   renderButton = (text, onPress) => (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.button}>
-        <Text>{text}</Text>
-      </View>
-    </TouchableOpacity>
+    <Button onPress={onPress}
+    text={text}
+    color={COLOR_PRIMARY}/>
   );
 
   renderModalContent = () => (
@@ -51,7 +52,7 @@ export default class Example extends Component {
         {this.renderButton("Default modal", () =>
           this.setState({ visibleModal: 1 })
         )}
-        {this.renderButton("Sliding from the sides", () =>
+        {this.renderButton("Sliding sides", () =>
           this.setState({ visibleModal: 2 })
         )}
         {this.renderButton("A slower modal", () =>
@@ -63,7 +64,7 @@ export default class Example extends Component {
         {this.renderButton("Bottom half modal", () =>
           this.setState({ visibleModal: 5 })
         )}
-        {this.renderButton("Modal that can be closed on backdrop press", () =>
+        {this.renderButton("Backdrop close", () =>
           this.setState({ visibleModal: 6 })
         )}
         {this.renderButton("Swipeable modal", () =>

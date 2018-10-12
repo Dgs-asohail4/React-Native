@@ -12,7 +12,7 @@ export default class Header extends Component{
     render(){
         return (
             <View style={styles.drawerHeader}>
-                <Image source={userIcon} style={{resizeMode:'stretch', width:50,height:50}}/>
+                <Image source={{uri:"https://intellihr.com.au/wp-content/uploads/2017/06/avatar_placeholder_temporary.png"}} style={{resizeMode:'stretch', width:70,height:70}}/>
             </View>
         )
     }

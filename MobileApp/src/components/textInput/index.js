@@ -10,9 +10,9 @@ export default class MyTextInput extends Component {
     super(props);
     this.state = {text: ''};
   }
-  
+
   static defaultProps = {
-    
+
     borderRadius: 0,
     backgroundColor:'#fff',
     justifyContent: 'center',
@@ -27,7 +27,7 @@ export default class MyTextInput extends Component {
     error : false,
     iconName : null,
     iconPos : 'left'
-    
+
   };
 
 
@@ -39,7 +39,7 @@ export default class MyTextInput extends Component {
           alignSelf,
           borderWidth,
           borderColor,
-          iconColor, 
+          iconColor,
           inputColor,
           placeholderTextColor,
           placeholder,
@@ -50,7 +50,7 @@ export default class MyTextInput extends Component {
           } = this.props;
           console.log(this.props)
     const containerStyle = {...styles.searchSection,
-                           borderRadius, 
+                           borderRadius,
                            backgroundColor,
                            justifyContent,
                            alignSelf,
@@ -58,13 +58,13 @@ export default class MyTextInput extends Component {
                            borderColor,
                           };
 
-    const inputStyle = {flex:1,color:inputColor,paddingRight : 46}
+    const inputStyle = {flex:1,color:inputColor,paddingRight : 46, fontSize:18}
 
     return (
         <View style={[containerStyle, error ? styles.textInvalid : containerStyle]}>
         {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={20} color = {iconColor} /> }
         {!this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> }
-        
+
         <TextInput
           {...attributes}
           style={[inputStyle,iconPos == 'right' ? styles.searchSectionLeft : inputStyle]}
@@ -72,17 +72,17 @@ export default class MyTextInput extends Component {
           onChangeText={(searchString) => {this.setState({searchString})}}
           underlineColorAndroid="transparent"
           placeholderTextColor={placeholderTextColor}
-          
+
         />
 
         {this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchIconRight]} name={iconName} size={20} color = {iconColor} /> }
         {/* {!this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> } */}
 
         </View>
-      
-        
+
+
 
     );
-  
+
   }
 }

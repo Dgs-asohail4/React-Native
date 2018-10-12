@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, Button, AsyncStorage } from 'react-native';
+import { Text, View, AsyncStorage } from 'react-native';
 import styles from './styles';
 
 import {PushNewScreen, ChangeStack, ChangeToTabView} from '../../../../navigation/helper';
 
+import Button from '../../../../components/button'
+
 import {USER_KEY} from '.././../../../global/config';
+import { COLOR_PRIMARY } from '../../../../global/theme/default';
 export default class Home extends Component {
 
     logout = async () => {
@@ -22,23 +25,27 @@ export default class Home extends Component {
         <View style={styles.container}>
           <Text>Hello from home screen</Text>
           <Button
+          color={COLOR_PRIMARY}
+          borderRadius={30}
           onPress={this.logout}
-          title="Sign Out"
+          text="Sign Out"
         />
         <Button
           onPress={() => {
             PushNewScreen(this.props, "app.screen2", "Screen2", true);
           }}
-          title="View next screen"
-        />
-
-        <Button
-          onPress={() => {
-            ChangeToTabView();
-          }}
-          title="Change to tabview"
+          color={COLOR_PRIMARY}
+          text="View next screen"
         />
         </View>
+
+        // <Button
+        //   onPress={() => {
+        //     ChangeToTabView();
+        //   }}
+        //   color={COLOR_PRIMARY}
+        //   text="Change to tabview"
+        // />
       )
     }
 }

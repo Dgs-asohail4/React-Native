@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './styles';
 import {PopScreen} from '../../../../navigation/helper';
 
+import Button from '../../../../components/button';
+import { COLOR_PRIMARY } from '../../../../global/theme/default';
 
 export default class ScreenNew extends Component {
   render() {
@@ -10,8 +12,9 @@ export default class ScreenNew extends Component {
       <View style={styles.container}>
         <Text>Screen 2</Text>
         <Button
+          color={COLOR_PRIMARY}
           onPress={() => PopScreen(this.props)}
-          title="Go Back"
+          text="Go Back"
         />
       </View>
     )
