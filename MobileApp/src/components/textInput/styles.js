@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
         padding:15,
     },
     searchSectionLeft: {
-        padding:15,
         paddingRight : 0,
         paddingLeft : 46,
     },
@@ -23,7 +22,6 @@ const styles = StyleSheet.create({
     searchIconRight: {   
         alignItems : 'center',
         padding:15,
-        paddingTop: 18
     },
     textInvalid: {   
         borderColor : 'red'
