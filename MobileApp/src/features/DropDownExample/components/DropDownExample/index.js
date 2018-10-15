@@ -1,224 +1,148 @@
-import React, {Component} from 'react';
-import styles from './styles';
+import React, {Component} from 'react'
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
-  Image,
-  TouchableOpacity,
-  TouchableHighlight,
-  ScrollView,
 } from 'react-native';
 
-// import ModalDropdown from 'react-native-modal-dropdown';
-import ModalDropdown from '../../../../components/DropDown';
+import DropDown from '../../../../components/DropDown';
 
-const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
-const DEMO_OPTIONS_2 = [
-  {"name": "Rex", "age": 30},
-  {"name": "Mary", "age": 25},
-  {"name": "John", "age": 41},
-  {"name": "Jim", "age": 22},
-  {"name": "Susan", "age": 52},
-  {"name": "Brent", "age": 33},
-  {"name": "Alex", "age": 16},
-  {"name": "Ian", "age": 20},
-  {"name": "Phil", "age": 24},
-];
+const {
+  Select,
+  Option,
+  OptionList,
+  updatePosition
+} = DropDown
 
-class Demo extends Component {
+class Example2 extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dropdown_4_options: null,
-      dropdown_4_defaultValue: 'loading...',
-      dropdown_6_icon_heart: true,
+      canada: '',
+      usa: ''
     };
+  }
+
+  componentDidMount() {
+    updatePosition(this.refs['SELECT1']);
+    updatePosition(this.refs['SELECT2']);
+
+    updatePosition(this.refs['OPTIONLIST']);
+  }
+
+  _getOptionList() {
+    return this.refs['OPTIONLIST'];
+  }
+
+  _usa(state) {
+    this.setState({
+      ...this.state,
+      usa: state
+    });
+  }
+
+  _canada(province) {
+
+
+    this.setState({
+      ...this.state,
+      canada: province
+    });
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <View style={styles.cell}>
-            <ModalDropdown style={styles.dropdown_1}
-                           options={DEMO_OPTIONS_1}
-            />
-            <ModalDropdown style={styles.dropdown_6}
-                           options={DEMO_OPTIONS_1}
-                           onSelect={(idx, value) => this._dropdown_6_onSelect(idx, value)}
-              />
-          </View>
-          <View style={styles.cell}>
-            <ModalDropdown ref="dropdown_2"
-                           style={styles.dropdown_2}
-                           textStyle={styles.dropdown_2_text}
-                           dropdownStyle={styles.dropdown_2_dropdown}
-                           options={DEMO_OPTIONS_2}
-                           renderButtonText={(rowData) => this._dropdown_2_renderButtonText(rowData)}
-                           renderRow={this._dropdown_2_renderRow.bind(this)}
-                           renderSeparator={(sectionID, rowID, adjacentRowHighlighted) => this._dropdown_2_renderSeparator(sectionID, rowID, adjacentRowHighlighted)}
-            />
-            <TouchableOpacity onPress={() => {
-              this.refs.dropdown_2.select(0);
-            }}>
-              <Text style={styles.textButton}>
-                select Rex
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.row}>
-          <ScrollView ref={el => this._scrollView = el}
-                      style={styles.scrollView}
-                      contentContainerStyle={styles.contentContainer}
-                      showsVerticalScrollIndicator={true}
-                      scrollEventThrottle={1}>
-            <Text>
-              {'Scroll view example.'}
-            </Text>
-            <ModalDropdown ref={el => this._dropdown_3 = el}
-                           style={styles.dropdown_3}
-                           options={DEMO_OPTIONS_1}
-                           adjustFrame={style => this._dropdown_3_adjustFrame(style)}
-                           dropdownTextStyle={styles.dropdown_3_dropdownTextStyle}
-                           dropdownTextHighlightStyle={styles.dropdown_3_dropdownTextHighlightStyle}
-            />
-          </ScrollView>
-        </View>
-        <View style={styles.row}>
-          <View style={[styles.cell, {justifyContent: 'flex-end'}]}>
-            <ModalDropdown style={styles.dropdown_4}
-                           dropdownStyle={styles.dropdown_4_dropdown}
-                           options={this.state.dropdown_4_options}
-                           defaultIndex={-1}
-                           defaultValue={this.state.dropdown_4_defaultValue}
-                           onDropdownWillShow={this._dropdown_4_willShow.bind(this)}
-                           onDropdownWillHide={this._dropdown_4_willHide.bind(this)}
-                           onSelect={(idx, value) => this._dropdown_4_onSelect(idx, value)}
-            />
-          </View>
-          <View style={[styles.cell, {justifyContent: 'flex-end'}]}>
-            <TouchableOpacity onPress={this._dropdown_5_show.bind(this)}>
-              <Text style={styles.textButton}>
-                {'Show dropdown'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this._dropdown_5_select(2)}>
-              <Text style={styles.textButton}>
-                {'Select the 3rd option'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this._dropdown_5_select(-1)}>
-              <Text style={styles.textButton}>
-                {'Clear selection'}
-              </Text>
-            </TouchableOpacity>
-            <ModalDropdown ref={el => this._dropdown_5 = el}
-                           style={styles.dropdown_5}
-                           options={['Select me to hide', `I can't be selected`, 'I can only be selected outside']}
-                           defaultValue='Try the Show button above'
-                           onDropdownWillShow={this._dropdown_5_willShow.bind(this)}
-                           onDropdownWillHide={this._dropdown_5_willHide.bind(this)}
-                           onSelect={this._dropdown_5_onSelect.bind(this)}
-            />
-          </View>
-        </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Select
+            width={250}
+            ref="SELECT1"
+            optionListRef={this._getOptionList.bind(this)}
+            defaultValue="Select a Province in Canada ..."
+            onSelect={this._canada.bind(this)}>
+            <Option>Alberta</Option>
+            <Option>British Columbia</Option>
+            <Option>Manitoba</Option>
+            <Option>New Brunswick</Option>
+            <Option>Newfoundland and Labrador</Option>
+            <Option>Northwest Territories</Option>
+            <Option>Nova Scotia</Option>
+            <Option>Nunavut</Option>
+            <Option>Ontario</Option>
+            <Option>Prince Edward Island</Option>
+            <Option>Quebec</Option>
+            <Option>Saskatchewan</Option>
+            <Option>Yukon</Option>
+          </Select>
+
+          <View style={{ height: 10 }}/>
+
+          <Select
+            width={250}
+            ref="SELECT2"
+            optionListRef={this._getOptionList.bind(this)}
+            defaultValue="Select a State in USA ..."
+            onSelect={this._usa.bind(this)}>
+            <option>Alabama</option>
+          	<option>Alaska</option>
+          	<option>Arizona</option>
+          	<option>Arkansas</option>
+          	<option>California</option>
+          	<option>Colorado</option>
+          	<option>Connecticut</option>
+          	<option>Delaware</option>
+          	<option>District Of Columbia</option>
+          	<option>Florida</option>
+          	<option>Georgia</option>
+          	<option>Hawaii</option>
+          	<option>Idaho</option>
+          	<option>Illinois</option>
+          	<option>Indiana</option>
+          	<option>Iowa</option>
+          	<option>Kansas</option>
+          	<option>Kentucky</option>
+          	<option>Louisiana</option>
+          	<option>Maine</option>
+          	<option>Maryland</option>
+          	<option>Massachusetts</option>
+          	<option>Michigan</option>
+          	<option>Minnesota</option>
+          	<option>Mississippi</option>
+          	<option>Missouri</option>
+          	<option>Montana</option>
+          	<option>Nebraska</option>
+          	<option>Nevada</option>
+          	<option>New Hampshire</option>
+          	<option>New Jersey</option>
+          	<option>New Mexico</option>
+          	<option>New York</option>
+          	<option>North Carolina</option>
+          	<option>North Dakota</option>
+          	<option>Ohio</option>
+          	<option>Oklahoma</option>
+          	<option>Oregon</option>
+          	<option>Pennsylvania</option>
+          	<option>Rhode Island</option>
+          	<option>South Carolina</option>
+          	<option>South Dakota</option>
+          	<option>Tennessee</option>
+          	<option>Texas</option>
+          	<option>Utah</option>
+          	<option>Vermont</option>
+          	<option>Virginia</option>
+          	<option>Washington</option>
+          	<option>West Virginia</option>
+          	<option>Wisconsin</option>
+          	<option>Wyoming</option>
+          </Select>
+
+          <View style={{ height: 20 }}></View>
+
+          <Text>Selected Canada's province: {this.state.canada}</Text>
+          <Text>Selected USA's state: {this.state.usa}</Text>
+
+          <OptionList ref="OPTIONLIST"/>
       </View>
     );
   }
-
-  _dropdown_2_renderButtonText(rowData) {
-    const {name, age} = rowData;
-    return `${name} - ${age}`;
-  }
-
-  _dropdown_2_renderRow(rowData, rowID, highlighted) {
-    let icon = highlighted ? require('../../assets/heart.png') : require('../../assets/flower.png');
-    let evenRow = rowID % 2;
-    return (
-      <TouchableHighlight underlayColor='cornflowerblue'>
-        <View style={[styles.dropdown_2_row, {backgroundColor: evenRow ? 'lemonchiffon' : 'white'}]}>
-          <Image style={styles.dropdown_2_image}
-                 mode='stretch'
-                 source={icon}
-          />
-          <Text style={[styles.dropdown_2_row_text, highlighted && {color: 'mediumaquamarine'}]}>
-            {`${rowData.name} (${rowData.age})`}
-          </Text>
-        </View>
-      </TouchableHighlight>
-    );
-  }
-
-  _dropdown_2_renderSeparator(sectionID, rowID, adjacentRowHighlighted) {
-    if (rowID == DEMO_OPTIONS_1.length - 1) return;
-    let key = `spr_${rowID}`;
-    return (<View style={styles.dropdown_2_separator}
-                  key={key}
-    />);
-  }
-
-  _dropdown_3_adjustFrame(style) {
-    console.log(`frameStyle={width:${style.width}, height:${style.height}, top:${style.top}, left:${style.left}, right:${style.right}}`);
-    style.top -= 15;
-    style.left += 150;
-    return style;
-  }
-
-  _dropdown_4_willShow() {
-    setTimeout(() => this.setState({
-      dropdown_4_options: DEMO_OPTIONS_1,
-      dropdown_4_defaultValue: 'loaded',
-    }), 2000);
-  }
-
-  _dropdown_4_willHide() {
-    this.setState({
-      dropdown_4_options: null,
-      dropdown_4_defaultValue: 'loading',
-    });
-  }
-
-  _dropdown_4_onSelect(idx, value) {
-    // BUG: alert in a modal will auto dismiss and causes crash after reload and touch. @sohobloo 2016-12-1
-    //alert(`idx=${idx}, value='${value}'`);
-    console.debug(`idx=${idx}, value='${value}'`);
-  }
-
-  _dropdown_5_show() {
-    this._dropdown_5 && this._dropdown_5.show();
-  }
-
-  _dropdown_5_select(idx) {
-    this._dropdown_5 && this._dropdown_5.select(idx);
-  }
-
-  _dropdown_5_willShow() {
-    return false;
-  }
-
-  _dropdown_5_willHide() {
-    let idx = this._dropdown_5_idx;
-    this._dropdown_5_idx = undefined;
-    return idx == 0;
-  }
-
-  _dropdown_5_onSelect(idx, value) {
-    this._dropdown_5_idx = idx;
-    if (this._dropdown_5_idx != 0) {
-      return false;
-    }
-  }
-
-  _dropdown_6_onSelect(idx, value) {
-    this.setState({
-      dropdown_6_icon_heart: !this.state.dropdown_6_icon_heart,
-    })
-  }
 }
-
-
-export default Demo
+export default Example2

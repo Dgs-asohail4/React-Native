@@ -3,6 +3,7 @@ package com.sampleproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,7 +30,8 @@ public class MainApplication extends NavigationApplication {
             // eg. new VectorIconsPackage()
 
             new LinearGradientPackage(),
-            new SvgPackage()
+            new SvgPackage(),
+            new ReactNativePushNotificationPackage()
         );
     }
 
