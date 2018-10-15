@@ -18,7 +18,6 @@ export default class PushNotificationExample extends Component {
           Press the button to see push Notification
         </Text>
         <Button
-          color='blue'
           text={'Press Me'}
           onPress={this.handleOnPress}/>
       </View>
