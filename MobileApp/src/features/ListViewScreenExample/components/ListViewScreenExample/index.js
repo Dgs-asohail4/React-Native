@@ -6,7 +6,7 @@ import List from '../../../../components/list'
 import { TEXT_COLOR_PRIMARY } from '../../../../global/theme/default';
 
 export default class ListViewScreenExample extends Component {
-  
+
   constructor(props){
     super(props)
     this._onRender = this._onRender.bind(this);
@@ -30,7 +30,7 @@ export default class ListViewScreenExample extends Component {
            id: 3,
            name: 'Mary',
         },
-       
+
      ]
 
     }
@@ -39,12 +39,11 @@ export default class ListViewScreenExample extends Component {
   _onRender(item){
     return(
       <View key={item.id}>
-
         <Text>{item.name}</Text>
       </View>
     )
   }
-  
+
   render() {
     return (
       <View>
