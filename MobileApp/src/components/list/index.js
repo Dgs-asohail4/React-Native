@@ -10,7 +10,8 @@ export default class List extends Component {
 
   static defaultProps = {
     containerStyle : styles.container,
-    data : []
+    data : [],
+    renderRow : () => (<View><Text>Item</Text></View>)
   };
 
   render() {

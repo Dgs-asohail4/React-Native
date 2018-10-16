@@ -22,6 +22,7 @@ export default class ButtonScreen extends Component {
       borderRadius={5}
       onPress={()=>{}}
       text="rounded"
+      textColor={'red'}
      />
 
        <Button
