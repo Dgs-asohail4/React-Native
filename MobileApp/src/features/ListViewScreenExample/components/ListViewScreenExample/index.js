@@ -38,17 +38,15 @@ export default class ListViewScreenExample extends Component {
 
   _onRender(item){
     return(
-      <View key={item.id}>
-        <Text>{item.name}</Text>
+      <View key={item.id} style={styles.item}>
+        <Text style={{textAlign:'center', textAlignVertical:'center'}}>{item.name}</Text>
       </View>
     )
   }
 
   render() {
     return (
-      <View>
-        <List renderRow={this._onRender} data={this.state.names} />
-      </View>
+      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }

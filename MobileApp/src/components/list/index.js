@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View ,TouchableOpacity} from 'react-native';
+import { Text, View ,TouchableOpacity, ScrollView} from 'react-native';
 
 import styles from './styles';
 
@@ -8,18 +8,21 @@ export default class List extends Component {
     super(props);
   }
 
+  static defaultProps = {
+    containerStyle : styles.container,
+    data : []
+  };
+
   render() {
+    const {containerStyle, ...restProps} =  this.props
     return (
-      <View style={styles.container} >
-     
-            {
-               this.props.data.map( (item, index) =>
-                this.props.renderRow(item)
-                )
-            }
-
-
-         </View>
+      <ScrollView contentContainerStyle={containerStyle} {...restProps} >
+        {
+            this.props.data.map( (item, index) =>
+              this.props.renderRow(item)
+            )
+        }
+      </ScrollView>
     );
   }
 }

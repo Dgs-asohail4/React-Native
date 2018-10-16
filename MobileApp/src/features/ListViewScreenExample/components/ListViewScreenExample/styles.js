@@ -1,12 +1,23 @@
 import { StyleSheet } from 'react-native';
+import { COLOR_PRIMARY } from '../../../../global/theme/default';
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
-        marginTop: 20,
-        backgroundColor: '#d9f9b1',
-        alignItems: 'center',
+        marginHorizontal:10,
+        marginTop:5,
+        justifyContent:'center',
+
      },
+     item:{
+         borderRightWidth:10,
+         borderRightColor:COLOR_PRIMARY,
+         borderLeftWidth:10,
+         height:30,
+         borderRightColor:COLOR_PRIMARY,
+         marginBottom:5,
+         backgroundColor :'#e1e1e1'
+     },
+
 });
 
 export default styles;

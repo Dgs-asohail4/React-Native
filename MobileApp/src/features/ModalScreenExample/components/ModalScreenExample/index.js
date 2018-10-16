@@ -22,7 +22,8 @@ export default class Example extends Component {
   };
 
   renderButton = (text, onPress) => (
-    <Button onPress={onPress}
+    <Button
+    onPress={onPress}
     text={text}
     color={COLOR_PRIMARY}/>
   );
@@ -48,7 +49,7 @@ export default class Example extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         {this.renderButton("Default modal", () =>
           this.setState({ visibleModal: 1 })
         )}
@@ -148,7 +149,7 @@ export default class Example extends Component {
             </ScrollView>
           </View>
         </Modal>
-      </View>
+      </ScrollView>
     );
   }
 }

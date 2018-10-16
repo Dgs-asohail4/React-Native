@@ -16,6 +16,8 @@ export default class TimeLineViewExample extends Component {
     ]
   }
 
+
+
   render(){
       return(
           <Timeline
@@ -24,3 +26,4 @@ export default class TimeLineViewExample extends Component {
       )
   }
 }
+
