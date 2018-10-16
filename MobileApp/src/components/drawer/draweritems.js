@@ -14,7 +14,8 @@ const items = [
     // {id:13,name:'Dropdown Example', icon: 'md-arrow-dropdown-circle', navigateTo: 'app.dropdown'},
     {id:14,name:'Chart Example', icon: 'md-pie', navigateTo: 'app.chartexample'},
     {id:15,name:'ListScreen',icon:'md-list',navigateTo:'app.listscreen'},
-    {id:16,name:'Push Notification',icon:'md-notifications-outline',navigateTo:'app.pushnotification'}
+    {id:16,name:'Push Notification',icon:'md-notifications-outline',navigateTo:'app.pushnotification'},
+    {id:17,name:'Card View',icon:'md-notifications-outline',navigateTo:'app.cardView'},
 
 ]
 

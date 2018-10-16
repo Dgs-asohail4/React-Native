@@ -5,7 +5,7 @@ import styles from './styles';
 
 
 
-export default class MyTextInput extends Component {
+export default class CutomizedTextInput extends Component {
   constructor(props) {
     super(props);
     this.state = {text: ''};
@@ -15,15 +15,12 @@ export default class MyTextInput extends Component {
 
     borderRadius: 0,
     backgroundColor:'#fff',
-    justifyContent: 'center',
-    alignSelf : 'center',
-    borderRadius:0,
     borderWidth: 1,
     borderColor: '#000',
     iconColor:'#424242',
     inputColor:'#424242',
     placeholderTextColor : '#424242',
-    placeholder: 'Type your Input Address',
+    placeholder: 'Type your Input',
     error : false,
     iconName : null,
     iconPos : 'left'
@@ -48,7 +45,6 @@ export default class MyTextInput extends Component {
           iconPos,
           ...attributes
           } = this.props;
-          console.log(this.props)
     const containerStyle = {...styles.searchSection,
                            borderRadius,
                            backgroundColor,
