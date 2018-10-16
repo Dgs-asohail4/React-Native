@@ -7,10 +7,13 @@ const styles = StyleSheet.create({
         height: 250, 
         flexDirection: 'row', 
         marginBottom : 0,
+        flexWrap : 'wrap'
     },
     imageStyle: {
         height: 250, 
-        position: 'absolute'
+        position: 'absolute',
+        width : '100%'
+        
     },
     textStyle: {
         flex: 1, 
