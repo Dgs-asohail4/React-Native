@@ -15,7 +15,7 @@ export default class CardView extends Component {
           likesCount = '2000'
           commentsCount = '230'
           sharesCount = '15'
-          imageName = {img} 
+          image = {img} 
         />
         <MyCardView2
           titleText = 'Hello World'
@@ -23,7 +23,7 @@ export default class CardView extends Component {
           likesCount = '2000'
           commentsCount = '230'
           sharesCount = '15' 
-          imageName = {img}
+          image = {img}
         />
         <MyCardView3 
           titleText = 'Hello World'

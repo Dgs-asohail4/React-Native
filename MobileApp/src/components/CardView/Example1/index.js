@@ -13,7 +13,7 @@ export default class MyCardView1 extends Component {
     
       titleText : 'Hello World',
       subtitleText : '5 Minutes Ago',
-      imageName : img,
+      image : img,
       likesCount : '18',
       commentsCount : '50',
       sharesCount : '800',
@@ -23,7 +23,7 @@ export default class MyCardView1 extends Component {
     const {
       titleText,
       subtitleText,
-      imageName,
+      image,
       likesCount,
       commentsCount,
       sharesCount,
@@ -39,7 +39,7 @@ export default class MyCardView1 extends Component {
           <Image
             style={[styles.imageStyleGrey]}
             resizeMode='cover'
-            source = {this.props.imageName}
+            source = {this.props.image}
             // {{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
           />
           <View style={[styles.textStyleGrey]}>

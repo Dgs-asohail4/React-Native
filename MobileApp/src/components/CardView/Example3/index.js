@@ -13,7 +13,7 @@ export default class MyCardView3 extends Component {
     
       titleText : 'Hello World',
       subtitleText : '5 Minutes Ago',
-      imageName : img,
+      image : img,
       likesCount : '18',
       commentsCount : '50',
       sharesCount : '800',
@@ -23,7 +23,7 @@ export default class MyCardView3 extends Component {
     const {
       titleText,
       subtitleText,
-      imageName,
+      image,
       likesCount,
       commentsCount,
       sharesCount,
@@ -43,7 +43,7 @@ export default class MyCardView3 extends Component {
             style={styles.imageWithHeader}
             //source={require(this.props.imageName)}
             resizeMode='cover'
-            source = {this.props.imageName}
+            source = {this.props.image}
           />
       
         <View style = {[styles.footerStyle]}>
