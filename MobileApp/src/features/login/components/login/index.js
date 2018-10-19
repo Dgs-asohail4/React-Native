@@ -24,11 +24,11 @@ export default class Login extends Component {
     this.state = {
       username: 'ahsan.sohail@ibex.co', password: 'Password123'
     }
-    this.props.navigator.setDrawerEnabled({
-      side: "left",
-      enabled: false,
-      screen: "global.drawer"
-    });
+    // this.props.navigator.setDrawerEnabled({
+    //   side: "left",
+    //   enabled: false,
+    //   screen: "global.drawer"
+    // });
   }
 
 

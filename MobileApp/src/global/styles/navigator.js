@@ -1,36 +1,43 @@
 
 import {COLOR_PRIMARY, TEXT_COLOR_PRIMARY, NAVBAR_FONT_SIZE} from '../theme/default';
 
-export const navigatorStyle = {
-	statusBarColor: COLOR_PRIMARY,
-	statusBarTextColorScheme: 'light',
-	navigationBarColor: COLOR_PRIMARY,
-	navBarBackgroundColor: COLOR_PRIMARY,
-	navBarTextColor: TEXT_COLOR_PRIMARY,
-	navBarButtonColor: TEXT_COLOR_PRIMARY,
-	tabBarButtonColor: 'red',
-	navBarComponentAlignment:'center',
-	navBarTitleTextCentered:true,
-	navBarTextFontSize: NAVBAR_FONT_SIZE,
-	tabBarSelectedButtonColor: 'red',
-	tabBarBackgroundColor: TEXT_COLOR_PRIMARY,
-	topBarElevationShadowEnabled: false,
-	tabBarHidden: true,
-	drawUnderTabBar: true
-};
+export const navigatorStyle = (text, visible = true) => ({
+	title:{
+		color : TEXT_COLOR_PRIMARY,
+		fontSize : NAVBAR_FONT_SIZE,
+		text:text,
+		visible:true
+	},
+	background:{
+		color:COLOR_PRIMARY,
+	},
+	rightButtons: [
+		{
 
-export const navigatorWithoutNavbar = {
-	statusBarColor: COLOR_PRIMARY,
-	statusBarTextColorScheme: 'light',
-	navigationBarColor: COLOR_PRIMARY,
-	navBarBackgroundColor: COLOR_PRIMARY,
-	navBarTextColor: TEXT_COLOR_PRIMARY,
-	navBarButtonColor: TEXT_COLOR_PRIMARY,
-	tabBarButtonColor: 'red',
-	tabBarSelectedButtonColor: 'red',
-	tabBarBackgroundColor: TEXT_COLOR_PRIMARY,
-	topBarElevationShadowEnabled: false,
-	tabBarHidden: true,
-	navBarHidden: true,
-	drawUnderTabBar: true
-}
+			color: TEXT_COLOR_PRIMARY,
+			visible:true
+		}
+	],
+	leftButtons: [
+		{
+			id:'sideDrawer',
+			color: TEXT_COLOR_PRIMARY,
+			visible:true
+		}
+	],
+	backButton: {
+		color: TEXT_COLOR_PRIMARY,
+		visible:true
+	},
+	bottomTabs: {
+		visible: false
+	},
+	statusBar: {
+		style: 'light',
+		color:COLOR_PRIMARY
+	},
+	subtitle:{
+		color:TEXT_COLOR_PRIMARY
+	},
+	visible
+});

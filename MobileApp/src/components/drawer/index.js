@@ -21,28 +21,8 @@ class Drawer extends Component {
   }
 
   _onPress(navigateTo, isRoot, title) {
-    this._toggleDrawer();
     if(this.props.scene == navigateTo) return;
     ChangeDrawerScreen(this.props, navigateTo, title, true);
-
-    // if(isRoot){
-    //   this.props.navigator.popToRoot({
-    //     screen: navigateTo
-    //   });
-    // } else {
-    //   this.props.navigator.resetTo({
-    //     screen: navigateTo,
-    //     title: title
-    //   });
-    // }
-	}
-
-	_toggleDrawer() {
-		this.props.navigator.toggleDrawer({
-			to: 'closed',
-			side: 'left',
-			animated: true
-		});
 	}
 
 	render() {

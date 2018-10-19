@@ -48,4 +48,6 @@ const screens = [
 
 ]
 
-export const registerScreens = (store, provider) => screens.map(screen => Navigation.registerComponent(screen.name, () => screen.component, store, provider))
+export const registerScreens = (store, provider) => screens.map(screen =>
+    Navigation.registerComponentWithRedux(screen.name, () => screen.component, provider, store));
+    //Navigation.registerComponent(screen.name, () => screen.component))

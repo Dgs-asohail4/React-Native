@@ -12,17 +12,45 @@ registerScreens(store, Provider);
 
 pushNotifications.configure();
 
-Navigation.startSingleScreenApp({
-	screen: {
-		screen: 'app.splash',
-		navigatorStyle: navigatorWithoutNavbar
-	},
-	drawer: {
-		left: {
-			screen: 'global.drawer'
-		},
-		style: {
-			leftDrawerWidth: 40,
+// Navigation.startSingleScreenApp({
+// 	screen: {
+// 		screen: 'app.splash',
+// 		navigatorStyle: navigatorWithoutNavbar
+// 	},
+// 	drawer: {
+// 		left: {
+// 			screen: 'global.drawer'
+// 		},
+// 		style: {
+// 			leftDrawerWidth: 40,
+// 		}
+// 	}
+// });
+
+
+Navigation.events().registerAppLaunchedListener(() => {
+	Navigation.setRoot({
+		root:{
+			sideMenu : {
+				id: "sideMenu",
+				left: {
+					visible: true,
+					component: { id: 'sideDrawer', name: 'global.drawer', visible: true},
+				},
+				center:{
+					stack:  {
+						children: [{
+								component: {
+									name: 'app.splash'
+								}
+							}
+						],
+						options: {
+							topBar: navigatorStyle('Home', false)
+						}
+					},
+				}
+			}
 		}
-	}
+	});
 });
