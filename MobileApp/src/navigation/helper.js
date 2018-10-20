@@ -5,14 +5,8 @@ import { NavigationActions, StackActions } from 'react-navigation';
 
 
 export const ChangeDrawerScreen = (props, navigateTo, title, showHeader) => {
-    //props.changeScene(navigateTo);
+    props.changeScene(navigateTo);
 
-    // const resetAction = StackActions.reset({
-    //         index: 0,
-    //         key:null,
-    //         actions: [NavigationActions.navigate({ routeName: navigateTo })],
-    // });
-    // props.navigation.dispatch(resetAction);
 
     const subAction = StackActions.reset({
         index: 0,
@@ -30,15 +24,17 @@ export const ChangeDrawerScreen = (props, navigateTo, title, showHeader) => {
       })
     );
 
+    props.navigation.toggleDrawer();
+
 };
 
 export const PushNewScreen = (props, navigateTo, title, showHeader) => {
-  //props.changeScene(navigateTo);
+  props.changeScene(navigateTo);
   props.navigation.navigate(navigateTo);
 }
 
 export const ChangeStack = (props, navigateTo,title, showHeader) => {
-   // props.changeScene(navigateTo);
+    props.changeScene(navigateTo);
 
     const resetAction = StackActions.reset({
             index: 0,

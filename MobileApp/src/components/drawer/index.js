@@ -22,6 +22,7 @@ class Drawer extends Component {
   }
 
   _navigate(route) {
+    if(this.props.scene == route.navigateTo) { this.props.navigation.closeDrawer(); return; };
     ChangeDrawerScreen(this.props, route.navigateTo, route.title, true);
   }
 
