@@ -4,7 +4,7 @@ import {StackNavigator} from 'react-navigation'
 const Routes = [
     {
         name:'app.home',
-        tilte:'Home',
+        title:'Home',
         icon:'md-home',
         screen:Screens.Home,
         childrens: [
@@ -18,14 +18,14 @@ const Routes = [
     },
     {
         name:'app.splash',
-        tilte:'Splash',
+        title:'Splash',
         icon:'',
         screen:Screens.Splash,
         childrens: []
     },
     {
         name:'auth.login',
-        tilte:'Login',
+        title:'Login',
         icon:'',
         screen:Screens.Login,
         childrens: [{
@@ -37,105 +37,105 @@ const Routes = [
     },
     {
         name:'app.buttonlist',
-        tilte:'Button Example',
+        title:'Button Example',
         icon:'md-radio-button-on',
         screen:Screens.buttonScreen,
         childrens: []
     },
     {
         name:'app.swipelist',
-        tilte:'Swiper',
+        title:'Swiper',
         icon:'md-swap',
         screen:Screens.Swiperlist,
         childrens: []
     },
     {
         name:'app.progressbarscreen',
-        tilte:'Progress Bar',
+        title:'Progress Bar',
         icon:'md-refresh',
         screen:Screens.ProgressBarScreen,
         childrens: []
     },
     {
         name:'app.floatingactionbutton',
-        tilte:'Floating Action Button',
+        title:'Floating Action Button',
         icon:'md-radio-button-off',
         screen:Screens.Floatactionbuttonexample,
         childrens: []
     },
     {
         name:'app.textInput',
-        tilte:'Text Input',
+        title:'Text Input',
         icon:'md-text',
         screen:Screens.textInput,
         childrens: []
     },
     {
         name:'app.modalscreen',
-        tilte:'Modal Screen',
+        title:'Modal Screen',
         icon:'md-albums',
         screen:Screens.ModalScreenExample,
         childrens: []
     },
     {
         name:'app.lightboxscreen',
-        tilte:'Light Box Screen',
+        title:'Light Box Screen',
         icon:'md-film',
         screen:Screens.LightBoxScreen,
         childrens: []
     },
     {
         name:'app.foldviewscreen',
-        tilte:'FoldView Screen',
+        title:'FoldView Screen',
         icon:'',
         screen:Screens.FoldViewScreen,
         childrens: []
     },
     {
         name:'app.tabviewscreen',
-        tilte:'Tab View Screen',
+        title:'Tab View Screen',
         icon:'md-paper',
         screen:Screens.TabViewScreen,
         childrens: []
     },
     {
         name:'app.timelinescreen',
-        tilte:'TimeLine View',
+        title:'TimeLine View',
         icon:'md-time',
         screen:Screens.TimeLineScreen,
         childrens: []
     },
     {
         name:'app.dropdown',
-        tilte:'Dropdown',
+        title:'Dropdown',
         icon:'',
         screen:Screens.DropDown,
         childrens: []
     },
     {
         name:'app.chartexample',
-        tilte:'Chart Example',
+        title:'Chart Example',
         icon:'md-pie',
         screen:Screens.ChartScreen,
         childrens: []
     },
     {
         name:'app.listscreen',
-        tilte:'List Example',
+        title:'List Example',
         icon:'md-list',
         screen:Screens.ListScreenExample,
         childrens: []
     },
     {
         name:'app.cardView',
-        tilte:'Card View',
+        title:'Card View',
         icon:'md-card',
         screen:Screens.CardView,
         childrens: []
     },
     {
         name:'app.pushnotification',
-        tilte:'Push Notification',
+        title:'Push Notification',
         icon:'md-notifications-outline',
         screen:Screens.PushNotificationScreen,
         childrens: []

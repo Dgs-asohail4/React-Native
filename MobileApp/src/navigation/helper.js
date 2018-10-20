@@ -7,11 +7,28 @@ import { NavigationActions, StackActions } from 'react-navigation';
 export const ChangeDrawerScreen = (props, navigateTo, title, showHeader) => {
     //props.changeScene(navigateTo);
 
-    const resetAction = StackActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({ routeName: navigateTo })],
-    });
-    props.navigation.dispatch(resetAction);
+    // const resetAction = StackActions.reset({
+    //         index: 0,
+    //         key:null,
+    //         actions: [NavigationActions.navigate({ routeName: navigateTo })],
+    // });
+    // props.navigation.dispatch(resetAction);
+
+    const subAction = StackActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({
+            routeName: navigateTo,
+          }),
+        ],
+      });
+
+    props.navigation.dispatch(
+      NavigationActions.navigate({
+        routeName: navigateTo,
+        action: subAction,
+      })
+    );
 
 };
 

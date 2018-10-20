@@ -6,18 +6,15 @@ import { TEXT_COLOR_PRIMARY, COLOR_PRIMARY } from '../../global/theme/default';
 import { Navigation } from 'react-native-navigation';
 
 
-export default class DrawerIcon extends Component {
+export default class EmptyIcon extends Component {
   constructor(props){
       super(props)
 
   }
   render() {
     return (
-        <TouchableHighlight
-         onPress={this.props._onPress}
-        >
-            <Icon name={'md-menu'} size={40} color = {COLOR_PRIMARY} />
-        </TouchableHighlight>
+        <View>
+        </View>
 
     )
   }

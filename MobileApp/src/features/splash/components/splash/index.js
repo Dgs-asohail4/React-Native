@@ -14,7 +14,7 @@ export default class Splash extends React.Component {
     super(props)
 
     this.state = {
-      progress: 0,
+      progress: 1,
       indeterminate: true,
     };
   }
