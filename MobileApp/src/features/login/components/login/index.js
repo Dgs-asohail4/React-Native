@@ -24,11 +24,11 @@ export default class Login extends Component {
     this.state = {
       username: 'ahsan.sohail@ibex.co', password: 'Password123'
     }
-    this.props.navigator.setDrawerEnabled({
-      side: "left",
-      enabled: false,
-      screen: "global.drawer"
-    });
+    // this.props.navigator.setDrawerEnabled({
+    //   side: "left",
+    //   enabled: false,
+    //   screen: "global.drawer"
+    // });
   }
 
 
@@ -56,7 +56,7 @@ export default class Login extends Component {
 
        const user = await AsyncStorage.setItem(USER_KEY, username)
        console.log('user successfully signed in!', user)
-       ChangeStack(this.props, "app.home", "Home", true);
+       ChangeStack(this.props, "Home", "Home", true);
 
     }catch (err) {
       console.log('error:', err)

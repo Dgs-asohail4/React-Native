@@ -9,8 +9,8 @@ buildscript {
         supportLibVersion = "27.0.3"
     }
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
@@ -32,8 +32,22 @@ allprojects {
     }
 }
 
-
+// subprojects { subproject ->
+//     afterEvaluate {
+//         if ((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
+//             android {
+//                 variantFilter { variant ->
+//                     def names = variant.flavors*.name
+//                     if (names.contains("reactNative51") || names.contains("reactNative55") || names.contains("reactNative56")) {
+//                         setIgnore(true)
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
     distributionUrl = distributionUrl.replace("bin", "all")
 }
+

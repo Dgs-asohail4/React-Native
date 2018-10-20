@@ -14,7 +14,7 @@ export default class Splash extends React.Component {
     super(props)
 
     this.state = {
-      progress: 0,
+      progress: 1,
       indeterminate: true,
     };
   }
@@ -34,15 +34,15 @@ export default class Splash extends React.Component {
             AsyncStorage.getItem(USER_KEY).then((user)=>{
               console.log('user: ', user)
               if (user) {
-                ChangeStack(this.props, "app.home", "Home", true);
+                ChangeStack(this.props, "Home", "Home", true);
               } else {
-                ChangeStack(this.props, "auth.login", "", false);
+                ChangeStack(this.props, "Auth", "", false);
               }
             })
 
           } catch (err) {
             console.log('error: ', err)
-            ChangeStack(this.props, "auth.login", "", false);
+            ChangeStack(this.props, "Auth", "", false);
           }
         }
         this.setState({ progress });

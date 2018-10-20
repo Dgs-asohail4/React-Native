@@ -11,37 +11,42 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
-import com.reactnativenavigation.NavigationApplication;
+
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.horcrux.svg.SvgPackage;
 
-public class MainApplication extends NavigationApplication {
+public class MainApplication extends Application implements ReactApplication {
 
+  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
-    public boolean isDebug() {
-        // Make sure you are using BuildConfig from your own application
-        return BuildConfig.DEBUG;
+    public boolean getUseDeveloperSupport() {
+      return BuildConfig.DEBUG;
     }
 
+    @Override
     protected List<ReactPackage> getPackages() {
-        // Add additional packages you require here
-        // No need to add RnnPackage and MainReactPackage
-        return Arrays.<ReactPackage>asList(
-            // eg. new VectorIconsPackage()
-
-            new LinearGradientPackage(),
-            new SvgPackage(),
-            new ReactNativePushNotificationPackage()
-        );
+      return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+          new LinearGradientPackage(),
+          new ReactNativePushNotificationPackage(),
+          new SvgPackage()
+      );
     }
 
     @Override
-    public List<ReactPackage> createAdditionalReactPackages() {
-        return getPackages();
+    protected String getJSMainModuleName() {
+      return "index";
     }
+  };
 
-    @Override
-    public String getJSMainModuleName() {
-        return "index";
-    }
+  @Override
+  public ReactNativeHost getReactNativeHost() {
+    return mReactNativeHost;
+  }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    SoLoader.init(this, /* native exopackage */ false);
+  }
 }

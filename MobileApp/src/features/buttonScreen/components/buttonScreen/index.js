@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View} from 'react-native';
+import { Text, View, ToastAndroid} from 'react-native';
 import Button from '../../../../components/button'
 import styles from './styles';
 export default class ButtonScreen extends Component {
@@ -43,6 +43,7 @@ export default class ButtonScreen extends Component {
         color='grey'
         borderRadius={150}
         onPress={()=>{
+          ToastAndroid.show('Toast', ToastAndroid.LONG)
         }}
         text="toast"
        />
