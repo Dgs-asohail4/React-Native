@@ -9,21 +9,21 @@ import {
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import items from './draweritems';
-import {ChangeDrawerScreen} from '../../navigation/helper';
 import Header from './header'
 import List from '../list'
+import {NavigationActions} from 'react-navigation'
 import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY, DRAWER_GRADIENT_2 } from '../../global/theme/default';
+import {items} from './draweritems';
+import { ChangeDrawerScreen } from '../../navigation/helper';
 class Drawer extends Component {
 	constructor(props) {
     super(props);
-    this._onPress = this._onPress.bind(this);
+    this._navigateAction = this._navigate.bind(this);
   }
 
-  _onPress(navigateTo, isRoot, title) {
-    if(this.props.scene == navigateTo) return;
-    ChangeDrawerScreen(this.props, navigateTo, title, true);
-	}
+  _navigate(route) {
+    ChangeDrawerScreen(this.props, route.navigateTo, route.title, true);
+  }
 
 	render() {
     return (
@@ -31,7 +31,7 @@ class Drawer extends Component {
         <View style={styles.container}>
            <Header/>
            <List data={items} containerStyle={{paddingLeft:15,marginTop:20, marginBottom:20}} renderRow={(item) => (
-            <TouchableOpacity key={item.id} onPress={() => this._onPress(item.navigateTo, false, item.name)}>
+            <TouchableOpacity key={item.id} onPress={() => this._navigate(item)}>
               <View style={styles.drawerListItem}>
                 <Icon name={item.icon} size={26} color="white" style={[styles.drawerListIcon]} />
                 <Text style={styles.drawerListItemText}>

@@ -1,4 +1,3 @@
-import { Navigation } from 'react-native-navigation';
 import Drawer from '../components/drawer/container';
 import Home from '../features/home/containers';
 import HomeNew from '../features/home2/containers';
@@ -23,33 +22,30 @@ import CardView from '../features/CardView/components/CardView';
 import PushNotificationScreen from '../features/PushNotificationExample/containers'
 import DrawerIcon from '../components/navIcons/drawer';
 
-const screens = [
-    {name:'global.drawer', component: Drawer},
-    {name:'app.splash', component: Splash},
-    {name:'app.home', component: Home},
-    {name:'app.home2', component: HomeNew},
-    {name:'auth.login', component: Login},
-    {name:'auth.signup', component: Signup},
-    {name:'app.screen2', component: ScreenNew},
-    {name:'app.buttonlist',component: buttonScreen},
-    {name:'app.swipelist', component: Swiperlist},
-    {name:'app.progressbarscreen', component: ProgressBarScreen},
-    {name:'app.floatingactionbutton', component: Floatactionbuttonexample},
-    {name:'app.textInput', component:textInput},
-    {name:'app.modalscreen', component:ModalScreenExample},
-    {name:'app.lightboxscreen', component:LightBoxScreen},
-    {name:'app.foldviewscreen',  component:FoldViewScreen},
-    {name:'app.tabviewscreen',  component:TabViewScreen},
-    {name:'app.timelinescreen',  component:TimeLineScreen},
-    {name:'app.dropdown', component:DropDown},
-    {name:'app.chartexample', component:ChartScreen},
-    {name:'app.listscreen',component:ListScreenExample},
-    {name:'app.cardView', component:CardView},
-    {name:'app.pushnotification', component:PushNotificationScreen},
-    {name:'global.drawerButton', component:DrawerIcon}
+export {
+    Drawer,
+    Home,
+    HomeNew,
+    Splash,
+    Login,
+    Signup,
+    ScreenNew,
+    buttonScreen,
+    Swiperlist,
+    ProgressBarScreen,
+    Floatactionbuttonexample,
+    textInput,
+    ModalScreenExample,
+    LightBoxScreen,
+    FoldViewScreen,
+    TabViewScreen,
+    TimeLineScreen,
+    DropDown,
+    ChartScreen,
+    ListScreenExample,
+    CardView,
+    PushNotificationScreen,
+    DrawerIcon
+}
 
-]
 
-export const registerScreens = (store, provider) => screens.map(screen =>
-    Navigation.registerComponentWithRedux(screen.name, () => screen.component, provider, store));
-    //Navigation.registerComponent(screen.name, () => screen.component))

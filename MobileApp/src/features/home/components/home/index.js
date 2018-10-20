@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Text, View, AsyncStorage } from 'react-native';
 import styles from './styles';
 
-import {PushNewScreen, ChangeStack, ChangeToTabView} from '../../../../navigation/helper';
 import Button from '../../../../components/button'
 
 import {USER_KEY} from '.././../../../global/config';
 import { COLOR_PRIMARY } from '../../../../global/theme/default';
-import DrawerIcon from '../../../../components/navIcons/drawer';
-import { Navigation } from 'react-native-navigation';
+import { PushNewScreen, ChangeStack } from '../../../../navigation/helper';
+
 export default class Home extends Component {
 
     constructor(props){
@@ -21,7 +20,7 @@ export default class Home extends Component {
     logout = async () => {
       try {
         await AsyncStorage.removeItem(USER_KEY)
-        ChangeStack(this.props, "auth.login", "", false);
+        ChangeStack(this.props, "Auth", "", false);
       } catch (err) {
         console.log('error signing out...: ', err)
       }
@@ -32,25 +31,19 @@ export default class Home extends Component {
       return (
         <View style={styles.container}>
           <Text>Hello from home screen</Text>
+            <Button
+            color={COLOR_PRIMARY}
+            borderRadius={30}
+            onPress={this.logout}
+            text="Sign Out"
+          />
           <Button
-          color={COLOR_PRIMARY}
-          borderRadius={30}
-          onPress={this.logout}
-          text="Sign Out"
-        />
-        <Button
-          onPress={() => {
-            PushNewScreen(this.props, "app.screen2", "Screen2", true);
-          }}
-          color={COLOR_PRIMARY}
-          text="View next screen"
-        />
-          <DrawerIcon _onPress={()=>{
-            Navigation.mergeOptions(this.props.componentId, {
-                sideMenu: { 'left': { visible: true } }
-            });
-            this.setState({visible:!this.state.visible});
-        }}/>
+            onPress={() => {
+              PushNewScreen(this.props, "app.screen2", "Screen2", true);
+            }}
+            color={COLOR_PRIMARY}
+            text="View next screen"
+          />
         </View>
 
 
