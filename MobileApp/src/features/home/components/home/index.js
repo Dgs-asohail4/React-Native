@@ -3,13 +3,21 @@ import { Text, View, AsyncStorage } from 'react-native';
 import styles from './styles';
 
 import {PushNewScreen, ChangeStack, ChangeToTabView} from '../../../../navigation/helper';
-
 import Button from '../../../../components/button'
 
 import {USER_KEY} from '.././../../../global/config';
 import { COLOR_PRIMARY } from '../../../../global/theme/default';
+import DrawerIcon from '../../../../components/navIcons/drawer';
+import { Navigation } from 'react-native-navigation';
 export default class Home extends Component {
 
+    constructor(props){
+      super(props);
+
+      this.state = {
+        visible:false
+      }
+    }
     logout = async () => {
       try {
         await AsyncStorage.removeItem(USER_KEY)
@@ -37,7 +45,14 @@ export default class Home extends Component {
           color={COLOR_PRIMARY}
           text="View next screen"
         />
+          <DrawerIcon _onPress={()=>{
+            Navigation.mergeOptions(this.props.componentId, {
+                sideMenu: { 'left': { visible: true } }
+            });
+            this.setState({visible:!this.state.visible});
+        }}/>
         </View>
+
 
         // <Button
         //   onPress={() => {

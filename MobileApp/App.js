@@ -41,13 +41,14 @@ Navigation.events().registerAppLaunchedListener(() => {
 					stack:  {
 						children: [{
 								component: {
-									name: 'app.splash'
+									name: 'app.splash',
+									options: {
+										topBar: navigatorStyle('', false)
+									}
 								}
 							}
 						],
-						options: {
-							topBar: navigatorStyle('Home', false)
-						}
+
 					},
 				}
 			}

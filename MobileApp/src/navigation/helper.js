@@ -45,7 +45,7 @@ export const PushNewScreen = (props, navigateTo, title, showHeader) => {
     component: {
       name: navigateTo,
       options: {
-        topBar: navigatorStyle(title, showHeader)
+        topBar: navigatorStyle(title, showHeader, false)
       }
     }
   });

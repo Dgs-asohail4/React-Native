@@ -33,7 +33,16 @@ export const generateStack = (routeName, title, showHeader = true, showDrawer = 
 				center:{
 					stack:  {
 						children: route.childrens.map((child)=>{
-                            return {component:{name:child}}
+                            return {
+                                component:
+                                    {
+                                        name:child,
+                                        options: {
+                                            topBar: navigatorStyle(title, showHeader)
+
+                                        }
+                                    }
+                                }
                         }),
                         // children: [{
                         //     component: {
@@ -41,9 +50,7 @@ export const generateStack = (routeName, title, showHeader = true, showDrawer = 
                         //     }
                         // }
                         // ],
-                        options: {
-							topBar: navigatorStyle(title, showHeader)
-						}
+
 					},
 				}
 			}

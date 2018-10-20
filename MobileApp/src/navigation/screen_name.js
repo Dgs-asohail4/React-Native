@@ -21,6 +21,7 @@ import ChartScreen from '../features/ChartExamples/containers';
 import ListScreenExample from '../features/ListViewScreenExample/containers'
 import CardView from '../features/CardView/components/CardView';
 import PushNotificationScreen from '../features/PushNotificationExample/containers'
+import DrawerIcon from '../components/navIcons/drawer';
 
 const screens = [
     {name:'global.drawer', component: Drawer},
@@ -44,7 +45,8 @@ const screens = [
     {name:'app.chartexample', component:ChartScreen},
     {name:'app.listscreen',component:ListScreenExample},
     {name:'app.cardView', component:CardView},
-    {name:'app.pushnotification', component:PushNotificationScreen}
+    {name:'app.pushnotification', component:PushNotificationScreen},
+    {name:'global.drawerButton', component:DrawerIcon}
 
 ]
 
