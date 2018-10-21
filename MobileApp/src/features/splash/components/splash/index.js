@@ -15,6 +15,9 @@ import ProgressBar from '../../../../components/progress/ProgressBar2'
 import {scale} from '../../../../utils/scale';
 import Theme from '../../../../global/theme'
 
+import TextStyleFactory from '../../../../global/styles/textStyle'
+import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
+
 let timeFrame = 500;
 export default class Splash extends React.Component {
   constructor(props){
@@ -27,8 +30,14 @@ export default class Splash extends React.Component {
 
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
+    const style = {
+      textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
+      buttonStyle:ButtonStyleFactory.getSheet(Theme[this.props.theme])
+    }
+    this.props.UpdateGlobalTheme(style);
 
     this.timer = setInterval(() => {
+
       if (this.state.progress == 1) {
         clearInterval(this.timer);
         setTimeout(() => {

@@ -3,6 +3,7 @@ import { DEFUALT_THEME } from '../../global/config';
 
 const DEFAULT_STATE = {scene:"app.splash",theme:DEFUALT_THEME}
 export default function reducer(state = DEFAULT_STATE, action){
+    console.log(action)
     switch(action.type){
         case actionTypes.CHANGE_SCENE:
             return {...state, scene:action.payload}

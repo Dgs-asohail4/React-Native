@@ -8,16 +8,30 @@ import {FontIcons} from './icons'
 
 const paddingValue = 8;
 import Theme from '../../../../global/theme'
+import { DEFUALT_THEME, DARK_THEME } from '../../../../global/config';
+import TextStyleFactory from '../../../../global/styles/textStyle'
+import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Home extends Component {
   static navigationOptions = ({navigation}) => ({
-    title: 'Grid Menu'.toUpperCase(),
+    headerTitle: 'Grid Menu'.toUpperCase(),
   });
 
     constructor(props){
       super(props);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevProps.theme !== this.props.theme) {
+          const style = {
+            textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
+            buttonStyle: ButtonStyleFactory.getSheet(Theme[this.props.theme])
+          }
+          this.props.UpdateGlobalTheme(style);
+      }
+    }
 
     _calculateItemSize() {
       let {height, width} = Dimensions.get('window');
@@ -27,23 +41,29 @@ export default class Home extends Component {
     render() {
       let size = this._calculateItemSize();
       let navigate = this.props.navigation.navigate;
+      const {primary, moon, menuIcon, center, regular, baseColor} = this.props.globalStyles.textStyle;
+      const {square} = this.props.globalStyles.buttonStyle;
+
       const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
       let menuItems = items.map(function (route, index) {
         return (
+          <View style={{margin:8,flexDirection:'column'}}>
           <TouchableOpacity
-            style={{width: size, height: size}}
-            key={index}
-            onPress={() => {
-              navigate(route.navigateTo)
-            }}>
+          style={[square,{width: size, height: size}]}
+          key={index}
+          onPress={() => {
+            navigate(route.navigateTo)
+          }}>
 
-            <Text style={styles.icon}>
-              {FontIcons[route.name]}
-            </Text>
-            <Text>{route.name}</Text>
+          <Text style={[primary, moon, menuIcon,center]} >
+            <Icon name={route.icon} size={25} style={styles.icon} />
+          </Text>
+          <Text style={[center, regular, primary, baseColor]}>{route.name}</Text>
 
-          </TouchableOpacity>
-        )
+        </TouchableOpacity>
+
+          </View>
+          )
       });
       return (
         <ScrollView style={styles.root}
