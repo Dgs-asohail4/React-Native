@@ -21,6 +21,8 @@ import ListScreenExample from '../features/ListViewScreenExample/containers'
 import CardView from '../features/CardView/components/CardView';
 import PushNotificationScreen from '../features/PushNotificationExample/containers'
 import DrawerIcon from '../components/navIcons/drawerIcon';
+import GridV1 from '../features/Gridv1/containers'
+
 
 export {
     Drawer,
@@ -45,7 +47,8 @@ export {
     ListScreenExample,
     CardView,
     PushNotificationScreen,
-    DrawerIcon
+    DrawerIcon,
+    GridV1
 }
 
 

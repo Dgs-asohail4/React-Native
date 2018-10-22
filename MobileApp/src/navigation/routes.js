@@ -4,9 +4,9 @@ import {StackNavigator} from 'react-navigation'
 const Routes = [
     {
         name:'app.home',
-        title:'Home',
+        title:'Grid Menu',
         icon:'md-home',
-        screen:Screens.Home,
+        screen:Screens.GridV1,
         childrens: [
             {
                 name:'app.screen2',
