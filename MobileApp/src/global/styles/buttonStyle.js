@@ -19,6 +19,14 @@ export default class StyleSheetFactory {
               justifyContent:'center',
               borderColor:theme.colors.border.base,
           }, //container: {flexDirection:'column'}
+          social:{
+            height: scale(62),
+            width: scale(62),
+            borderRadius: scale(31),
+            borderColor: theme.colors.border.accent,
+            borderWidth: 1,
+            backgroundColor: theme.colors.control.background,
+          }
       });
       return buttonStyle;
   }

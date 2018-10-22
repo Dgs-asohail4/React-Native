@@ -24,14 +24,26 @@ const Routes = [
         childrens: []
     },
     {
-        name:'auth.login',
-        title:'Login',
+        name:'auth.loginMenu',
+        title:'Login Menu',
         icon:'',
-        screen:Screens.Login,
-        childrens: [{
+        screen:Screens._menuLoginV1,
+        childrens: [
+            {
+                name:'auth.login',
+                title:'Login V1',
+                screen:Screens._Login,
+                children:[]
+            },     
+            {
             name:'auth.signup',
             title:'Signup',
             screen:Screens.Signup,
+            children:[]
+        },{
+            name:'auth.loginv2',
+            title:'Login V2',
+            screen:Screens._LoginV2,
             children:[]
         }]
     },

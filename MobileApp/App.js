@@ -25,12 +25,12 @@ const RootStack = StackNavigator({
 			header: null
 		}
 	},
-	Auth: {
-		screen : generateStack('auth.login', '', false, false),
-		navigationOptions:{
-			header: null
-		}
-	},
+	// Auth: {
+	// 	screen : generateStack('auth.login', '', false, false),
+	// 	navigationOptions:{
+	// 		header: null
+	// 	}
+	// },
 	Home:{
 		screen : createDrawerNavigator({
 			...drawerRoutes
