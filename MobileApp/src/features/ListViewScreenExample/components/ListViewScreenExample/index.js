@@ -72,18 +72,22 @@ export default class AuthScreenMenu extends Component {
         {
            id: 0,
            name: 'Login V1',
+           key:'auth.login'
         },
         {
            id: 1,
            name: 'Login V2',
+           key:''
         },
         {
            id: 2,
            name: 'Sign Up',
+           key:''
         },
         {
            id: 3,
            name: 'Password Recovery',
+           key:''
         },
 
      ]
@@ -97,9 +101,10 @@ export default class AuthScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.id}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -127,30 +132,37 @@ export class SocailScreenMenu extends Component {
         {
            id: 0,
            name: 'User Profile V1',
+           key:''
         },
         {
            id: 1,
            name: 'User Profile V2',
+           key:''
         },
         {
            id: 2,
            name: 'User Profile V3',
+           key:''
         },
         {
            id: 3,
            name: 'Profile Settings',
+           key:''
         }, 
         {
           id: 4,
           name: 'Notifciations',
+          key:''
         },
         {
           id: 5,
           name: 'Contacts',
+          key:''
         },
         {
           id: 6,
           name: 'Feed',
+          key:''
         },
 
      ]
@@ -166,7 +178,7 @@ export class SocailScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -194,26 +206,32 @@ export class ArticlesScreenMenu extends Component {
         {
            id: 0,
            name: 'Article List V1',
+           key:''
         },
         {
            id: 1,
            name: 'Article List V2',
+           key:''
         },
         {
            id: 2,
            name: 'Article List V3',
+           key:''
         },
         {
            id: 3,
            name: 'Article List V4',
+           key:''
         }, 
         {
           id: 4,
           name: 'Blogposts',
+          key:''
         },
         {
           id: 5,
           name: 'Article View',
+          key:''
         },
 
      ]
@@ -229,7 +247,7 @@ export class ArticlesScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -257,14 +275,17 @@ export class MessagingScreenMenu extends Component {
         {
            id: 0,
            name: 'Chat',
+           key:''
         },
         {
            id: 1,
            name: 'Chat List',
+           key:''
         },
         {
            id: 2,
            name: 'Comments',
+           key:''
         },
      ]
 
@@ -279,7 +300,7 @@ export class MessagingScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -307,6 +328,7 @@ export class DasboardScreenMenu extends Component {
         {
            id: 0,
            name: 'Dashboard',
+           key:''
         },
      ]
 
@@ -321,7 +343,7 @@ export class DasboardScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -349,6 +371,7 @@ export class EcommerceScreenMenu extends Component {
         {
            id: 0,
            name: 'Cards',
+           key:''
         },
      ]
 
@@ -363,7 +386,7 @@ export class EcommerceScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -391,18 +414,22 @@ export class NavigationScreenMenu extends Component {
         {
            id: 0,
            name: 'Grid Menu V1',
+           key:''
         },
         {
           id: 1,
           name: 'Grid Menu V2',
+          key:''
         },
         {
           id: 2,
           name: 'List Menu',
+          key:''
         },
         {
           id: 3,
           name: 'Side Menu',
+          key:''
         },
      ]
 
@@ -417,7 +444,7 @@ export class NavigationScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
@@ -433,7 +460,7 @@ export class NavigationScreenMenu extends Component {
     );
   }
 }
-export class NavigationScreenMenu extends Component {
+export class OthersScreenMenu extends Component {
 
   constructor(props){
     super(props)
@@ -445,6 +472,7 @@ export class NavigationScreenMenu extends Component {
         {
            id: 0,
            name: 'Settings',
+           key:''
         },
      ]
 
@@ -459,7 +487,7 @@ export class NavigationScreenMenu extends Component {
       style={styles.text}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.key)}}>
 
       <View key={item.id} style={styles.item}>
         <Text style={[baseColor, basic,header1]}>{item.name}</Text>
