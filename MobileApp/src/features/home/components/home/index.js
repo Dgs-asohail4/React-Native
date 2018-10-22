@@ -45,9 +45,9 @@ export default class Home extends Component {
       const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
       let menuItems = items.map(function (route, index) {
         return (
-          <View style={{margin:8,flexDirection:'column'}}>
+          <View style={{margin:8,flexDirection:'column'}} key={index}>
           <TouchableOpacity
-          style={[square,{width: size, height: size}]}
+          style={[square,{width: size, height: size, justifyContent:'center'}]}
           key={index}
           onPress={() => {
             navigate(route.navigateTo)

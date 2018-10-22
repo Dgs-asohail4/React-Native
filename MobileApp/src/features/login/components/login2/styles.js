@@ -26,9 +26,20 @@ export default class StyleSheetFactory {
         flexDirection: 'row',
         marginBottom: scaleVertical(24),
       },
-      screen: {
-        flex: 1,
+      image:{
+        height: scaleVertical(77),
+        resizeMode: 'contain',
+      },
+      header: {
+        paddingBottom: scaleVertical(10),
         alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+      },
+      screen: {
+        padding: scaleVertical(16),
+        flex: 1,
+        justifyContent: 'space-between',
         backgroundColor: theme.colors.screen.base,
       }
   });
