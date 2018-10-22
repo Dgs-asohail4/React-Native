@@ -10,6 +10,14 @@ export default class StyleSheetFactory {
           square:{
               borderRadius:3,
               backgroundColor:theme.colors.button.back,
+          },
+          social:{
+            height: scale(62),
+            width: scale(62),
+            borderRadius: scale(31),
+            borderColor: theme.colors.border.accent,
+            borderWidth: 1,
+            backgroundColor: theme.colors.control.background,
           }
       });
       return buttonStyle;

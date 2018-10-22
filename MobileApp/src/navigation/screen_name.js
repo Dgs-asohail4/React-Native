@@ -2,7 +2,7 @@ import Drawer from '../components/drawer/container';
 import Home from '../features/home/containers';
 import HomeNew from '../features/home2/containers';
 import Splash from '../features/splash/containers';
-import Login from '../features/login/containers';
+import { _Login, _LoginV2} from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
 import buttonScreen from '../features/buttonScreen/containers'
@@ -17,7 +17,7 @@ import TabViewScreen from '../features/TabViewExample/containers';
 import TimeLineScreen from '../features/TimeLineViewExample/containers';
 import DropDown from '../features/DropDownExample/containers';
 import ChartScreen from '../features/ChartExamples/containers';
-import ListScreenExample from '../features/ListViewScreenExample/containers'
+import { _menuLoginV1 } from '../features/ListViewScreenExample/containers'
 import CardView from '../features/CardView/components/CardView';
 import PushNotificationScreen from '../features/PushNotificationExample/containers'
 import DrawerIcon from '../components/navIcons/drawerIcon';
@@ -27,7 +27,6 @@ export {
     Home,
     HomeNew,
     Splash,
-    Login,
     Signup,
     ScreenNew,
     buttonScreen,
@@ -42,10 +41,12 @@ export {
     TimeLineScreen,
     DropDown,
     ChartScreen,
-    ListScreenExample,
+    _menuLoginV1,
     CardView,
     PushNotificationScreen,
-    DrawerIcon
+    DrawerIcon,
+    _Login,
+    _LoginV2
 }
 
 

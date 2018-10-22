@@ -1,5 +1,5 @@
 
-import ListViewScreenExample from '../components/ListViewScreenExample'
+import * as menus from '../components/ListViewScreenExample'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(actions, dispatch),
     ...bindActionCreators(actionsNav,dispatch)
 });
-export default connect(mapStateToProps, mapDispatchToProps)(ListViewScreenExample);
+export const _menuLoginV1 = connect(mapStateToProps, mapDispatchToProps)(menus.AuthScreenMenu);

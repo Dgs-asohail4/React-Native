@@ -60,7 +60,7 @@ export class ListViewScreenExample extends Component {
     );
   }
 }
-export default class AuthScreenMenu extends Component {
+export class AuthScreenMenu extends Component {
 
   constructor(props){
     super(props)
@@ -77,12 +77,12 @@ export default class AuthScreenMenu extends Component {
         {
            id: 1,
            name: 'Login V2',
-           key:''
+           key:'auth.loginv2'
         },
         {
            id: 2,
            name: 'Sign Up',
-           key:''
+           key:'auth.signup'
         },
         {
            id: 3,
@@ -485,6 +485,7 @@ export class OthersScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.id}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
        onPress={() => {this.props.navigation.navigate(item.key)}}>

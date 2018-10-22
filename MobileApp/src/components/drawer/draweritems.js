@@ -17,7 +17,7 @@ export const items = [
     {id:11,name:'Tab View Example', icon: 'md-paper', navigateTo: 'app.tabviewscreen'},
     {id:12,name:'TimeLine View Example', icon: 'md-time', navigateTo: 'app.timelinescreen'},
     {id:14,name:'Chart Example', icon: 'md-pie', navigateTo: 'app.chartexample'},
-    {id:15,name:'ListScreen',icon:'md-list',navigateTo:'app.listscreen'},
+    {id:15,name:'Auth',icon:'md-list',navigateTo:'auth.loginMenu'},
     {id:16,name:'Push Notification',icon:'md-notifications-outline',navigateTo:'app.pushnotification'},
     {id:17,name:'Card View',icon:'md-card',navigateTo:'app.cardView'},
 ];

@@ -3,13 +3,14 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Text,
   KeyboardAvoidingView,
   Dimensions,
   AsyncStorage
 } from 'react-native';
 import StyleSheetFactory from './styles';
 
-import {USER_KEY, DEFUALT_THEME} from '../../../../global/config'
+import {USER_KEY, DEFUALT_THEME, DARK_THEME} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 import Icon from 'react-native-vector-icons/Ionicons'
 import {scaleModerate} from '../../../../utils/scale'
@@ -19,9 +20,9 @@ import Button from '../../../../components/button';
 import Theme from '../../../../global/theme'
 
 export default class Login extends Component {
-  static navigationOptions = ({navigation}) => ({
-    header:null
-  });
+    static navigationOptions = ({navigation}) => ({
+        header:null
+    });
   constructor(props){
     super(props)
     this.state = {
@@ -85,8 +86,8 @@ export default class Login extends Component {
   }
   getThemeImageSource = (theme) => (
       theme == DEFUALT_THEME ?
-      require('../../../../global/assets/img/backgroundLoginV1.png')
-      : require('../../../../global/assets/img/backgroundLoginV1DarkTheme.png') 
+      require('../../../../global/assets/img/logo.png')
+      : require('../../../../global/assets/img/logoDark.png') 
   );
   renderImage = (styles) => {
     const screenSize = Dimensions.get('window');
@@ -107,23 +108,10 @@ export default class Login extends Component {
     const {awesome,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
       <KeyboardAvoidingView style={styles.screen}>
+      <View style={styles.header}>
         {this.renderImage(styles)}
+        </View>
         <View style={styles.container}>
-        <View style={styles.buttons}>
-            <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]}>
-              <Icon name={'logo-facebook'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[styles.button,social,{justifyContent:'center'}]} 
-              >
-              <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-            <TouchableOpacity s
-              style={[styles.button,social,{justifyContent:'center'}]} >
-              <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-          </View>
           <CustomizedTextInput
             style={styles.input}
             placeholder='Username'
@@ -158,8 +146,23 @@ export default class Login extends Component {
                   onPress={this.signIn}
                 /> 
             
-         
+          <View style={styles.buttons}>
+            <TouchableOpacity
+              style={[styles.button,social,{justifyContent:'center'}]}>
+              <Icon name={'logo-facebook'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.button,social,{justifyContent:'center'}]} 
+              >
+              <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.button,social,{justifyContent:'center'}]} >
+              <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+            </TouchableOpacity>
           </View>
+          </View>
+          
       </KeyboardAvoidingView>
       )
   }
