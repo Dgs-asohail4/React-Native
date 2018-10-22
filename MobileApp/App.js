@@ -11,7 +11,9 @@ import DrawerIcon from './src/components/navIcons/drawerIcon'
 const store = configureStore();
 pushNotifications.configure();
 
-const drawerRoutes = {}
+const drawerRoutes = {"app.home":{
+	screen:generateStack("app.home", "Home", true,true)
+}}
 for(var i=0; i<items.length; i++){
 	drawerRoutes[items[i].navigateTo] = {
 		screen : generateStack(items[i].navigateTo, items[i].title, true, true),

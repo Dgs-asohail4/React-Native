@@ -2,52 +2,34 @@ import React, { Component } from 'react';
 import { Text, View,TouchableHighlight } from 'react-native';
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
+import Icon from 'react-native-vector-icons/Ionicons'
 import List from '../../../../components/list'
-import { TEXT_COLOR_PRIMARY } from '../../../../global/theme/default';
-
+import * as Routes from '../../../../navigation/routes'
+import { items } from '../../../../components/drawer/draweritems';
 export class ListViewScreenExample extends Component {
-
   constructor(props){
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Ben',
-        },
-        {
-           id: 1,
-           name: 'Susan',
-        },
-        {
-           id: 2,
-           name: 'Robert',
-        },
-        {
-           id: 3,
-           name: 'Mary',
-        },
-
-     ]
-
-    }
+    this.state ={names:items}
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {header1,moon, xxlarge,center, regular, primary, baseColor} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
-      style={styles.text}
+      style={styles.item}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {}}>
+       onPress={() => {this.props.navigation.navigate(item.navigateTo)}}>
 
-      <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+      <View style={[primary, moon, xxlarge,styles.screen]}>
+        <Text style={styles.icon}>
+          <Icon name={item.icon} size={25} />
+        </Text>
+        <Text style={[center, regular, primary, baseColor, header1]}>{item.name}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -56,7 +38,7 @@ export class ListViewScreenExample extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -67,31 +49,7 @@ export class AuthScreenMenu extends Component {
     this._onRender = this._onRender.bind(this);
 
     this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Login V1',
-           key:'auth.login'
-        },
-        {
-           id: 1,
-           name: 'Login V2',
-           key:'auth.loginv2'
-        },
-        {
-           id: 2,
-           name: 'Sign Up',
-           key:'auth.signup'
-        },
-        {
-           id: 3,
-           name: 'Password Recovery',
-           key:''
-        },
-
-     ]
-
+      names: Routes.AuthMenuRoutes
     }
   }
 
@@ -101,13 +59,13 @@ export class AuthScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
-      key={item.id}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -116,7 +74,7 @@ export class AuthScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -126,48 +84,7 @@ export class SocailScreenMenu extends Component {
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'User Profile V1',
-           key:''
-        },
-        {
-           id: 1,
-           name: 'User Profile V2',
-           key:''
-        },
-        {
-           id: 2,
-           name: 'User Profile V3',
-           key:''
-        },
-        {
-           id: 3,
-           name: 'Profile Settings',
-           key:''
-        }, 
-        {
-          id: 4,
-          name: 'Notifciations',
-          key:''
-        },
-        {
-          id: 5,
-          name: 'Contacts',
-          key:''
-        },
-        {
-          id: 6,
-          name: 'Feed',
-          key:''
-        },
-
-     ]
-
-    }
+    this.state ={names:Routes.SocialRoutes}
   }
 
   _onRender(item){
@@ -176,12 +93,13 @@ export class SocailScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -190,7 +108,7 @@ export class SocailScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -199,44 +117,7 @@ export class ArticlesScreenMenu extends Component {
   constructor(props){
     super(props)
     this._onRender = this._onRender.bind(this);
-
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Article List V1',
-           key:''
-        },
-        {
-           id: 1,
-           name: 'Article List V2',
-           key:''
-        },
-        {
-           id: 2,
-           name: 'Article List V3',
-           key:''
-        },
-        {
-           id: 3,
-           name: 'Article List V4',
-           key:''
-        }, 
-        {
-          id: 4,
-          name: 'Blogposts',
-          key:''
-        },
-        {
-          id: 5,
-          name: 'Article View',
-          key:''
-        },
-
-     ]
-
-    }
+    this.state ={names:Routes.ArticleRoutes}
   }
 
   _onRender(item){
@@ -245,12 +126,13 @@ export class ArticlesScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -259,7 +141,7 @@ export class ArticlesScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container}  renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -269,27 +151,7 @@ export class MessagingScreenMenu extends Component {
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Chat',
-           key:''
-        },
-        {
-           id: 1,
-           name: 'Chat List',
-           key:''
-        },
-        {
-           id: 2,
-           name: 'Comments',
-           key:''
-        },
-     ]
-
-    }
+    this.state ={names:Routes.MessagingRoutes}
   }
 
   _onRender(item){
@@ -298,12 +160,13 @@ export class MessagingScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -312,7 +175,7 @@ export class MessagingScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -322,17 +185,7 @@ export class DasboardScreenMenu extends Component {
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Dashboard',
-           key:''
-        },
-     ]
-
-    }
+    this.state ={names:Routes.DashboardRoutes}
   }
 
   _onRender(item){
@@ -341,12 +194,13 @@ export class DasboardScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -355,27 +209,53 @@ export class DasboardScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
+
+// export class WalkthroughScreenMenu extends Component {
+
+//   constructor(props){
+//     super(props)
+//     this._onRender = this._onRender.bind(this);
+
+//     this.state ={names:Routes.WalkthroughRoutes}
+//   }
+
+//   _onRender(item){
+//     const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+//     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+//     return(
+//       <TouchableHighlight
+//       style={styles.text}
+//       key={item.name}
+//       underlayColor={Theme[this.props.theme].colors.button.underlay}
+//       activeOpacity={1}
+//        onPress={() => {this.props.navigation.navigate(item.name)}}>
+
+//       <View key={item.id} style={styles.item}>
+//         <Text style={[baseColor, basic,header1]}>{item.key}</Text>
+//       </View>
+//       </TouchableHighlight>
+//     )
+//   }
+
+//   render() {
+//     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+//     return (
+//       <List style={styles.container} containerStyle={styles.container}renderRow={this._onRender} data={this.state.names} />
+//     );
+//   }
+// }
+
 export class EcommerceScreenMenu extends Component {
 
   constructor(props){
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Cards',
-           key:''
-        },
-     ]
-
-    }
+    this.state ={names:Routes.EcommerceRoutes}
   }
 
   _onRender(item){
@@ -384,12 +264,13 @@ export class EcommerceScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -398,7 +279,7 @@ export class EcommerceScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -408,32 +289,7 @@ export class NavigationScreenMenu extends Component {
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Grid Menu V1',
-           key:''
-        },
-        {
-          id: 1,
-          name: 'Grid Menu V2',
-          key:''
-        },
-        {
-          id: 2,
-          name: 'List Menu',
-          key:''
-        },
-        {
-          id: 3,
-          name: 'Side Menu',
-          key:''
-        },
-     ]
-
-    }
+    this.state ={names: Routes.NavigationRoutes}
   }
 
   _onRender(item){
@@ -442,12 +298,13 @@ export class NavigationScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {if(item.name == 'nav.sidemenu') {this.props.navigation.openDrawer(); return;} this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -456,7 +313,7 @@ export class NavigationScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }
@@ -466,17 +323,7 @@ export class OthersScreenMenu extends Component {
     super(props)
     this._onRender = this._onRender.bind(this);
 
-    this.state ={
-
-      names: [
-        {
-           id: 0,
-           name: 'Settings',
-           key:''
-        },
-     ]
-
-    }
+    this.state ={names:Routes.OtherRoutes}
   }
 
   _onRender(item){
@@ -485,13 +332,13 @@ export class OthersScreenMenu extends Component {
     return(
       <TouchableHighlight
       style={styles.text}
-      key={item.id}
+      key={item.name}
       underlayColor={Theme[this.props.theme].colors.button.underlay}
       activeOpacity={1}
-       onPress={() => {this.props.navigation.navigate(item.key)}}>
+       onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.name}</Text>
+        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -500,7 +347,7 @@ export class OthersScreenMenu extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <List containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
+      <List style={styles.container} containerStyle={styles.container} renderRow={this._onRender} data={this.state.names} />
     );
   }
 }

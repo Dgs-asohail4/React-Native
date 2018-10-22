@@ -5,19 +5,27 @@ export default class StyleSheetFactory {
     static getSheet(theme) {
         return StyleSheet.create({
             container: {
-                marginHorizontal:10,
-                marginTop:5
-        
+                backgroundColor: theme.colors.screen.base,
              },
-             item:{
-                
-                 height:50,
-                 marginBottom:30,
-                 marginTop:20,
-                 borderBottomWidth:0.2,
-                 
-                //  backgroundColor :'#e1e1e1'
-             },
+             item: {
+              height: 80,
+              justifyContent: 'center',
+              borderBottomWidth: StyleSheet.hairlineWidth,
+              borderColor: theme.colors.border.base,
+              paddingHorizontal: 16,
+            },
+            list: {
+              backgroundColor: theme.colors.screen.base,
+            },
+            screen: {
+              flexDirection: 'row',
+              alignItems: 'center',
+            },
+            icon: {
+              width: 34,
+              textAlign: 'center',
+              marginRight: 16,
+            },
              text: {
                 paddingHorizontal: 16.5,
                 borderBottomWidth: StyleSheet.hairlineWidth,
@@ -32,7 +40,7 @@ export default class StyleSheetFactory {
                 justifyContent: 'center',
                 backgroundColor: theme.colors.screen.base,
               },
-            
+
         })
     }
   }

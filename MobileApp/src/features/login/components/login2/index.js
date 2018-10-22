@@ -87,7 +87,7 @@ export default class Login extends Component {
   getThemeImageSource = (theme) => (
       theme == DEFUALT_THEME ?
       require('../../../../global/assets/img/logo.png')
-      : require('../../../../global/assets/img/logoDark.png') 
+      : require('../../../../global/assets/img/logoDark.png')
   );
   renderImage = (styles) => {
     const screenSize = Dimensions.get('window');
@@ -140,29 +140,29 @@ export default class Login extends Component {
               <Button
                   text='lOGIN'
                   borderRadius={20}
-                  color={'#ff9147'}
+                  color={Theme[this.props.theme].colors.gradients.base[0]}
                   style={[{width: 350},{height:50}]}
                   textStyle={[inverseColor]}
                   onPress={this.signIn}
-                /> 
-            
+                />
+
           <View style={styles.buttons}>
             <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]}>
               <Icon name={'logo-facebook'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
-            <TouchableOpacity 
-              style={[styles.button,social,{justifyContent:'center'}]} 
+            <TouchableOpacity
+              style={[styles.button,social,{justifyContent:'center'}]}
               >
               <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]} >
               <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
           </View>
           </View>
-          
+
       </KeyboardAvoidingView>
       )
   }
