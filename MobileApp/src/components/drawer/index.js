@@ -15,6 +15,9 @@ import {NavigationActions} from 'react-navigation'
 import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY, DRAWER_GRADIENT_2 } from '../../global/theme/default';
 import {items} from './draweritems';
 import { ChangeDrawerScreen } from '../../navigation/helper';
+
+
+
 class Drawer extends Component {
 	constructor(props) {
     super(props);

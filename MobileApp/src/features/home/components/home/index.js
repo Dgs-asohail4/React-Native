@@ -4,11 +4,9 @@ import StyleSheetFactory from './styles';
 //import Button from '../../../../components/button'
 
 import {items} from '../../../../components/drawer/draweritems'
-import {FontIcons} from './icons'
 
 const paddingValue = 8;
 import Theme from '../../../../global/theme'
-import { DEFUALT_THEME, DARK_THEME } from '../../../../global/config';
 import TextStyleFactory from '../../../../global/styles/textStyle'
 import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
 
