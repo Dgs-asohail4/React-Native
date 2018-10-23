@@ -46,8 +46,8 @@ class Drawer extends Component {
           </Text>
           <Text style={[primary, header6,baseColor]}>{item.name}</Text>
         </View>
-        <Text style={[awesome,small]}>
-          <FontAwesomeIcon name={'chevron-right'} size={25}  />
+        <Text style={[awesome,small,baseColor]}>
+          <FontAwesomeIcon name={'chevron-right'} size={25} color={Theme[this.props.theme].colors.base} />
         </Text>
       </View>
     </TouchableHighlight>

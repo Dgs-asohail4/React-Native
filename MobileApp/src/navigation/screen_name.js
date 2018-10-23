@@ -32,6 +32,7 @@ import Themes from '../features/Themes/containers'
 import Walkthrogh from '../features/Walkthrough/containers'
 import Dashboard from '../features/Dashboard/containers'
 import Settings from '../features/Other/containers'
+import PasswordRecovery from '../features/passwordRecovery/containers'
 
 export {
     Drawer,
@@ -86,7 +87,8 @@ export {
     Themes,
     Walkthrogh,
     Dashboard,
-    Settings
+    Settings,
+    PasswordRecovery
 
 }
 

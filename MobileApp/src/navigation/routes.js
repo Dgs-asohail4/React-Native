@@ -27,17 +27,23 @@ const Routes = [
                 children:[]
             },
             {
+                name:'auth.loginv2',
+                title:'Login V2',
+                screen:Screens._LoginV2,
+                children:[]
+            },
+            {
                 name:'auth.signup',
                 title:'Signup',
                 screen:Screens.Signup,
                 children:[]
             },
             {
-                name:'auth.loginv2',
-                title:'Login V2',
-                screen:Screens._LoginV2,
+                name:'auth.passwordrecovery',
+                title:'Password Recovery',
+                screen:Screens.PasswordRecovery,
                 children:[]
-            }
+            },
         ]
     },
     {
