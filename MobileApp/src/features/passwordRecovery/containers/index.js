@@ -1,16 +1,17 @@
 
-import Signup from '../components/signup'
+import PasswordRecovery from '../components/passwordRecovery'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
-import {getTheme,getStyles} from '../selectors'
 import { bindActionCreators } from 'redux';
+import { getTheme, getStyles } from '../selectors';
+
 const mapStateToProps = (state) => ({
-    ...getStyles(state),
-    ...getTheme(state)
+    ...getTheme(state),
+    ...getStyles(state)
 });
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(actions, dispatch),
     ...bindActionCreators(actionsNav,dispatch)
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(PasswordRecovery);
