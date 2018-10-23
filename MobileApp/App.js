@@ -42,7 +42,7 @@ const RootStack = StackNavigator({
 			drawerCloseRoute: 'DrawerClose',
 			drawerToggleRoute: 'DrawerToggle',
 			drawerPosition:'left',
-			drawerWidth:270,
+			drawerWidth:330,
 			drawerIcon : (<DrawerIcon />),
 			contentComponent: (props) => <Drawer {...props}/>
 		}),
