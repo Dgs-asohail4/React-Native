@@ -3,9 +3,11 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
 
     parentGrey : {
-        height:250, 
+        height:245, 
         borderWidth:1, 
-        margin : 15,
+        margin : 8,
+        paddingBottom:20
+        
     },
     viewStyleGrey: {
         height: 210, 
