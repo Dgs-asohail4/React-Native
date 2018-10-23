@@ -41,7 +41,7 @@ export default class Home extends Component {
       let navigate = this.props.navigation.navigate;
       const {primary, moon, menuIcon, center, regular, baseColor} = this.props.globalStyles.textStyle;
       const {square} = this.props.globalStyles.buttonStyle;
-
+      const {theme} = this.props
       const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
       let menuItems = items.map(function (route, index) {
         return (
@@ -54,7 +54,7 @@ export default class Home extends Component {
           }}>
 
           <Text style={[primary, moon, menuIcon,center]} >
-            <Icon name={route.icon} size={25} style={styles.icon} />
+            <Icon name={route.icon} size={35} style={styles.icon} color={Theme[theme].colors.primary} />
           </Text>
           <Text style={[center, regular, primary, baseColor]}>{route.name}</Text>
 

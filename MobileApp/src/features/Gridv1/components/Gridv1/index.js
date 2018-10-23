@@ -31,6 +31,7 @@ export default class Gridv1 extends Component {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     let navigate = this.props.navigation.navigate;
     const {tile} = this.props.globalStyles.buttonStyle;
+    const {theme} = this.props
     const {primary, moon, xxlarge, center, regular,small,baseColor} = this.props.globalStyles.textStyle;
     let menuItems = <View/>;
 
@@ -48,7 +49,7 @@ export default class Gridv1 extends Component {
             }}>
 
             <Text style={[primary, moon, xxlarge,center]} >
-              <Icon name={route.icon} size={25} style={styles.icon}  />
+              <Icon name={route.icon} size={35} style={styles.icon}  color={Theme[theme].colors.primary} />
             </Text>
             <Text style={[center, regular, primary, baseColor, small]}>{route.name}</Text>
 

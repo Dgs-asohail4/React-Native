@@ -14,10 +14,6 @@ import { USER_KEY } from '../../../../global/config'
 import ProgressBar from '../../../../components/progress/ProgressBar2'
 import {scale} from '../../../../utils/scale';
 import Theme from '../../../../global/theme'
-
-import TextStyleFactory from '../../../../global/styles/textStyle'
-import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
-
 let timeFrame = 500;
 export default class Splash extends React.Component {
   constructor(props){
@@ -28,13 +24,17 @@ export default class Splash extends React.Component {
     };
   }
 
+  // componentWillMount(){
+  //   const style = {
+  //     textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
+  //     buttonStyle:ButtonStyleFactory.getSheet(Theme[this.props.theme])
+  //   }
+  //   this.props.UpdateGlobalTheme(style);
+  // }
+
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
-    const style = {
-      textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
-      buttonStyle:ButtonStyleFactory.getSheet(Theme[this.props.theme])
-    }
-    this.props.UpdateGlobalTheme(style);
+
 
     this.timer = setInterval(() => {
 
@@ -58,13 +58,15 @@ export default class Splash extends React.Component {
   render() {
     let width = Dimensions.get('window').width;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+    console.log(this.props)
+    const {baseColor} = this.props.globalStyles.textStyle;
     return (
       <View style={styles.container}>
         <View>
           <Image style={[styles.image, {width}]} source={require('../../../../global/assets/img/splashBack.png')}/>
           <View style={styles.text}>
-            <Text style={styles.hero}>React Native</Text>
-            <Text style={styles.appName}>DGS-ISKY UIKIT</Text>
+            <Text style={[baseColor,styles.hero]}>React Native</Text>
+            <Text style={[baseColor,styles.appName]}>DGS-ISKY UIKIT</Text>
           </View>
         </View>
         <ProgressBar

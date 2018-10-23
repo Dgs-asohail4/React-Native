@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image, Dimensions } from 'react-native';
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
-import Swiper from '../../../../components/swiper';
+import WalkthroughComponent from '../../../../components/Walkthrough';
 import Button from '../../../../components/button';
 import { DEFUALT_THEME } from '../../../../global/config';
 
@@ -23,22 +23,23 @@ export default class Walkthrough extends Component {
 
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    const {header2} = this.props.globalStyles.textStyle;
+    const {header2, baseColor} = this.props.globalStyles.textStyle;
     return (
       <View style={styles.screen}>
-        <Swiper autoplay>
+        <WalkthroughComponent>
           <View style={styles.container}>
             <Image source={this.getThemeImageSource(this.props.theme)} />
-            <Text style={[header2,styles.text]}>Welcome to Kitten Tricks</Text>
+            <Text style={[header2,baseColor,styles.text]}>Welcome to Kitten Tricks</Text>
           </View>
           <View style={styles.container}>
+
           <Image
-            style={{ width: Dimensions.get('window').width }}
-            source={this.getThemeImageSource2(this.props.theme)}
-          />
-          <Text style={[header2,styles.text2]}>Explore different examples of frequently used pages</Text>
-        </View>
-        </Swiper>
+          style={{ width: Dimensions.get('window').width }}
+          source={this.getThemeImageSource2(this.props.theme)}
+        />
+        <Text style={[header2,baseColor,styles.text2]}>Explore different examples of frequently used pages</Text>
+          </View>
+        </WalkthroughComponent>
         <Button
         text="GET STARTED"
         style={{width:350, borderRadius:5}}
