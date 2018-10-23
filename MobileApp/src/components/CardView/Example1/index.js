@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
-import img from '../../../global/assets/img/image.jpeg'
+// import img from '../../../global/assets/img/photo1.png'
 
 export default class MyCardView1 extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class MyCardView1 extends Component {
     
       titleText : 'Hello World',
       subtitleText : '5 Minutes Ago',
-      image : img,
+      //image : img,
       likesCount : '18',
       commentsCount : '50',
       sharesCount : '800',
