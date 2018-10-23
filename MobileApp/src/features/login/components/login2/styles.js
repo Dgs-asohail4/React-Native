@@ -19,13 +19,19 @@ export default class StyleSheetFactory {
         justifyContent: 'center',
         alignItems: 'center'
       },
-      button:{
-        marginHorizontal: 14,
+      content: {
+        justifyContent: 'space-between',
+      },
+      button: {
+        borderColor: theme.colors.border.solid,
       },
       buttons: {
         flexDirection: 'row',
         marginBottom: scaleVertical(24),
+        marginHorizontal: 24,
+        justifyContent: 'space-around',
       },
+      footer: {},
       image:{
         height: scaleVertical(77),
         resizeMode: 'contain',
@@ -41,7 +47,11 @@ export default class StyleSheetFactory {
         flex: 1,
         justifyContent: 'space-between',
         backgroundColor: theme.colors.screen.base,
-      }
+      },
+      textRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+      },
   });
   }
 }

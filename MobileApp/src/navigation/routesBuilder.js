@@ -17,14 +17,14 @@ const renderHeader = (navigation, props,title, drawer) => {
 const generateStack = (routeName, title, showHeader = true, showDrawer = true) => {
     const route = Routes.find( (x) => x.name == routeName);
     let flatRoutes = {};
-    let wrapToRoute = (route, drawer = false) => {
+    let wrapToRoute = (route, drawer = false, header = true) => {
         return {
           screen: route.screen,
           title: route.title,
           navigationOptions: ({ navigation }) => showHeader ? ({
             gesturesEnabled: false,
             headerTitle:route.title,
-            header: (props) => renderHeader(navigation, props, route.title, drawer),
+            header: (props) => header ? renderHeader(navigation, props, route.title, drawer) : null,
           }) : ({header:null})
           //{
             //   headerTitle:route.title,
@@ -48,7 +48,7 @@ const generateStack = (routeName, title, showHeader = true, showDrawer = true) =
     };
     flatRoutes[route.name] = wrapToRoute(route, route.name.contains("menu") ? false : true );
     for (let child of route.childrens) {
-        flatRoutes[child.name] = wrapToRoute(child);
+        flatRoutes[child.name] = wrapToRoute(child, undefined, !child.name.contains('auth'));
     }
     const stack =  StackNavigator(flatRoutes, {
         initialRouteName: route.name,

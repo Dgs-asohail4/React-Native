@@ -15,12 +15,20 @@ export default class StyleSheetFactory {
         borderRadius: 24
       },
       container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        paddingHorizontal: 17,
+        paddingBottom: scaleVertical(22),
+        alignItems: 'center',
+        flex: -1,
+      },
+      image: {
+        resizeMode: 'cover',
+        marginBottom: scaleVertical(10),
       },
       button:{
         marginHorizontal: 14,
+      },
+      save: {
+        marginVertical: 9,
       },
       buttons: {
         flexDirection: 'row',
@@ -30,7 +38,15 @@ export default class StyleSheetFactory {
         flex: 1,
         alignItems: 'center',
         backgroundColor: theme.colors.screen.base,
-      }
+      },
+      textRow: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+      },
+      footer: {
+        justifyContent: 'flex-end',
+        flex: 1,
+      },
   });
   }
 }

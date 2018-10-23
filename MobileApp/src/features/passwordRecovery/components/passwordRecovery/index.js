@@ -27,7 +27,7 @@ export default class PasswordRecovery extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     const {h1, baseColor,rounded,secondary5 ,secondaryColor,center} = this.props.globalStyles.textStyle;
-    
+
     return (
       <KeyboardAvoidingView
          // behavior='position'
@@ -48,8 +48,8 @@ export default class PasswordRecovery extends Component {
        style={styles.save}
         text='SEND'
         borderRadius={20}
-        color='#ff9147'
-        style={[{width: 350},{height:50}]}
+        color={Theme[this.props.theme].colors.gradients.base[0]}
+        style={[{width: 350},{height:50},baseColor]}
         onPress={this.onSendButtonPressed}
       />
       </KeyboardAvoidingView>

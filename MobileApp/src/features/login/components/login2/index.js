@@ -20,9 +20,9 @@ import Button from '../../../../components/button';
 import Theme from '../../../../global/theme'
 
 export default class Login extends Component {
-    static navigationOptions = ({navigation}) => ({
-        header:null
-    });
+  static navigationOptions = ({navigation}) => ({
+      header:null
+  });
   constructor(props){
     super(props)
     this.state = {
@@ -90,28 +90,25 @@ export default class Login extends Component {
       : require('../../../../global/assets/img/logoDark.png')
   );
   renderImage = (styles) => {
-    const screenSize = Dimensions.get('window');
-    const imageSize = {
-      width: screenSize.width,
-      height: screenSize.height - scaleModerate(375, 1),
-    };
     return (
       <Image
-        style={[styles.image, imageSize]}
+        style={[styles.image]}
         source={this.getThemeImageSource(this.props.theme)}
       />
     );
   };
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
-    const {social} = this.props.globalStyles.buttonStyle;
-    const {awesome,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
+    const {social, clear} = this.props.globalStyles.buttonStyle;
+    const {awesome,primary3,header6,light,h1,logo,h0,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
       <KeyboardAvoidingView style={styles.screen}>
       <View style={styles.header}>
         {this.renderImage(styles)}
+        <Text style={[light,h1,baseColor]}>React Native</Text>
+        <Text style={[logo, h0,baseColor]}>UI Kit</Text>
         </View>
-        <View style={styles.container}>
+        <View style={styles.content}>
           <CustomizedTextInput
             style={styles.input}
             placeholder='Username'
@@ -137,30 +134,41 @@ export default class Login extends Component {
             placeholderTextColor='black'
             onChangeText={val => this.onChangeText('password', val)}
           />
-              <Button
-                  text='lOGIN'
-                  borderRadius={20}
-                  color={Theme[this.props.theme].colors.gradients.base[0]}
-                  style={[{width: 350},{height:50}]}
-                  textStyle={[inverseColor]}
-                  onPress={this.signIn}
-                />
+            <Button
+                text='LOGIN'
+                borderRadius={20}
+                color={Theme[this.props.theme].colors.gradients.base[0]}
+                style={[{width: 350},{height:50}]}
+                textStyle={[inverseColor]}
+                onPress={this.signIn}
+              />
 
           <View style={styles.buttons}>
             <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]}>
-              <Icon name={'logo-facebook'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+              <Icon name={'logo-facebook'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]}
               >
-              <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+              <Icon name={'logo-twitter'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]} >
-              <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
+              <Icon name={'logo-google'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
           </View>
+          <View style={styles.footer}>
+          <View style={styles.textRow}>
+            <Text style={[primary3,baseColor]}>Don’t have an account? </Text>
+            <TouchableOpacity
+              onPress={()=>this.props.navigation.navigate('auth.signup')}
+              style={[clear]} >
+              <Text style={[header6, baseColor]}>Sign up now</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
           </View>
 
       </KeyboardAvoidingView>
