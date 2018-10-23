@@ -4,6 +4,7 @@ import {
   View,
   TextInput,
   Text,
+  TouchableOpacity,
   KeyboardAvoidingView,
   Dimensions,
   Image,
@@ -46,14 +47,16 @@ renderImage = (styles) => (
 
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
-    const {h1} = this.props.globalStyles.textStyle;
+    const {h1, baseColor,header6,primary3} = this.props.globalStyles.textStyle;
+    const {clear} = this.props.globalStyles.buttonStyle;
+
     return (
        <KeyboardAvoidingView style={styles.screen}
        onStartShouldSetResponder={() => true}
        onResponderRelease={() => Keyboard.dismiss()}>
         <View style={{ alignItems: 'center' }}>
           {this.renderImage(styles)}
-          <Text style={[h1]}>Registration</Text>
+          <Text style={[h1, baseColor]}>Registration</Text>
         </View>
       <View style={styles.content}>
       <View>
@@ -89,14 +92,25 @@ renderImage = (styles) => (
         <Button style={styles.save}
           text='Sign Up'
           borderRadius={20}
-          color='#ff9147'
-          style={[{width: 350},{height:50}]}
+          color={Theme[this.props.theme].colors.gradients.base[0]}
+          style={[{width: 350},{height:50},baseColor]}
           onPress={this.signUp}
         />
       </View>
+
+      <View style={styles.footer}>
+      <View style={styles.textRow}>
+        <Text style={[primary3, baseColor]}>Already have an account? </Text>
+        <TouchableOpacity
+        onPress={()=>this.props.navigation.goBack()}
+        style={[clear]} >
+        <Text style={[header6, baseColor]}>Sign in now</Text>
+      </TouchableOpacity>
+      </View>
+    </View>
       </View>
        </KeyboardAvoidingView>
       )
-  
+
   }
 }

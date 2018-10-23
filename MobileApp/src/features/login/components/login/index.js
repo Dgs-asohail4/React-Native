@@ -3,6 +3,7 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Text,
   KeyboardAvoidingView,
   Dimensions,
   AsyncStorage
@@ -103,8 +104,8 @@ export default class Login extends Component {
   };
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
-    const {social} = this.props.globalStyles.buttonStyle;
-    const {awesome,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
+    const {social, clear} = this.props.globalStyles.buttonStyle;
+    const {awesome,hero,header6, primary3,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
       <KeyboardAvoidingView style={styles.screen}>
         {this.renderImage(styles)}
@@ -119,7 +120,7 @@ export default class Login extends Component {
               >
               <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
-            <TouchableOpacity s
+            <TouchableOpacity
               style={[styles.button,social,{justifyContent:'center'}]} >
               <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
@@ -150,13 +151,24 @@ export default class Login extends Component {
             onChangeText={val => this.onChangeText('password', val)}
           />
               <Button
-                  text='lOGIN'
+                  text='LOGIN'
                   borderRadius={20}
                   color={Theme[this.props.theme].colors.gradients.base[0]}
-                  style={[{width: 350},{height:50}]}
+                  style={[{width: 350},{height:50},baseColor,styles.save]}
                   textStyle={[inverseColor]}
                   onPress={this.signIn}
                 />
+
+                <View style={styles.footer}>
+                <View style={styles.textRow}>
+                  <Text style={[primary3, baseColor]}>Don’t have an account? </Text>
+                  <TouchableOpacity
+                  onPress={()=>this.props.navigation.navigate('auth.signup')}
+                  style={[clear]} >
+                  <Text style={[header6, baseColor]}>Sign up now</Text>
+                </TouchableOpacity>
+                </View>
+              </View>
 
 
           </View>

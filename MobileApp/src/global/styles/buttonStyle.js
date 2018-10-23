@@ -26,7 +26,8 @@ export default class StyleSheetFactory {
             borderColor: theme.colors.border.accent,
             borderWidth: 1,
             backgroundColor: theme.colors.control.background,
-          }
+          },
+
       });
       return buttonStyle;
   }
