@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
         color: 'black', 
     },
     container: {
-        backgroundColor: theme.colors.screen.scroll,
         paddingVertical: 8,
         paddingHorizontal: 14,
       },
