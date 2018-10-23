@@ -39,17 +39,17 @@ export default class NavBar extends React.Component {
     </View>
   );
 
-  renderNavigationLeftBackItem = (styles) => (
-    <BackButton styles={styles} navigation={this.props.navigation} theme={this.props.theme} globalStyles={this.props.globalStyles}/>
+  renderNavigationLeftBackItem = (styles, isFirstScene) => (
+    <BackButton styles={styles} isFirstScene={isFirstScene} navigation={this.props.navigation} theme={this.props.theme} globalStyles={this.props.globalStyles}/>
   );
 
-  renderNavigationLeftMenuItem = (styles) => (
+  renderNavigationLeftMenuItem = (styles, isFirstScene) => (
     <DrawerIcon styles={styles} navigation={this.props.navigation} theme={this.props.theme} globalStyles={this.props.globalStyles}/>
   );
 
   renderNavigationLeftItemContent = (sceneIndex,styles, drawer) => {
     const isFirstScene = sceneIndex === 0;
-    return drawer ? this.renderNavigationLeftMenuItem(styles) : this.renderNavigationLeftBackItem(styles);
+    return drawer ? this.renderNavigationLeftMenuItem(styles, isFirstScene) : this.renderNavigationLeftBackItem(styles, isFirstScene);
   };
 
   renderNavigationLeftItem = (styles, drawer) => {
