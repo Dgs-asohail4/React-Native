@@ -361,7 +361,6 @@ const Routes = [
     // }
 ];
 
-
 const AuthMenuRoutes = Routes.find((x)=>x.name=="menu.auth").childrens
 const NavigationRoutes = Routes.find((x)=>x.name=="menu.navigation").childrens;
 const SocialRoutes = Routes.find((x)=>x.name=="menu.social").childrens;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableHighlight } from 'react-native'
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { TEXT_COLOR_PRIMARY, COLOR_PRIMARY } from '../../global/theme/default';
 import Theme from '../../global/theme'
 
@@ -16,10 +16,10 @@ export default class BackButton extends Component {
         <TouchableHighlight
          underlayColor={Theme[this.props.theme].colors.button.underlay}
          style={this.props.styles.menu}
-         onPress={()=>this.props.navigation.goBack()}
+         onPress={()=>this.props.isFirstScene ? this.props.navigation.navigate('app.home') : this.props.navigation.goBack()}
         >
         <Text style={[awesome,baseColor]}>
-            <Icon name={'md-arrow-round-back'} style={{margin:10}} size={30} color={Theme[this.props.theme].colors.text.base} />
+            <Icon name={'chevron-left'} style={{margin:10}} size={30} color={Theme[this.props.theme].colors.text.base} />
         </Text>
         </TouchableHighlight>
 
