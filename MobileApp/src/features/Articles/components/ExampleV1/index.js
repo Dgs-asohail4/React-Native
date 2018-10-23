@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Text, View ,ScrollView} from 'react-native';
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
-import MyCardView1 from '../../../../components/CardView/Example1';
 import MyCardView2 from '../../../../components/CardView/Example2';
-import MyCardView3 from '../../../../components/CardView/Example3';
+
 import img from '../../../../global/assets/img/photo1.png'
 import img2 from '../../../../global/assets/img/photo2.png'
 import img3 from '../../../../global/assets/img/photo3.png'
