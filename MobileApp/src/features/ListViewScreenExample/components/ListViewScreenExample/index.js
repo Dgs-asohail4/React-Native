@@ -15,7 +15,7 @@ export class ListViewScreenExample extends Component {
   }
 
   _onRender(item){
-    const {header1,moon, xxlarge,center, regular, primary, baseColor} = this.props.globalStyles.textStyle;
+    const {header4,moon, xxlarge,center, regular, primary, baseColor} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -27,9 +27,9 @@ export class ListViewScreenExample extends Component {
 
       <View style={[primary, moon, xxlarge,styles.screen]}>
         <Text style={styles.icon}>
-          <Icon name={item.icon} size={25} />
+          <Icon name={item.icon} size={25} color={Theme[this.props.theme].colors.primary} />
         </Text>
-        <Text style={[center, regular, primary, baseColor, header1]}>{item.name}</Text>
+        <Text style={[center, regular, primary, baseColor,header4]}>{item.name}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -54,7 +54,7 @@ export class AuthScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -65,7 +65,7 @@ export class AuthScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -88,7 +88,7 @@ export class SocailScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -99,7 +99,7 @@ export class SocailScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -121,7 +121,7 @@ export class ArticlesScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -132,7 +132,7 @@ export class ArticlesScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -155,7 +155,7 @@ export class MessagingScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -166,7 +166,7 @@ export class MessagingScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -189,7 +189,7 @@ export class DasboardScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -200,7 +200,7 @@ export class DasboardScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -224,7 +224,7 @@ export class DasboardScreenMenu extends Component {
 //   }
 
 //   _onRender(item){
-//     const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+//     const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
 //     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
 //     return(
 //       <TouchableHighlight
@@ -235,7 +235,7 @@ export class DasboardScreenMenu extends Component {
 //        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
 //       <View key={item.id} style={styles.item}>
-//         <Text style={[baseColor, basic,header1]}>{item.key}</Text>
+//         <Text style={[baseColor, basic,header4]}>{item.key}</Text>
 //       </View>
 //       </TouchableHighlight>
 //     )
@@ -259,7 +259,7 @@ export class EcommerceScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -270,7 +270,7 @@ export class EcommerceScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -293,7 +293,7 @@ export class NavigationScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -304,7 +304,7 @@ export class NavigationScreenMenu extends Component {
        onPress={() => {if(item.name == 'nav.sidemenu') {this.props.navigation.openDrawer(); return;} this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
@@ -327,7 +327,7 @@ export class OthersScreenMenu extends Component {
   }
 
   _onRender(item){
-    const {baseColor, basic, header1} = this.props.globalStyles.textStyle;
+    const {baseColor, basic, header4} = this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return(
       <TouchableHighlight
@@ -338,7 +338,7 @@ export class OthersScreenMenu extends Component {
        onPress={() => {this.props.navigation.navigate(item.name)}}>
 
       <View key={item.id} style={styles.item}>
-        <Text style={[baseColor, basic,header1]}>{item.title}</Text>
+        <Text style={[baseColor, basic,header4]}>{item.title}</Text>
       </View>
       </TouchableHighlight>
     )
