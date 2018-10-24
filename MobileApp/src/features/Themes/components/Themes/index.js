@@ -41,25 +41,25 @@ export default class Themes extends Component {
 
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    const {header1, baseColor, center, regular, primary} = this.props.globalStyles.textStyle;
+    const {header4, baseColor, center, regular, primary} = this.props.globalStyles.textStyle;
     return (
       <View style={styles.root}>
       <View style={styles.container}>
-        <Text style={[header1,center, regular, primary, baseColor]}>Light Theme</Text>
+        <Text style={[header4,center, regular, primary, baseColor,{marginVertical:10}]}>Light Theme</Text>
         <Image style={styles.image} source={require('../../../../global/assets/img/lightThemeImage.png')} />
         <Button
           text='APPLY'
-          style={{width:350, borderRadius:5}}
+          style={{width:250, borderRadius:20}}
           color={Theme[this.props.theme].colors.gradients.base[0]}
           onPress={this.onLightThemeApplyButtonPressed}
         />
       </View>
       <View style={styles.container}>
-        <Text style={[header1,center, regular, primary, baseColor]}>Dark Theme</Text>
+        <Text style={[header4,center, regular, primary, baseColor,{marginVertical:10}]}>Dark Theme</Text>
         <Image style={styles.image} source={require('../../../../global/assets/img/darkThemeImage.png')} />
         <Button
           text='APPLY'
-          style={{width:350, borderRadius:5}}
+          style={{width:250, borderRadius:20}}
           color={Theme[this.props.theme].colors.gradients.base[0]}
           onPress={this.onDarkThemeApplyButtonPressed}
         />

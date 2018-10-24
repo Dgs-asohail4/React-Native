@@ -5,6 +5,7 @@ import {
   Image,
   Text,
   KeyboardAvoidingView,
+  ScrollView,
   Dimensions,
   AsyncStorage
 } from 'react-native';
@@ -107,7 +108,10 @@ export default class Login extends Component {
     const {social, clear} = this.props.globalStyles.buttonStyle;
     const {awesome,hero,header6, primary3,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
-      <KeyboardAvoidingView style={styles.screen}>
+      <View style={styles.screen}>
+      <ScrollView keyboardShouldPersistTaps="handled"
+      showsVerticalScrollIndicator={false}>
+
         {this.renderImage(styles)}
         <View style={styles.container}>
         <View style={styles.buttons}>
@@ -172,7 +176,8 @@ export default class Login extends Component {
 
 
           </View>
-      </KeyboardAvoidingView>
+          </ScrollView>
+      </View>
       )
   }
 }

@@ -5,6 +5,7 @@ import {
   Image,
   Text,
   KeyboardAvoidingView,
+  ScrollView,
   Dimensions,
   AsyncStorage
 } from 'react-native';
@@ -102,7 +103,9 @@ export default class Login extends Component {
     const {social, clear} = this.props.globalStyles.buttonStyle;
     const {awesome,primary3,header6,light,h1,logo,h0,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
-      <KeyboardAvoidingView style={styles.screen}>
+      <View style={styles.screen}>
+      <ScrollView keyboardShouldPersistTaps="handled"
+      showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
         {this.renderImage(styles)}
         <Text style={[light,h1,baseColor]}>React Native</Text>
@@ -145,16 +148,16 @@ export default class Login extends Component {
 
           <View style={styles.buttons}>
             <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]}>
+              style={[social, styles.button,{justifyContent:'center'}]}>
               <Icon name={'logo-facebook'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]}
+              style={[social,styles.button,{justifyContent:'center'}]}
               >
               <Icon name={'logo-twitter'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]} >
+              style={[social,styles.button,{justifyContent:'center'}]} >
               <Icon name={'logo-google'} size={25} style={[awesome,hero,baseColor,center,{alignSelf:'center'}]}/>
             </TouchableOpacity>
           </View>
@@ -170,8 +173,8 @@ export default class Login extends Component {
         </View>
 
           </View>
-
-      </KeyboardAvoidingView>
+</ScrollView>
+      </View>
       )
   }
 }

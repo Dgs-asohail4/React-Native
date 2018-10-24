@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text,KeyboardAvoidingView,Keyboard,View,Image,StyleSheet,TextInput } from 'react-native';
+import { Text,KeyboardAvoidingView , Keyboard,View,Image,StyleSheet,TextInput } from 'react-native';
 import Button from '../../../../components/button';
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'

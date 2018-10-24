@@ -28,6 +28,7 @@ export default class StyleSheetFactory {
             backgroundColor: theme.colors.control.background,
           },
 
+
       });
       return buttonStyle;
   }

@@ -6,6 +6,8 @@ import {
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
+  ScrollView,
+  Keyboard,
   Dimensions,
   Image,
   StyleSheet
@@ -51,9 +53,13 @@ renderImage = (styles) => (
     const {clear} = this.props.globalStyles.buttonStyle;
 
     return (
-       <KeyboardAvoidingView style={styles.screen}
-       onStartShouldSetResponder={() => true}
-       onResponderRelease={() => Keyboard.dismiss()}>
+      <View style={styles.screen}>
+       <ScrollView
+       keyboardShouldPersistTaps="handled"
+       showsVerticalScrollIndicator={false}
+      //  onStartShouldSetResponder={() => true}
+      //  onResponderRelease={() => Keyboard.dismiss()}
+       >
         <View style={{ alignItems: 'center' }}>
           {this.renderImage(styles)}
           <Text style={[h1, baseColor]}>Registration</Text>
@@ -109,7 +115,8 @@ renderImage = (styles) => (
       </View>
     </View>
       </View>
-       </KeyboardAvoidingView>
+       </ScrollView>
+       </View>
       )
 
   }
