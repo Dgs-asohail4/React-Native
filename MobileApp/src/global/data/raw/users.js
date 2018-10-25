@@ -1,16 +1,16 @@
 const images = [
-  require('../img/Image10.png'),
-  require('../img/Image11.png'),
-  require('../img/Image2.png'),
-  require('../img/Image3.png'),
-  require('../img/Image4.png'),
-  require('../img/Image1.png'),
-  require('../img/Image12.png'),
-  require('../img/Image8.png'),
-  require('../img/Image6.png'),
-  require('../img/Image9.png'),
-  require('../img/Image5.png'),
-  require('../img/Image7.png'),
+  require('../../assets/img/Image10.png'),
+  require('../../assets/img/Image11.png'),
+  require('../../assets/img/Image2.png'),
+  require('../../assets/img/Image3.png'),
+  require('../../assets/img/Image4.png'),
+  require('../../assets/img/Image1.png'),
+  require('../../assets/img/Image12.png'),
+  require('../../assets/img/Image8.png'),
+  require('../../assets/img/Image6.png'),
+  require('../../assets/img/Image9.png'),
+  require('../../assets/img/Image5.png'),
+  require('../../assets/img/Image7.png'),
 ];
 
 const users = [{
@@ -23,7 +23,7 @@ const users = [{
   password: '123456',
   newPassword: '12345678',
   confirmPassword: '12345678',
-  photo: require('../img/avatars/Image9.png'),
+  photo: require('../../assets/img/avatars/Image9.png'),
   postCount: 86,
   followersCount: 22102,
   followingCount: 536,
@@ -44,7 +44,7 @@ const users = [{
   followingCount: 975,
   followersCount: 1703,
   images,
-  photo: require('../img/avatars/Image1.png'),
+  photo: require('../../assets/img/avatars/Image1.png'),
 },
 {
   id: 3,
@@ -60,7 +60,7 @@ const users = [{
   followingCount: 736,
   followersCount: 1534,
   images,
-  photo: require('../img/avatars/Image3.png'),
+  photo: require('../../assets/img/avatars/Image3.png'),
 },
 {
   id: 4,
@@ -76,7 +76,7 @@ const users = [{
   followingCount: 86,
   followersCount: 3303,
   images,
-  photo: require('../img/avatars/Image4.png'),
+  photo: require('../../assets/img/avatars/Image4.png'),
 },
 {
   id: 5,
@@ -92,7 +92,7 @@ const users = [{
   followingCount: 745,
   followersCount: 2703,
   images,
-  photo: require('../img/avatars/Image5.png'),
+  photo: require('../../assets/img/avatars/Image5.png'),
 },
 {
   id: 6,
@@ -108,7 +108,7 @@ const users = [{
   followingCount: 444,
   followersCount: 8432,
   images,
-  photo: require('../img/avatars/Image6.png'),
+  photo: require('../../assets/img/avatars/Image6.png'),
 },
 {
   id: 7,
@@ -124,7 +124,7 @@ const users = [{
   followingCount: 731,
   followersCount: 18230,
   images,
-  photo: require('../img/avatars/Image7.png'),
+  photo: require('../../assets/img/avatars/Image7.png'),
 },
 {
   id: 8,
@@ -140,7 +140,7 @@ const users = [{
   followingCount: 667,
   followersCount: 4234,
   images,
-  photo: require('../img/avatars/Image8.png'),
+  photo: require('../../assets/img/avatars/Image8.png'),
 },
 {
   id: 9,
@@ -156,7 +156,7 @@ const users = [{
   followingCount: 750,
   followersCount: 1032,
   images,
-  photo: require('../img/avatars/Image10.png'),
+  photo: require('../../assets/img/avatars/Image10.png'),
 },
 {
   id: 10,
@@ -172,7 +172,7 @@ const users = [{
   followingCount: 343,
   followersCount: 3721,
   images,
-  photo: require('../img/avatars/Image11.png'),
+  photo: require('../../assets/img/avatars/Image11.png'),
 },
 {
   id: 11,
@@ -188,7 +188,7 @@ const users = [{
   followingCount: 165,
   followersCount: 5433,
   images,
-  photo: require('../img/avatars/Image12.png'),
+  photo: require('../../assets/img/avatars/Image12.png'),
 }];
 
 export default users;
