@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export class StyleSheetFactory {
+export default class StyleSheetFactory {
     static getSheet(theme) {
         return StyleSheet.create({
             container: {

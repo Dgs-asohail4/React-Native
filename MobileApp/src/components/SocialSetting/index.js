@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
+import PropTypes from 'prop-types'
 import StyleSheetFactory from './styles';
 import Theme from '../../global/theme'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -18,7 +19,7 @@ export default class SocialSetting extends Component {
   };
 
   static defaultProps = {
-    selected: true,
+    selected: false,
     tintColor: Theme[DEFUALT_THEME].colors.accent,
   };
 
@@ -40,7 +41,7 @@ export default class SocialSetting extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.left}>
-          <Text style={[awesome,large, styles.icon, {color}]}>
+          <Text style={[awesome,large, styles.icon]}>
             <Icon name={this.props.icon} size={20} color={color} />
           </Text>
           <Text style={[small,{color}]}>{this.props.name}</Text>

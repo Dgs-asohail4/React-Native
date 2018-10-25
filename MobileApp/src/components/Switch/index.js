@@ -136,12 +136,11 @@ export default class Switch extends Component {
     } = this.props;
 
     const type = value ? this.selectedType : '';
-    if(this.props.base)
-      const { container, thumb } = getBaseStyle(Theme[this.props.theme]).base;
+    var styles = {...getBaseStyle(Theme[this.props.theme]).base};
     if(this.props.selected)
-      const { container, thumb } = getSelectedStyle(Theme[this.props.theme]).selected;
+      styles = {...styles, ...getSelectedStyle(Theme[this.props.theme]).selected};
 
-    const onColor = Theme[this.props.theme].colors.screen.base;
+    const onColor = Theme[this.props.theme].colors.primary;
     const offColor = Platform.OS == "android" ?  Theme[this.props.theme].colors.screen.base : Theme[this.props.theme].colors.border.base;
 
     const interpolatedBackgroundColor = switchAnimation.interpolate({
@@ -149,15 +148,16 @@ export default class Switch extends Component {
       outputRange: [offColor, onColor],
     });
 
-    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
+    if(this.state.selected) styles = {...styles, ...getSelectedStyle(Theme[this.props.theme]).selected}
+    //const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
     return (
       <Animated.View
       {...rest}
       {...this.panResponder.panHandlers}
-      style={[style, container, {
+      style={[style, styles.container, {
         backgroundColor: interpolatedBackgroundColor,
       }]}>
-      <Animated.View style={[thumb, {
+      <Animated.View style={[styles.thumb, {
         position: 'absolute',
         left,
         height: handlerAnimation,
