@@ -11,13 +11,14 @@ export default class List extends Component {
   static defaultProps = {
     containerStyle : styles.container,
     data : [],
+    style:{},
     renderRow : () => (<View><Text>Item</Text></View>)
   };
 
   render() {
-    const {containerStyle, ...restProps} =  this.props
+    const {containerStyle,style, ...restProps} =  this.props
     return (
-      <ScrollView contentContainerStyle={containerStyle} {...restProps} >
+      <ScrollView style={style} contentContainerStyle={containerStyle} {...restProps} >
         {
             this.props.data.map( (item, index) =>
               this.props.renderRow(item)

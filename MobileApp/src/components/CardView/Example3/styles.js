@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     viewStyle : {
         borderColor : 'black',
         borderWidth : 1,
-        margin : 15,
+        margin : 8,
     },
 
 
@@ -23,7 +23,16 @@ const styles = StyleSheet.create({
         padding : 10,
         color: 'black', 
     },
-
+    container: {
+        paddingVertical: 8,
+        paddingHorizontal: 14,
+      },
+    card: {
+        marginVertical: 8,
+    },
+    time: {
+        marginTop: 5,
+    },
     imageWithHeader: {
         width:'100%',
         height : 175
