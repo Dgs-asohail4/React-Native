@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import nav, * as fromNav from '../navigation/reducers'
 import home, * as fromHome from '../features/home/reducers'
 import login, * as fromLogin from '../features/login/reducers'
+import splash from '../features/splash/reducers'
 
 const rootReducer = combineReducers({
     nav,
     home,
-    login
+    login,
+    splash
 });
 
 export default rootReducer;

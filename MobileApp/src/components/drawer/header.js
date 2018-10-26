@@ -1,19 +1,26 @@
 import React , {Component} from 'react'
 import {View, Text, Image} from 'react-native'
 
-import styles from './styles'
-import userIcon from '../../global/assets/img/user_icon.png'
+import StyleSheetFactory from './styles'
+import Theme from '../../global/theme'
+import { DEFUALT_THEME } from '../../global/config';
 
 export default class Header extends Component{
     constructor(props){
         super(props)
     }
 
+    getThemeImageSource = (theme) => (
+        theme === DEFUALT_THEME ?
+          require('../../global/assets/img/smallLogo.png') : require('../../global/assets/img/smallLogoDark.png')
+    );
+
+
     render(){
+        const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
         return (
-            <View style={styles.drawerHeader}>
-                <Image source={{uri:"https://intellihr.com.au/wp-content/uploads/2017/06/avatar_placeholder_temporary.png"}} style={{resizeMode:'stretch', width:70,height:70}}/>
-            </View>
+            <Image source={this.getThemeImageSource(this.props.theme)} style={styles.icon}/>
+
         )
     }
 }
