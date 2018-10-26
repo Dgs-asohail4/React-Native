@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View,FlatList,Image,TouchableOpacity } from 'react-native';
-import avatar from '../../../../components/avatar/container'
+import Avatar from '../../../../components/avatar/container'
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
 import img from '../../../../global/assets/img/photo17.png'

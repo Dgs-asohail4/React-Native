@@ -15,7 +15,6 @@ export default class Articles extends Component {
   render() {
     const {data} = this.props.navigation.getParam('data',{});
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    const {article}= this.props.globalStyles.textStyle;
     const article = this.props.globalStyles.modalStyle.horizontal;
     styles = {...styles, ...article}
     return (
