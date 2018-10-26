@@ -33,17 +33,17 @@ export default class MyCardView1 extends Component {
       backgroundColor,
       ...attributes
       } = this.props;
-      const {baseColor} = this.props.globalStyles.textStyle
+      const {baseColor, header4, inverseColor,secondary2, hintColor,awesome,primary, primary4} = this.props.globalStyles.textStyle
     if(blog){
       const style = this.props.globalStyles.modalStyle.getBlog(this.props.theme)
      
-      styles = {...styles, style}
+      styles = {...styles, ...style}
     }
 
     return (
       
       // =================================01====================================
-      <View style = {[styles.container,{backgroundColor:backgroundColor}]}>
+      <View style = {[styles.container,{backgroundColor:backgroundColor, borderColor:backgroundColor}]}>
 
         <View style={[styles.header]}>
           <Image
@@ -53,23 +53,23 @@ export default class MyCardView1 extends Component {
             // {{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
           />
           <View style={[styles.content]}>
-            <Text style={[styles.titleStyleGrey,baseColor]}>{this.props.titleText}</Text>
-            <Text style={[styles.subtitleStyleGrey,baseColor]}>{this.props.subtitleText}</Text>
+            <Text style={[styles.titleStyleGrey,header4,inverseColor]}>{this.props.titleText}</Text>
+            <Text style={[styles.subtitleStyleGrey,secondary2, inverseColor]}>{this.props.subtitleText}</Text>
           </View>
         </View>
 
         <View style={[styles.footer]}>
           <View style={styles.rowGrey}>
-            <Icon name = 'heart' size = {20} color={Theme[this.props.theme].colors.base}/>
-            <Text style={[styles.buttonTextStyleGrey, baseColor] } >{this.props.likesCount} Likes</Text>
+            <Icon name = 'heart' size = {20} color={baseColor.color}/>
+            <Text style={[styles.buttonTextStyleGrey,awesome,primary,baseColor] } >{this.props.likesCount} Likes</Text>
           </View>
           <View style={styles.rowGrey}>
-            <Icon name = 'comment-o' size = {20} color={Theme[this.props.theme].colors.base}/>
-            <Text style={[styles.buttonTextStyleGrey,baseColor]}>{this.props.commentsCount} Comments</Text>
+            <Icon name = 'comment-o' size = {20} color={hintColor.color}/>
+            <Text style={[styles.buttonTextStyleGrey,primary4, hintColor]}>{this.props.commentsCount} Comments</Text>
           </View>
             <View style={styles.rowGrey}>
-              <Icon name = 'user-o' size = {20} color={Theme[this.props.theme].colors.base} />
-              <Text style={[styles.buttonTextStyleGrey,baseColor]}>{this.props.sharesCount} Shares</Text>
+              <Icon name = 'user-o' size = {20} color={hintColor.color} />
+              <Text style={[styles.buttonTextStyleGrey,primary4, hintColor]}>{this.props.sharesCount} Shares</Text>
           </View>    
         </View> 
       </View>

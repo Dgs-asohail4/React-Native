@@ -1,17 +1,21 @@
+
+import {StyleSheet} from 'react-native'
+
+
 const getBasic = (theme) => ({
     basic:{
         img: {
             margin: 1.5,
         },
         modal: {
-            backgroundColor: theme => theme.colors.screen.base,
+            backgroundColor: theme.colors.screen.base,
         },
         footer: {
-            backgroundColor: theme => theme.colors.screen.base,
+            backgroundColor: theme.colors.screen.base,
             height: 50,
         },
         header: {
-            backgroundColor: theme => theme.colors.screen.base,
+            backgroundColor: theme.colors.screen.base,
             paddingBottom: 6,
         },
     }
@@ -67,12 +71,12 @@ const getArticle=(theme) =>({
         paddingBottom: 16,
         justifyContent: 'space-between',
         borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: theme => theme.colors.border.base,
+        borderColor: theme.colors.border.base,
       },
       content: {
         padding: 16,
         borderBottomWidth: 1,
-        borderColor: theme => theme.colors.border.base,
+        borderColor: theme.colors.border.base,
       },
       footer: {
         paddingHorizontal: 14,

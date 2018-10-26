@@ -13,6 +13,9 @@ export default class StyleSheetFactory {
               time: {
                 marginTop: 5,
               },
+              footer: {
+                paddingTop: 16,
+              },
         })
     }
 };

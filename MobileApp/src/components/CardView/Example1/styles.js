@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         height:250, 
         borderWidth:1, 
         margin : 8,
-        paddingBottom:20
+        paddingBottom:20,
         
     },
     header: {
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     },
     footer: {   
         flexDirection: 'row',
-        marginLeft:15,
-        justifyContent : 'space-between' 
+        marginHorizontal:10,
+       // justifyContent : 'space-between' 
     },
     rowGrey:{
         flexDirection:'row',

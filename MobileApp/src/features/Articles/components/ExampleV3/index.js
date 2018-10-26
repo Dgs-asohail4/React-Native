@@ -1,70 +1,53 @@
 import React, { Component } from 'react';
-import { Text, View,ScrollView } from 'react-native';
+import { Text, View,ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import StyleSheetFactory from './styles';
-import MyCardView3 from '../../../../components/CardView/Example3';
-import img from '../../../../global/assets/img/photo1.png'
-import img2 from '../../../../global/assets/img/photo2.png'
-import img3 from '../../../../global/assets/img/photo3.png'
-import img4 from '../../../../global/assets/img/photo4.png'
-import img5 from '../../../../global/assets/img/photo5.png'
-import img6 from '../../../../global/assets/img/photo6.png'
+import MyCardView3 from '../../../../components/CardView/Example3/container';
+import {data} from '../../../../global/data'
+const moment = require('moment');
 import Theme from '../../../../global/theme'
 
 export default class Articles extends Component {
+
+  static navigationOptions = {
+    title: 'Article List'.toUpperCase(),
+  };
+
+  state = {
+    data: data.getArticles(),
+  };
+
+  extractItemKey = (item) => `${item.id}`;
+
+  onItemPressed = ({ item }) => {
+    this.props.navigation.navigate('article.articleview', { id: item.id });
+  };
+
+  renderItem = ({ item }) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.onItemPressed(item)}>
+       <MyCardView3
+        titleText = {item.header}
+        subtitleText = {moment().add(item.time, 'seconds').fromNow()}
+        likesCount = '18'
+        commentsCount = '26'
+        sharesCount = '5'
+        backgroundColor={Theme[this.props.theme].colors.control.background}
+        image = {item.photo}
+      />
+    </TouchableOpacity>
+  );
+
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <ScrollView>
-        
-      <MyCardView3
-     titleText = 'Plants of our Nature'
-     subtitleText = '5 minutes ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img}
-     />
-     <MyCardView3
-     titleText = 'Balloon Trip'
-     subtitleText = '23 minutes ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img2}
-     />
-     <MyCardView3
-     titleText = 'Sea World'
-     subtitleText = '41 minutes ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img3}
-     />
-     <MyCardView3
-     titleText = 'Flowers'
-     subtitleText = 'an hour ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img4}
-     />
-     <MyCardView3
-     titleText = 'Birds of our Planet'
-     subtitleText = 'an hour ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img5}
-     />
-     <MyCardView3
-     titleText = 'Mountains'
-     subtitleText = '2 hours ago'
-       likesCount = '18'
-       commentsCount = '26'
-       sharesCount = '5'
-       image = {img6}
-     />
-   </ScrollView>
+      <FlatList
+        data={this.state.data}
+        renderItem={this.renderItem}
+        keyExtractor={this.extractItemKey}
+        style={styles.container}
+    />
     );
   }
 }

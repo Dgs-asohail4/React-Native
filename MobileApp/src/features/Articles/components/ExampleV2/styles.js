@@ -8,6 +8,17 @@ export default class StyleSheetFactory {
               title: {
                 marginBottom: 5,
               },
+              container: {
+                backgroundColor: theme.colors.screen.scroll,
+                paddingVertical: 8,
+                paddingHorizontal: 14,
+              },
+              card: {
+                marginVertical: 8,
+              },
+              time: {
+                marginTop: 5,
+              },
         })
     }
 };
