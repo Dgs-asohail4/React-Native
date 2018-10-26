@@ -37,7 +37,7 @@ export default class FindFriends extends Component {
             <Text style={[styles.icon,awesome, { color }]}>
             <Icon color={color} size={20} name={this.props.icon} /> 
             </Text>
-            <Text style={[ baseColor ,color,header6]}>{`Find Friends With ${this.props.text}`}</Text>
+            <Text style={[header6,{color}]}>{`Find Friends With ${this.props.text}`}</Text>
           </View>
           <Text small style={[awesome, {color} ]}>
             <Icon color={color} size={20} name={'chevron-right'} />
