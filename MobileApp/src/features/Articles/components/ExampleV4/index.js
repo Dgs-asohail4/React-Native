@@ -28,7 +28,7 @@ export default class Articles extends Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('articleview', { id: item.id })}
+        onPress={() => this.props.navigation.navigate('article.articleview', { id: item.id })}
       >
         <View style={[styles.card,{backgroundColor:Theme[this.props.theme].colors.control.background, borderColor:Theme[this.props.theme].colors.control.background},]}>
           <View key={item.key} style={ styles.container2}>

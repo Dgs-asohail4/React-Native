@@ -27,6 +27,9 @@ export default class StyleSheetFactory {
             borderWidth: 1,
             backgroundColor: theme.colors.control.background,
           },
+          clear:{
+              flexDirection:'row'
+          }
 
 
       });

@@ -17,7 +17,7 @@ export default class Articles extends Component {
 
   extractItemKey = (item) => `${item.id}`;
 
-  onItemPressed = ({ item }) => {
+  onItemPressed = ( item ) => {
     this.props.navigation.navigate('article.articleview', { id: item.id });
   };
 

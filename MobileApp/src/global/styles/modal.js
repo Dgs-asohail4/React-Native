@@ -61,29 +61,31 @@ const getHorizontal = (theme) => ({
     
 })
 const getArticle=(theme) =>({
-    container: {
-        borderWidth: 0,
-        backgroundColor: 'transparent',
-      },
-      header: {
-        paddingVertical: 0,
-        paddingTop: 20,
-        paddingBottom: 16,
-        justifyContent: 'space-between',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: theme.colors.border.base,
-      },
-      content: {
-        padding: 16,
-        borderBottomWidth: 1,
-        borderColor: theme.colors.border.base,
-      },
-      footer: {
-        paddingHorizontal: 14,
-        paddingTop: 15,
-        paddingBottom: 16,
-        alignItems: 'center',
-      },
+    article:{
+        container: {
+            borderWidth: 0,
+            backgroundColor: 'transparent',
+        },
+        header: {
+            paddingVertical: 0,
+            paddingTop: 20,
+            paddingBottom: 16,
+            justifyContent: 'space-between',
+            borderBottomWidth: StyleSheet.hairlineWidth,
+            borderColor: theme.colors.border.base,
+        },
+        content: {
+            padding: 16,
+            borderBottomWidth: 1,
+            borderColor: theme.colors.border.base,
+        },
+        footer: {
+            paddingHorizontal: 14,
+            paddingTop: 15,
+            paddingBottom: 16,
+            alignItems: 'center',
+        },
+    }
 })
 export default getModalStyles = (theme) => ({
     ...getBasic(theme),
