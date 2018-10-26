@@ -1,16 +1,17 @@
 
 import CardView from './index.js'
 import {connect} from 'react-redux'
-import * as actions from './actions.js'
-import * as actionsNav from '../../navigation/actions'
+import * as actionsNav from '../../../navigation/actions'
 import { bindActionCreators } from 'redux';
+import { getTheme, getStyles } from '../../../features/Other/selectors/index.js';
 
 const mapStateToProps = (state) => ({
-
+    ...getTheme(state),
+    ...getStyles(state)
 });
 
+
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators(actions, dispatch),
     ...bindActionCreators(actionsNav,dispatch)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CardView);

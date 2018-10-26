@@ -7,10 +7,11 @@ import { generateStack } from './src/navigation/routesBuilder'
 import Drawer from './src/components/drawer/container'
 import {items} from './src/components/drawer/draweritems';
 import DrawerIcon from './src/components/navIcons/drawerIcon'
+import {data} from './src/global/data'
 
 const store = configureStore();
 pushNotifications.configure();
-
+data.populateData();
 const drawerRoutes = {"app.home":{
 	screen:generateStack("app.home", "Home", true,true)
 }}

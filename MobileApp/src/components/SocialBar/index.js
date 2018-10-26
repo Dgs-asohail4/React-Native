@@ -68,7 +68,7 @@ export default class SocialBar extends Component {
     const {clear} = this.props.globalStyles.buttonStyle
     const {awesome,primary,baseColor,primary4,hintColor} = this.props.globalStyles.textStyle;
     return (
-      <View style={styles.container}>
+      <View style={[styles.container,{flex:1,flexDirection:'row',justifyContent:'space-around'}]}>
         <View style={styles.section}>
           <TouchableOpacity style={[clear]} onPress={this.onLikeButtonPressed}>
             <Text style={[awesome,primary, baseColor,styles.icon]}>
@@ -77,7 +77,7 @@ export default class SocialBar extends Component {
             <Text style={[awesome,primary, baseColor,label]}>{likes}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.section}>
+        <View style={[styles.section]}>
           <TouchableOpacity style={[clear]} onPress={this.onCommentButtonPressed}>
             <Text style={[awesome,hintColor,styles.icon]}>
               <Icon name={'comment'} size={20} color={hintColor.color} />
@@ -85,7 +85,7 @@ export default class SocialBar extends Component {
             <Text style={[primary4, hintColor,label]}>{comments}</Text>
           </TouchableOpacity>
          </View>
-        <View style={section}>
+        <View style={styles.section}>
           <TouchableOpacity style={[clear]} onPress={this.onShareButtonPressed}>
             <Text style={[awesome,hintColor, styles.icon]} >
               <Icon name={'share'} size={20} color={hintColor.color} />
