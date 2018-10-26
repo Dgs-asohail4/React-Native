@@ -5,8 +5,7 @@ import Theme from '../../../../global/theme'
 import { DARK_THEME, DEFUALT_THEME } from '../../../../global/config';
 import Button from '../../../../components/button'
 
-import TextStyleFactory from '../../../../global/styles/textStyle'
-import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
+import GlobalStyle from '../../../../global/styles'
 
 export default class Themes extends Component {
   static navigationOptions = {
@@ -15,10 +14,7 @@ export default class Themes extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.theme !== this.props.theme) {
-        const style = {
-          textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
-          buttonStyle: ButtonStyleFactory.getSheet(Theme[this.props.theme])
-        }
+        const style = GlobalStyle(this.props.theme)
         this.props.UpdateGlobalTheme(style);
     }
   }

@@ -7,6 +7,12 @@ export default class StyleSheetFactory {
             paddingVertical: 8,
             paddingHorizontal: 14,
           },
+          content:{
+
+          },
+          img:{
+
+          },
           card: {
             marginVertical: 8,
           },

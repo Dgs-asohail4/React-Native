@@ -28,7 +28,6 @@ export default class MyCardView2 extends Component {
       likesCount,
       commentsCount,
       sharesCount,
-
       ...attributes
       } = this.props;
 

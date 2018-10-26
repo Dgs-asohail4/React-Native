@@ -2,24 +2,24 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 
-    parentGrey : {
-        height:245, 
+    container : {
+        height:250, 
         borderWidth:1, 
         margin : 8,
         paddingBottom:20
         
     },
-    viewStyleGrey: {
+    header: {
         height: 210, 
         flexDirection: 'row', 
         
     },
-    imageStyleGrey: {
+    img: {
         width:'100%',
         height : 210,
         position: 'absolute'
     },
-    textStyleGrey: {
+    content: {
         flex: 1, 
         backgroundColor: 'rgba(0, 0, 0, 0.5)', 
         alignSelf: 'flex-start'
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         padding : 10,
         color: 'white', 
     },
-    buttonStyleGrey: {   
+    footer: {   
         flexDirection: 'row',
         marginLeft:15,
         justifyContent : 'space-between' 

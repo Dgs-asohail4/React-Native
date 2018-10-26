@@ -17,8 +17,8 @@ export default class Articles extends Component {
       <ScrollView>
         
          <MyCardView2
-        titleText = 'Plants of our Nature'
-        subtitleText = '5 minutes ago'
+          titleText = 'Plants of our Nature'
+          subtitleText = '5 minutes ago'
           likesCount = '18'
           commentsCount = '26'
           sharesCount = '5'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View,ScrollView } from 'react-native';
 import StyleSheetFactory from './styles';
-import MyCardView1 from '../../../../components/CardView/Example1';
+import MyCardView1 from '../../../../components/CardView/Example1/container';
 import img from '../../../../global/assets/img/photo1.png'
 import img2 from '../../../../global/assets/img/photo2.png'
 import img3 from '../../../../global/assets/img/photo3.png'
@@ -14,14 +14,15 @@ export default class Articles extends Component {
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         
       <MyCardView1
-     titleText = 'Plants of our Nature'
-     subtitleText = '5 minutes ago'
+       titleText = 'Plants of our Nature'
+       subtitleText = '5 minutes ago'
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img}
      />
      <MyCardView1
@@ -30,6 +31,7 @@ export default class Articles extends Component {
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img2}
      />
      <MyCardView1
@@ -38,6 +40,7 @@ export default class Articles extends Component {
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img3}
      />
      <MyCardView1
@@ -46,6 +49,7 @@ export default class Articles extends Component {
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img4}
      />
      <MyCardView1
@@ -54,6 +58,7 @@ export default class Articles extends Component {
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img5}
      />
      <MyCardView1
@@ -62,6 +67,7 @@ export default class Articles extends Component {
        likesCount = '18'
        commentsCount = '26'
        sharesCount = '5'
+       backgroundColor={Theme[this.props.theme].colors.screen.base}
        image = {img6}
      />
    </ScrollView>

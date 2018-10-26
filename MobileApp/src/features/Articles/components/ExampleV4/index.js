@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View,Image,FlatList } from 'react-native';
+import { Text, View,Image,FlatList,TouchableOpacity } from 'react-native';
 import StyleSheetFactory from './styles';
 import styles from './styles'
 import List from '../../../../components/list'
@@ -50,29 +50,42 @@ export default class Articles extends Component {
      }
   }
    renderItem(item){
+     console.log(this.props)
      item = item.item;
-     const {header6, horizontal,baseColor,secondary1,hintColor,secondary6} =this.props.globalStyles.textStyle;
-     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    return(
-      <View style={[horizontal,styles.card,{backgroundColor:"white"}]}>
-         <View key={item.key}>
-      <Image source={item.image}/>
-         <Text style={[header6,hintColor,secondary6,{textAlign:'center'}]} >{item.name}</Text>
-         <Text style={[styles.post, secondary1,baseColor,{textAlign:'center'}]}>{item.description}</Text>
-      </View>
-      </View>
+     const {header6,baseColor,secondary1,hintColor,secondary6} =this.props.globalStyles.textStyle;
+     var styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+     const horizontal = this.props.globalStyles.modalStyle.horizontal;
+     styles = {...styles, ...horizontal}
+     return(
+      <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      //onPress={() => this.props.navigation.navigate('articleview', { id: item.id })}
+      >
+        <View style={[styles.card,{backgroundColor:Theme[this.props.theme].colors.base},]}>
+          <View key={item.key} style={ styles.container2}>
+            <Image source={item.image} style={[styles.img]}/>
+            <View style={[styles.content,{paddingHorizontal:20,justifyContent:'center'}]}>
+              <Text style={[header6, baseColor]} >{item.name}</Text>
+              <Text style={[styles.post, secondary1,baseColor]}>{item.description}</Text>
+            </View>
+          </View>
+        </View>
+      </TouchableOpacity>
      
     )
   }
   render() {
     const {header6} =this.props.globalStyles.textStyle;
-    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    
+    var styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+    const horizontal = this.props.globalStyles.modalStyle.horizontal;
+    styles = {...styles, ...horizontal}
     return (
        <FlatList
-              data={this.state.names} 
-              renderItem={this.renderItem}
-              />
+          style={styles.container}
+          data={this.state.names} 
+          renderItem={this.renderItem}
+          />
     );
   }
 }
