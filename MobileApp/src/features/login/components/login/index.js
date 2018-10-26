@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import {
   View,
-  TouchableOpacity,
-  Image,
   Text,
-  KeyboardAvoidingView,
-  ScrollView,
-  Dimensions,
+  StyleSheet,
+  TextInput,
   AsyncStorage
-} from 'react-native';
-import StyleSheetFactory from './styles';
+} from 'react-native'
 
-import {USER_KEY, DEFUALT_THEME} from '../../../../global/config'
+import styles from './styles';
+
+import {USER_KEY} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
-import Icon from 'react-native-vector-icons/Ionicons'
-import {scaleModerate} from '../../../../utils/scale'
+
+import {COLOR_PRIMARY, TEXT_COLOR_PRIMARY} from '../../../../global/theme/default';
 
 import CustomizedTextInput from '../../../../components/textInput';
 import Button from '../../../../components/button';
-import Theme from '../../../../global/theme'
 
 export default class Login extends Component {
-  static navigationOptions = ({navigation}) => ({
-    header:null
-  });
+
   constructor(props){
     super(props)
     this.state = {
@@ -85,99 +80,43 @@ export default class Login extends Component {
 
 
   }
-  getThemeImageSource = (theme) => (
-      theme == DEFUALT_THEME ?
-      require('../../../../global/assets/img/backgroundLoginV1.png')
-      : require('../../../../global/assets/img/backgroundLoginV1DarkTheme.png')
-  );
-  renderImage = (styles) => {
-    const screenSize = Dimensions.get('window');
-    const imageSize = {
-      width: screenSize.width,
-      height: screenSize.height - scaleModerate(375, 1),
-    };
-    return (
-      <Image
-        style={[styles.image, imageSize]}
-        source={this.getThemeImageSource(this.props.theme)}
-      />
-    );
-  };
   render() {
-    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
-    const {social, clear} = this.props.globalStyles.buttonStyle;
-    const {awesome,hero,header6, primary3,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
-      <View style={styles.screen}>
-      <ScrollView keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}>
+      <View style={styles.container}>
+        <CustomizedTextInput
+          style={styles.input}
+          placeholder='Username'
+          autoCapitalize="none"
+          autoCorrect={false}
+          backgroundColor={COLOR_PRIMARY}
+          value={this.state.username}
+          placeholderTextColor='white'
+          inputColor={TEXT_COLOR_PRIMARY}
+          onChangeText={val => this.onChangeText('username', val)}
+        />
+        <CustomizedTextInput
+          style={styles.input}
+          placeholder='Password'
+          autoCapitalize="none"
+          value={this.state.password}
+          secureTextEntry={true}
+          backgroundColor={COLOR_PRIMARY}
+          inputColor={TEXT_COLOR_PRIMARY}
+          placeholderTextColor='white'
+          onChangeText={val => this.onChangeText('password', val)}
+        />
+        <Button
+          text='Sign In'
+          color={COLOR_PRIMARY}
+          onPress={this.signIn}
+        />
+        </View>
 
-        {this.renderImage(styles)}
-        <View style={styles.container}>
-        <View style={styles.buttons}>
-            <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]}>
-              <Icon name={'logo-facebook'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]}
-              >
-              <Icon name={'logo-twitter'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.button,social,{justifyContent:'center'}]} >
-              <Icon name={'logo-google'} size={25} style={[awesome,hero,accentColor,center,{alignSelf:'center'}]}/>
-            </TouchableOpacity>
-          </View>
-          <CustomizedTextInput
-            style={styles.input}
-            placeholder='Username'
-            autoCapitalize="none"
-            autoCorrect={false}
-            borderRadius={20}
-            //backgroundColor={'#ff9147'}
-            value={this.state.username}
-            placeholderTextColor='black'
-            //inputColor={TEXT_COLOR_PRIMARY}
-            onChangeText={val => this.onChangeText('username', val)}
-          />
-          <CustomizedTextInput
-            style={styles.input}
-            placeholder='Password'
-            borderRadius={20}
-
-            autoCapitalize="none"
-            value={this.state.password}
-            secureTextEntry={true}
-           // backgroundColor={'#ff9147'}
-           // inputColor={TEXT_COLOR_PRIMARY}
-            placeholderTextColor='black'
-            onChangeText={val => this.onChangeText('password', val)}
-          />
-              <Button
-                  text='LOGIN'
-                  borderRadius={20}
-                  color={Theme[this.props.theme].colors.gradients.base[0]}
-                  style={[{width: 350},{height:50},baseColor,styles.save]}
-                  textStyle={[inverseColor]}
-                  onPress={this.signIn}
-                />
-
-                <View style={styles.footer}>
-                <View style={styles.textRow}>
-                  <Text style={[primary3, baseColor]}>Don’t have an account? </Text>
-                  <TouchableOpacity
-                  onPress={()=>this.props.navigation.navigate('auth.signup')}
-                  style={[clear]} >
-                  <Text style={[header6, baseColor]}>Sign up now</Text>
-                </TouchableOpacity>
-                </View>
-              </View>
-
-
-          </View>
-          </ScrollView>
-      </View>
-      )
+        // <Button
+        //   text='Sign up'
+        //   color={COLOR_PRIMARY}
+        //   onPress={()=>PushNewScreen(this.props, "auth.signup", "", false)}
+        // />
+    )
   }
 }

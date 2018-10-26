@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import * as actions from './action.js'
 import * as actionsNav from '../../navigation/actions'
 import { bindActionCreators } from 'redux';
-import {getScene, getTheme, getStyles} from '../../navigation/selectors'
+import {getScene} from '../../navigation/selectors'
 
 const mapStateToProps = (state) => ({
-    ...getScene(state),
-    ...getStyles(state),
-    ...getTheme(state)
+    ...getScene(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
