@@ -2,14 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
-        marginTop: 3,
-        backgroundColor: '#d9f9b1',
-        alignItems: 'center',
+        // padding: 10,
+        backgroundColor: 'white'
+       
      },
-     text: {
-        color: '#4f603c'
-     }
+    
 });
 
 export default styles;

@@ -3,7 +3,7 @@ import { Text, View,TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import { COLOR_PRIMARY, TEXT_COLOR_PRIMARY} from '../../global/theme/default';
-
+import Icon from 'react-native-vector-icons/Ionicons'
 export default class Button extends Component {
 
   constructor(props) {
@@ -15,24 +15,26 @@ export default class Button extends Component {
     color: COLOR_PRIMARY,
     borderColor: COLOR_PRIMARY,
     textColor:TEXT_COLOR_PRIMARY,
-    text:'Button'
+    text:"Button",
+    style:{},
+    textStyle:{}
   };
 
   render() {
-    const { text, color, borderRadius, borderColor, textColor, ...attributes} = this.props;
+    const { text, color, borderRadius, borderColor, textColor, style , textStyle ,children, ...attributes} = this.props;
     const buttonStyle={...styles.buttonStyle,
       backgroundColor:color,
       borderRadius:borderRadius,
       borderColor:borderColor
     }
-    const textStyle = {...styles.textStyle, color: textColor}
+    const textStyleCustom = {...styles.textStyle, color: textColor}
 
     return (
-		  <TouchableOpacity style={buttonStyle}
+		  <TouchableOpacity style={[buttonStyle, style]}
           {...attributes}
         >
-			  <Text style={textStyle}>{text}</Text>
-		  </TouchableOpacity>
+			  <Text style={[textStyleCustom, textStyle]}>{text}</Text>
+      </TouchableOpacity>
 		);
 
     }

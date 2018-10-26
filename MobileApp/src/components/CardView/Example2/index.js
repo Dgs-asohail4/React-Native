@@ -3,6 +3,7 @@ import { Text, View,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import img from '../../../global/assets/img/image.jpeg'
+import SocialBar from '../../SocialBar/container'
 
 export default class MyCardView2 extends Component {
   constructor(props) {
@@ -28,7 +29,6 @@ export default class MyCardView2 extends Component {
       likesCount,
       commentsCount,
       sharesCount,
-
       ...attributes
       } = this.props;
 
@@ -47,7 +47,7 @@ export default class MyCardView2 extends Component {
           
           <View style = {[styles.overlayIconViewStyle]}>
             <View style = {styles.row}>
-              <Icon name = 'heart-o' size = {16} style = {[styles.overlayIconStyle]}/>
+              <Icon name = 'heart' size = {16} style = {[styles.overlayIconStyle]}/>
               <Text style={[styles.buttonTextStyle] } >{this.props.likesCount}</Text>
             </View>
             <View style = {styles.row}> 

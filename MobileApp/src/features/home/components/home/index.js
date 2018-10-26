@@ -1,59 +1,73 @@
 import React, { Component } from 'react';
-import { Text, View, AsyncStorage } from 'react-native';
-import styles from './styles';
+import { Text,TouchableOpacity, View, AsyncStorage, Dimensions, ScrollView } from 'react-native';
+import StyleSheetFactory from './styles';
+//import Button from '../../../../components/button'
 
-import Button from '../../../../components/button'
+import {items} from '../../../../components/drawer/draweritems'
 
-import {USER_KEY} from '.././../../../global/config';
-import { COLOR_PRIMARY } from '../../../../global/theme/default';
-import { PushNewScreen, ChangeStack } from '../../../../navigation/helper';
+const paddingValue = 8;
+import Theme from '../../../../global/theme'
+import TextStyleFactory from '../../../../global/styles/textStyle'
+import ButtonStyleFactory from '../../../../global/styles/buttonStyle'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Home extends Component {
+  static navigationOptions = ({navigation}) => ({
+    headerTitle: 'Grid Menu'.toUpperCase(),
+  });
 
     constructor(props){
       super(props);
+    }
 
-      this.state = {
-        visible:false
+    componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevProps.theme !== this.props.theme) {
+          const style = {
+            textStyle : TextStyleFactory.getSheet(Theme[this.props.theme]),
+            buttonStyle: ButtonStyleFactory.getSheet(Theme[this.props.theme])
+          }
+          this.props.UpdateGlobalTheme(style);
       }
     }
-    logout = async () => {
-      try {
-        await AsyncStorage.removeItem(USER_KEY)
-        ChangeStack(this.props, "Auth", "", false);
-      } catch (err) {
-        console.log('error signing out...: ', err)
-      }
+
+    _calculateItemSize() {
+      let {height, width} = Dimensions.get('window');
+      return (width - paddingValue * 6) / 2;
     }
 
     render() {
-      console.log("Home component");
+      let size = this._calculateItemSize();
+      let navigate = this.props.navigation.navigate;
+      const {primary, moon, menuIcon, center, regular, baseColor} = this.props.globalStyles.textStyle;
+      const {square} = this.props.globalStyles.buttonStyle;
+      const {theme} = this.props
+      const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+      let menuItems = items.map(function (route, index) {
+        return (
+          <View style={{margin:8,flexDirection:'column'}} key={index}>
+          <TouchableOpacity
+          style={[square,{width: size, height: size, justifyContent:'center'}]}
+          key={index}
+          onPress={() => {
+            navigate(route.navigateTo)
+          }}>
+
+          <Text style={[primary, moon, menuIcon,center]} >
+            <Icon name={route.icon} size={35} style={styles.icon} color={Theme[theme].colors.primary} />
+          </Text>
+          <Text style={[center, regular, primary, baseColor]}>{route.name}</Text>
+
+        </TouchableOpacity>
+
+          </View>
+          )
+      });
       return (
-        <View style={styles.container}>
-          <Text>Hello from home screen</Text>
-            <Button
-            color={COLOR_PRIMARY}
-            borderRadius={30}
-            onPress={this.logout}
-            text="Sign Out"
-          />
-          <Button
-            onPress={() => {
-              PushNewScreen(this.props, "app.screen2", "Screen2", true);
-            }}
-            color={COLOR_PRIMARY}
-            text="View next screen"
-          />
-        </View>
-
-
-        // <Button
-        //   onPress={() => {
-        //     ChangeToTabView();
-        //   }}
-        //   color={COLOR_PRIMARY}
-        //   text="Change to tabview"
-        // />
+        <ScrollView style={styles.root}
+                    contentContainerStyle={styles.rootContainer}>
+          {menuItems}
+        </ScrollView>
       )
     }
 }

@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
 import {
 	Text,
 	View,
 	TouchableOpacity,
-  ScrollView
+  ScrollView,
+  TouchableHighlight,
+  Image
 } from 'react-native';
-import styles from './styles';
+import StyleSheetFactory from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Header from './header'
-import List from '../list'
-import {NavigationActions} from 'react-navigation'
-import { DRAWER_GRADIENT, TEXT_COLOR_PRIMARY, DRAWER_GRADIENT_2 } from '../../global/theme/default';
-import {items} from './draweritems';
 import { ChangeDrawerScreen } from '../../navigation/helper';
+import {items} from './draweritems'
+import Theme from '../../global/theme'
+
 class Drawer extends Component {
 	constructor(props) {
     super(props);
@@ -26,29 +26,47 @@ class Drawer extends Component {
     ChangeDrawerScreen(this.props, route.navigateTo, route.title, true);
   }
 
-	render() {
-    return (
-      <LinearGradient colors={[DRAWER_GRADIENT_2, DRAWER_GRADIENT, DRAWER_GRADIENT_2]} style={styles.linearGradient}>
-        <View style={styles.container}>
-           <Header/>
-           <List data={items} containerStyle={{paddingLeft:15,marginTop:20, marginBottom:20}} renderRow={(item) => (
-            <TouchableOpacity key={item.id} onPress={() => this._navigate(item)}>
-              <View style={styles.drawerListItem}>
-                <Icon name={item.icon} size={26} color="white" style={[styles.drawerListIcon]} />
-                <Text style={styles.drawerListItemText}>
-                  {item.name}
-                </Text>
-              </View>
-            </TouchableOpacity>
-           )} />
-            <View style={{height:30}}>
-              <Text style={styles._version}>
-                v1.0.0
-              </Text>
-            </View>
+  renderMenu = () => items.map(this.renderMenuItem);
 
+  renderMenuItem = (item) => {
+    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+    const {moon,primary,xlarge,baseColor,header6, awesome,secondaryColor,small} = this.props.globalStyles.textStyle;
+    return (
+    <TouchableHighlight
+      style={styles.container}
+      key={item.name}
+      underlayColor={Theme[this.props.theme].colors.button.underlay}
+      activeOpacity={1}
+      onPress={() => this._navigate(item)}>
+      <View style={styles.content}>
+        <View style={styles.content}>
+          <Text
+            style={[moon,primary,xlarge,styles.icon]}>
+            <Icon name={item.icon} size={25} color={Theme[this.props.theme].colors.primary}/>
+          </Text>
+          <Text style={[primary, header6,baseColor]}>{item.name}</Text>
         </View>
-			</LinearGradient>
+        <Text style={[awesome,small,baseColor]}>
+          <FontAwesomeIcon name={'chevron-right'} size={25} color={Theme[this.props.theme].colors.base} />
+        </Text>
+      </View>
+    </TouchableHighlight>
+  )};
+
+	render() {
+    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+    const {primary, baseColor, logo, header1} = this.props.globalStyles.textStyle;
+    return (
+      <View style={styles.root}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}>
+          <View style={[styles.container, styles.content]}>
+            <Header theme={this.props.theme}/>
+            <Text style={[primary,baseColor,logo, header1]}>UI Kit</Text>
+          </View>
+          {this.renderMenu()}
+        </ScrollView>
+      </View>
 		);
 	}
 }

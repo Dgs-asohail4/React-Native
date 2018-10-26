@@ -2,29 +2,24 @@ import React from 'react'; // eslint-disable-line
 import { Provider } from 'react-redux';
 import { pushNotifications } from './src/global/services';
 import configureStore from './src/store/configureStore';
-import {navigatorStyle, navigatorWithoutNavbar} from './src/global/styles/navigator';
 import {StackNavigator, createDrawerNavigator } from 'react-navigation'
-const store = configureStore();
-import { generateStack, generateDrawerRoutes } from './src/navigation/routesBuilder'
+import { generateStack } from './src/navigation/routesBuilder'
 import Drawer from './src/components/drawer/container'
 import {items} from './src/components/drawer/draweritems';
-import { COLOR_PRIMARY, TEXT_COLOR_PRIMARY } from './src/global/theme/default';
 import DrawerIcon from './src/components/navIcons/drawerIcon'
+import {data} from './src/global/data'
 
-
+const store = configureStore();
 pushNotifications.configure();
-
-
-const drawerRoutes = {}
+data.populateData();
+const drawerRoutes = {"app.home":{
+	screen:generateStack("app.home", "Home", true,true)
+}}
 for(var i=0; i<items.length; i++){
 	drawerRoutes[items[i].navigateTo] = {
 		screen : generateStack(items[i].navigateTo, items[i].title, true, true),
-
 	}
 }
-
-
-console.log(drawerRoutes);
 
 const RootStack = StackNavigator({
 	Splash: {
@@ -33,12 +28,12 @@ const RootStack = StackNavigator({
 			header: null
 		}
 	},
-	Auth: {
-		screen : generateStack('auth.login', '', false, false),
-		navigationOptions:{
-			header: null
-		}
-	},
+	// Auth: {
+	// 	screen : generateStack('auth.login', '', false, false),
+	// 	navigationOptions:{
+	// 		header: null
+	// 	}
+	// },
 	Home:{
 		screen : createDrawerNavigator({
 			...drawerRoutes
@@ -48,7 +43,7 @@ const RootStack = StackNavigator({
 			drawerCloseRoute: 'DrawerClose',
 			drawerToggleRoute: 'DrawerToggle',
 			drawerPosition:'left',
-			drawerWidth:270,
+			drawerWidth:330,
 			drawerIcon : (<DrawerIcon />),
 			contentComponent: (props) => <Drawer {...props}/>
 		}),
@@ -58,9 +53,6 @@ const RootStack = StackNavigator({
 	headerMode:
 	'none'
 });
-
-
-console.log(RootStack);
 
 export default class App extends React.Component {
 	render() {
