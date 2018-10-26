@@ -52,12 +52,10 @@ var basic_component =
 `import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-import StyleSheetFactory from './styles';
-import Theme from '../../global/theme'
+import styles from './styles';
 
 export default class COMPONENT_NAME extends Component {
   render() {
-    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
     return (
       <View>
         <Text>Hello World !</Text>
@@ -68,26 +66,27 @@ export default class COMPONENT_NAME extends Component {
 
 var basic_styles =
 `import { StyleSheet } from 'react-native';
-export default class StyleSheetFactory {
-    static getSheet(theme) {
-        return StyleSheet.create({
-        })
-    }
-};`
+
+const styles = StyleSheet.create({
+
+});
+
+export default styles;`
 
 var basic_container =
 `
 import COMPONENT_NAME from './index.js'
 import {connect} from 'react-redux'
+import * as actions from './actions.js'
 import * as actionsNav from '../../navigation/actions'
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => ({
-    theme : state.nav.theme,
-    globalStyles : state.splash.globalTheme
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators(actions, dispatch),
     ...bindActionCreators(actionsNav,dispatch)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(COMPONENT_NAME);

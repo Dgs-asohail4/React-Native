@@ -53,12 +53,9 @@ const writetofile = (file, text) => fs.writeFile(file, text, function (err) {
 var basic_component =
 `import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import StyleSheetFactory from './styles';
-import Theme from '../../../../global/theme'
-
+import styles from './styles';
 export default class COMPONENT_NAME extends Component {
   render() {
-    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     return (
       <View>
         <Text>Hello World !</Text>
@@ -70,12 +67,12 @@ export default class COMPONENT_NAME extends Component {
 
 var basic_styles =
 `import { StyleSheet } from 'react-native';
-export default class StyleSheetFactory {
-    static getSheet(theme) {
-        return StyleSheet.create({
-        })
-    }
-};`
+
+const styles = StyleSheet.create({
+
+});
+
+export default styles;`
 
 var basic_reducer =
 `
@@ -97,11 +94,8 @@ import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
 import { bindActionCreators } from 'redux';
-import { getTheme, getStyles } from '../selectors';
-
 const mapStateToProps = (state) => ({
-    ...getTheme(state),
-    ...getStyles(state)
+
 });
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(actions, dispatch),
@@ -115,14 +109,6 @@ var basic_selector =
 // Selectors
 export const getTitle = (state) => ({
     title :state.title
-});
-
-export const getTheme = (state) => ({
-    theme : state.nav.theme
-});
-
-export const getStyles = (state) => ({
-    globalStyles : state.splash.globalTheme
 });
 `
 

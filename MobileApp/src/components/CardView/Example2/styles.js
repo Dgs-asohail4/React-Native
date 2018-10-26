@@ -4,19 +4,18 @@ const styles = StyleSheet.create({
 
 
     viewStyleOverLay: {
-        height: 180, 
+        height: 250, 
         flexDirection: 'row', 
         marginBottom : 0,
         flexWrap : 'wrap'
     },
     imageStyle: {
-        height: 180, 
+        height: 250, 
         position: 'absolute',
         width : '100%'
         
     },
     textStyle: {
-        marginBottom: 5,
         flex: 1, 
         backgroundColor: 'transparent', 
         alignSelf: 'flex-end',

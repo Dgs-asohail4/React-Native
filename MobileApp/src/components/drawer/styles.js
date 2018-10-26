@@ -1,27 +1,47 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+	},
+	drawerList: {
 
-export default class StyleSheetFactory {
-	static getSheet(theme) {
-		return StyleSheet.create({
-			container: {
-				height: 80,
-				paddingHorizontal: 16,
-				borderTopWidth: StyleSheet.hairlineWidth,
-				borderColor: theme.colors.border.base,
-			  },
-			root: {
-				paddingTop: Platform.OS === 'ios' ? 20 : 0,
-				backgroundColor: theme.colors.screen.base,
-			},
-			content: {
-				flex: 1,
-				flexDirection: 'row',
-				alignItems: 'center',
-			},
-			icon: {
-				marginRight: 13,
-			},
-		})
+	},
+	drawerListIcon: {
+		width: 27
+	},
+	drawerListItem: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginBottom: 23
+	},
+	drawerListItemText: {
+		color: 'white',
+		fontSize: 16,
+		paddingLeft: 15,
+		flex: 1
+	},
+	linearGradient: {
+		// top: 0,
+		// left: 0,
+		// right: 0,
+		// height: 248,
+		// position: 'absolute'
+		flex: 1
+	},
+	_version: {
+		color: '#3c3c3c',
+		textAlign:'center',
+		justifyContent:'center'
+
+	},
+	drawerHeader: {
+		height:120,
+		backgroundColor:'#21292f',
+		justifyContent:'center',
+		alignItems:'center'
 	}
-}
+});
+
+export default styles;
