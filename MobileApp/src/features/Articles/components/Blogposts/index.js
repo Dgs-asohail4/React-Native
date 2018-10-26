@@ -11,7 +11,6 @@ import userimg from '../../../../global/assets/img/avatar/Image9.png'
 import userimg2 from '../../../../global/assets/img/avatar/Image1.png'
 import userimg3 from '../../../../global/assets/img/avatar/Image3.png'
 import userimg4 from '../../../../global/assets/img/avatar/Image4.png'
-import Avatar from '../../../../components/avatar';
 export default class Articles extends Component {
   constructor(props){
     super(props)
