@@ -16,7 +16,7 @@ import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 import Icon from 'react-native-vector-icons/Ionicons'
 import {scaleModerate} from '../../../../utils/scale'
 
-import CustomizedTextInput from '../../../../components/textInput';
+import CustomizedTextInput from '../../../../components/textInput/container';
 import Button from '../../../../components/button';
 import Theme from '../../../../global/theme'
 
@@ -104,44 +104,39 @@ export default class Login extends Component {
     const {awesome,primary3,header6,light,h1,logo,h0,hero,accentColor, baseColor,inverseColor, center} = this.props.globalStyles.textStyle;
     return (
       <View style={styles.screen}>
-      <ScrollView keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}>
+        <ScrollView keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
         {this.renderImage(styles)}
-        <Text style={[light,h1,baseColor]}>React Native</Text>
-        <Text style={[logo, h0,baseColor]}>UI Kit</Text>
-        </View>
+          <Text style={[light,h1,baseColor]}>React Native</Text>
+          <Text style={[logo, h0,baseColor]}>UI Kit</Text>
+      </View>
         <View style={styles.content}>
           <CustomizedTextInput
-            style={styles.input}
-            placeholder='Username'
             autoCapitalize="none"
             autoCorrect={false}
-            borderRadius={20}
-            //backgroundColor={'#ff9147'}
+            backgroundColor={Theme[this.props.theme].colors.control.background}
+            borderColor={Theme[this.props.theme].colors.border.base}
+            borderRadius={24}
+            placeholderTextColor={baseColor.color}
             value={this.state.username}
-            placeholderTextColor='black'
-            //inputColor={TEXT_COLOR_PRIMARY}
             onChangeText={val => this.onChangeText('username', val)}
           />
           <CustomizedTextInput
-            style={styles.input}
-            placeholder='Password'
-            borderRadius={20}
-
             autoCapitalize="none"
+            autoCorrect={false}
+            backgroundColor={Theme[this.props.theme].colors.control.background}
+            borderColor={Theme[this.props.theme].colors.border.base}
+            borderRadius={24}
+            placeholderTextColor={baseColor.color}
             value={this.state.password}
-            secureTextEntry={true}
-           // backgroundColor={'#ff9147'}
-           // inputColor={TEXT_COLOR_PRIMARY}
-            placeholderTextColor='black'
             onChangeText={val => this.onChangeText('password', val)}
           />
             <Button
                 text='LOGIN'
-                borderRadius={20}
+                borderRadius={24}
                 color={Theme[this.props.theme].colors.gradients.base[0]}
-                style={[{width: 350},{height:50}]}
+                style={[{width: 300},{height:50}]}
                 textStyle={[inverseColor]}
                 onPress={this.signIn}
               />

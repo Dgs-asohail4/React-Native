@@ -20,6 +20,7 @@ export default class StyleSheetFactory {
         alignItems: 'center'
       },
       content: {
+        flex:1,
         justifyContent: 'space-between',
       },
       button: {

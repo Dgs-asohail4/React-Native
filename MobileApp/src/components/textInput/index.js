@@ -50,6 +50,7 @@ export default class CutomizedTextInput extends Component {
           error,
           iconName,
           iconPos,
+          inputStyle,
           contentContainerStyle,
           ...attributes
           } = this.props;
@@ -62,26 +63,21 @@ export default class CutomizedTextInput extends Component {
                            borderColor,
                           };
 
-    const inputStyle = [styles.input, baseColor];
+    const _inputStyle = [styles.input, baseColor, inputStyle];
 
     return (
         <View style={[containerStyle, error ? styles.textInvalid : containerStyle, contentContainerStyle]}>
         {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={20} color = {iconColor} /> }
-        {!this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> }
-
         <TextInput
           {...attributes}
-          style={[iconPos == 'right' ? styles.searchSectionLeft : inputStyle]}
+          style={[iconPos == 'right' ? styles.searchSectionLeft : _inputStyle]}
           placeholder={placeholder}
           onChangeText={(searchString) => {this.setState({searchString})}}
           underlineColorAndroid="transparent"
           placeholderTextColor={placeholderTextColor}
 
         />
-
         {this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchIconRight]} name={iconName} size={20} color = {iconColor} /> }
-        {/* {!this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> } */}
-
         </View>
 
 
