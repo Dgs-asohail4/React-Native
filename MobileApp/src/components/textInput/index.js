@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View,TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from './styles';
+import StyleSheetFactory from './styles';
+import Theme from '../../global/theme';
+
+import { DEFUALT_THEME } from '../../global/config';
 
 
 
@@ -14,21 +17,25 @@ export default class CutomizedTextInput extends Component {
   static defaultProps = {
 
     borderRadius: 0,
-    backgroundColor:'#fff',
+    backgroundColor:Theme[DEFUALT_THEME].colors.control.background,
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: Theme[DEFUALT_THEME].colors.border.base,
     iconColor:'#424242',
     inputColor:'#424242',
-    placeholderTextColor : '#424242',
+    placeholderTextColor : Theme[DEFUALT_THEME].colors.input.placeholder,
     placeholder: 'Type your Input',
     error : false,
     iconName : null,
-    iconPos : 'left'
+    iconPos : 'left',
+    theme : DEFUALT_THEME,
+    contentContainerStyle:{}
 
   };
 
 
   render() {
+    const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
+    const {baseColor} = this.props.globalStyles.textStyle;
     const {
           borderRadius,
           backgroundColor,
@@ -43,6 +50,7 @@ export default class CutomizedTextInput extends Component {
           error,
           iconName,
           iconPos,
+          contentContainerStyle,
           ...attributes
           } = this.props;
     const containerStyle = {...styles.searchSection,
@@ -54,16 +62,16 @@ export default class CutomizedTextInput extends Component {
                            borderColor,
                           };
 
-    const inputStyle = {flex:1,color:inputColor,paddingRight : 46, fontSize:18}
+    const inputStyle = [styles.input, baseColor];
 
     return (
-        <View style={[containerStyle, error ? styles.textInvalid : containerStyle]}>
+        <View style={[containerStyle, error ? styles.textInvalid : containerStyle, contentContainerStyle]}>
         {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={20} color = {iconColor} /> }
         {!this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchSectionWoIcon]} name={iconName} size={30} color = {iconColor} /> }
 
         <TextInput
           {...attributes}
-          style={[inputStyle,iconPos == 'right' ? styles.searchSectionLeft : inputStyle]}
+          style={[iconPos == 'right' ? styles.searchSectionLeft : inputStyle]}
           placeholder={placeholder}
           onChangeText={(searchString) => {this.setState({searchString})}}
           underlineColorAndroid="transparent"
