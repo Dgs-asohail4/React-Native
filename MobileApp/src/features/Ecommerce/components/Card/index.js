@@ -13,12 +13,12 @@ export default class Ecommerce extends Component {
     static navigationOptions = {
       title: 'Cards'.toUpperCase(),
     };
-  
+
     state = {
       data: data.getCards(),
       modalVisible: false,
     };
-  
+
     getCardStyle = (type) => {
       switch (type) {
         case 'visa':
@@ -39,7 +39,7 @@ export default class Ecommerce extends Component {
         default: return {};
       }
     };
-  
+
     formatCurrency = (amount, currency) => {
       switch (currency) {
         case 'usd':
@@ -49,7 +49,7 @@ export default class Ecommerce extends Component {
         default: return '';
       }
     };
-  
+
     prepareCardNo = (cardNo) => {
       const re = /\*+/;
       const parts = cardNo.split(re);
@@ -58,7 +58,11 @@ export default class Ecommerce extends Component {
         lastPart: parts[1],
       };
     };
-  
+
+    componentWillUnmount(){
+      this.setState({modalVisible:false})
+    }
+
     // renderFooter = () => (
     //   <View style={styles.footer}>
     //     <Button style={[styles.button,highlight]} circle>
@@ -66,17 +70,17 @@ export default class Ecommerce extends Component {
     //     </Button>
     //   </View>
     // );
-  
+
     setModalVisible = (visible) => {
       this.setState({ modalVisible: visible });
     };
-  
+
     onItemPressed = () => {
       this.setModalVisible(true);
     };
-  
+
     extractItemKey = (item) => `${item.id}`;
-  
+
     renderItem = ({ item }) => {
       const { gradient, Icon } = this.getCardStyle(item.type);
       const { firstPart, lastPart } = this.prepareCardNo(item.cardNo);
@@ -85,7 +89,7 @@ export default class Ecommerce extends Component {
       const credit = this.props.globalStyles.modalStyle.credit;
     styles = {...styles, ...credit}
       return (<View style={styles.card}>
-      
+
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
@@ -115,11 +119,11 @@ export default class Ecommerce extends Component {
                 <View style={[{flex:1,flexDirection:'row'}]}>
                   <Text style={[header6,inverseColor]}>{item.name.toUpperCase()}</Text>
                 </View>
-                <View style={[{justifyContent:'space-evenly'}]}>  
+                <View style={[{justifyContent:'space-evenly'}]}>
                   <Text
                     style={[header2,inverseColor,{textAlign:'right'}]}>{this.formatCurrency(item.amount, item.currency)}
                   </Text>
-                </View> 
+                </View>
               </View>
             </View>
           </View>
@@ -127,7 +131,7 @@ export default class Ecommerce extends Component {
       </TouchableOpacity>
     </View>)
     }
-  
+
     render() {
       var styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
       const {header4,light,baseColor}=this.props.globalStyles.textStyle;
@@ -151,24 +155,24 @@ export default class Ecommerce extends Component {
         <View style={styles.popupOverlay}>
           <View style={styles.popup}>
             <View style={styles.popupContent}>
-              <Text style={[styles.popupHeader,header4]}>Enter security code</Text>
+              <Text style={[styles.popupHeader,header4, baseColor]}>Enter security code</Text>
               <PasswordTextInput />
             </View>
             <View style={styles.popupButtons}>
               <TouchableOpacity
                 onPress={() => this.setModalVisible(false)}
-                style={[styles.popupButton]}
-                
+                style={[styles.popupButton,{justifyContent:'center'}]}
+
                 >
-                <Text styles={[light,{textAlign:'center'}]}>CANCEL</Text>
+                <Text style={[light,{textAlign:'center'},baseColor]}>CANCEL</Text>
               </TouchableOpacity>
               <View style={styles.separator} />
               <TouchableOpacity
                 onPress={() => this.setModalVisible(false)}
-                style={styles.popupButton}
-                
+                style={[styles.popupButton,{justifyContent:'center'}]}
+
                 >
-                <Text styles={{justifyContent:'center'}}>OK</Text>
+                <Text style={[{textAlign:'center'},baseColor]}>OK</Text>
               </TouchableOpacity>
             </View>
           </View>

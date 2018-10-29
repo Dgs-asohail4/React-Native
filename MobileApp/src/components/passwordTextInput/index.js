@@ -23,18 +23,22 @@ export default class PasswordTextInput extends Component {
       style={styles.button}
       title=''
       onPress={this.onInputLabelPressed}>
-
-      <Text style={[awesome,styles.icon, secondaryColor]}> <Icon color={secondaryColor.color} name={'slashEye'} size={20}/></Text>
+      <Text style={[awesome,styles.icon, secondaryColor]}>
+        <Icon color={secondaryColor.color} name={this.state.hidden? 'eye-slash':'eye'} size={24}/>
+      </Text>
     </Button>
   )};
 
   render() {
-    
+    const {baseColor}=this.props.globalStyles.textStyle;
+
     return (
       <TextInput
       autoCapitalize='none'
-      style={[]}
+      style={[{width:300, height:60, backgroundColor:Theme[this.props.theme].colors.control.base, borderWidth:1, borderRadius:20,borderColor:Theme[this.props.theme].colors.border.base, padding:10}]}
       autoCorrect={false}
+      placeholder={"Code"}
+      placeholderTextColor={baseColor.color}
       label={this.renderInputLabel()}
       secureTextEntry={this.state.hidden}
       {...this.props}
