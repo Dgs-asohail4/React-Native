@@ -65,6 +65,7 @@ export default class StyleSheetFactory {
               popupButton: {
                 flex: 1,
                 marginVertical: 16,
+                justifyContent:'center'
               },
               separator: {
                 backgroundColor: theme.colors.border.base,
