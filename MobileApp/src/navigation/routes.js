@@ -207,7 +207,7 @@ const Routes = [
             {
                 name:'dashboard.dashboard',
                 title:'Dashboard',
-                screen:Screens.ChartScreen,
+                screen:Screens.Dashboard,
                 children:[]
             }
         ]

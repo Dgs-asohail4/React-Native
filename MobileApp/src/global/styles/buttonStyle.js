@@ -29,6 +29,22 @@ export default class StyleSheetFactory {
           },
           clear:{
               flexDirection:'row'
+          },
+          link:{
+              color:theme.colors.primary
+          },
+          contast:{
+              color: theme.colors.text.base
+          },
+          icon:{
+              height:scale(56),
+              width:scale(56),
+              borderColor:theme.colors.border.base,
+              backgroundColor:theme.colors.control.background,
+              borderWidth:1
+          },
+          highlight:{
+              backgroundColor:theme.colors.button.highlight
           }
 
 
