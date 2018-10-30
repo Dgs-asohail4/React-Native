@@ -3,6 +3,7 @@ import Messaging from '../components/Messaging'
 import Chat from '../components/Chat'
 import ChatList from '../components/ChatList'
 import Comments from '../components/Comments'
+import ChatTitle from '../components/ChatTitle'
 
 import {connect} from 'react-redux'
 import * as actions from '../actions'
@@ -21,3 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
 export const _Chat = connect(mapStateToProps, mapDispatchToProps)(Chat);
 export const _ChatList = connect(mapStateToProps, mapDispatchToProps)(ChatList);
 export const _Comments = connect(mapStateToProps, mapDispatchToProps)(Comments);
+export const ChatTitleComp = connect(mapStateToProps, mapDispatchToProps)(ChatTitle);
