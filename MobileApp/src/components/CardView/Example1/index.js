@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import Theme from '../../../global/theme'
 // import img from '../../../global/assets/img/photo1.png'
-
+import SocialBar from '../../SocialBar/container'
 export default class MyCardView1 extends Component {
   constructor(props) {
     super(props);
@@ -59,18 +59,7 @@ export default class MyCardView1 extends Component {
         </View>
 
         <View style={[styles.footer]}>
-          <View style={styles.rowGrey}>
-            <Icon name = 'heart' size = {20} color={baseColor.color}/>
-            <Text style={[styles.buttonTextStyleGrey,awesome,primary,baseColor] } >{this.props.likesCount} Likes</Text>
-          </View>
-          <View style={styles.rowGrey}>
-            <Icon name = 'comment-o' size = {20} color={hintColor.color}/>
-            <Text style={[primary4, hintColor,styles.buttonTextStyleGrey]}>{this.props.commentsCount} Comments</Text>
-          </View>
-            <View style={styles.rowGrey}>
-              <Icon name = 'user-o' size = {20} color={hintColor.color} />
-              <Text style={[primary4, hintColor,styles.buttonTextStyleGrey]}>{this.props.sharesCount} Shares</Text>
-          </View>
+          <SocialBar showLabel />
         </View>
       </View>
 
