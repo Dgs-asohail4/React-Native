@@ -1,6 +1,6 @@
 
 import {StyleSheet} from 'react-native'
-
+import {scale,scaleVertical} from '../../utils/scale'
 
 const getBasic = (theme) => ({
     basic:{
@@ -60,6 +60,28 @@ const getHorizontal = (theme) => ({
     }
     
 })
+const getCredit=(theme)=>({
+    container: {
+        borderWidth: 0,
+        borderRadius: 7,
+      },
+      header: {
+        justifyContent: 'space-between',
+        paddingHorizontal: 14,
+        alignItems: 'center',
+        paddingBottom: scaleVertical(46),
+      },
+      content: {
+        alignItems: 'center',
+        paddingVertical: 0,
+      },
+      footer: {
+        paddingBottom: scaleVertical(14),
+        paddingTop: scaleVertical(16),
+        paddingHorizontal: 14,
+        alignItems: 'flex-end',
+      },
+})
 const getArticle=(theme) =>({
     article:{
         container: {
@@ -91,5 +113,6 @@ export default getModalStyles = (theme) => ({
     ...getBasic(theme),
     ...getBlog(theme),
     ...getHorizontal(theme),
-    ...getArticle(theme)
+    ...getArticle(theme),
+    ...getCredit(theme)
 })
