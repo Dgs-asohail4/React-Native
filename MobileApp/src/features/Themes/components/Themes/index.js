@@ -4,7 +4,7 @@ import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
 import { DARK_THEME, DEFUALT_THEME } from '../../../../global/config';
 import Button from '../../../../components/button'
-
+import GradientButton from '../../../../components/GradientButton/container'
 import GlobalStyle from '../../../../global/styles'
 
 export default class Themes extends Component {
@@ -43,20 +43,18 @@ export default class Themes extends Component {
       <View style={styles.container}>
         <Text style={[header4,center, regular, primary, baseColor,{marginVertical:10}]}>Light Theme</Text>
         <Image style={styles.image} source={require('../../../../global/assets/img/lightThemeImage.png')} />
-        <Button
+        <GradientButton
           text='APPLY'
-          style={{width:250, borderRadius:20}}
-          color={Theme[this.props.theme].colors.gradients.base[0]}
-          onPress={this.onLightThemeApplyButtonPressed}
+          colors={Theme[this.props.theme].colors.gradients.base}
+          onPress={this.onDarkThemeApplyButtonPressed}
         />
       </View>
       <View style={styles.container}>
         <Text style={[header4,center, regular, primary, baseColor,{marginVertical:10}]}>Dark Theme</Text>
         <Image style={styles.image} source={require('../../../../global/assets/img/darkThemeImage.png')} />
-        <Button
+        <GradientButton
           text='APPLY'
-          style={{width:250, borderRadius:20}}
-          color={Theme[this.props.theme].colors.gradients.base[0]}
+          colors={Theme[this.props.theme].colors.gradients.base}
           onPress={this.onDarkThemeApplyButtonPressed}
         />
       </View>
