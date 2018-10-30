@@ -17,8 +17,6 @@ export default class Dashboard extends React.Component {
 
   constructor(props){
     super(props)
-    var RkTheme = {};
-    RkTheme.current = Theme[this.props.theme];
     this.state = {
       data: {
         statItems: [
@@ -26,19 +24,19 @@ export default class Dashboard extends React.Component {
             name: 'Stars',
             value: '4,512',
             icon: 'github',
-            background: RkTheme.current.colors.dashboard.stars,
+            background: (theme)=> theme.colors.dashboard.stars,
           },
           {
             name: 'Tweets',
             value: '2,256',
             icon: 'twitter',
-            background: RkTheme.current.colors.dashboard.tweets,
+            background: (theme)=> theme.colors.dashboard.tweets,
           },
           {
             name: 'Likes',
             value: '1,124',
             icon: 'facebook',
-            background: RkTheme.current.colors.dashboard.likes,
+            background:  (theme)=> theme.colors.dashboard.likes,
           },
         ],
       },
@@ -50,13 +48,13 @@ export default class Dashboard extends React.Component {
     const {header6, secondary7, awesome,hero,baseColor} = this.props.globalStyles.textStyle;
 
     return (
-    <View style={[styles.statItemContainer, { backgroundColor: item.background }]} key={item.name}>
+    <View style={[styles.statItemContainer, { backgroundColor: item.background(Theme[this.props.theme]) }]} key={item.name}>
       <View>
         <Text  style={[header6, baseColor,styles.statItemValue]}>{item.value}</Text>
         <Text  style={[secondary7, baseColor, styles.statItemName]}>{item.name}</Text>
       </View>
       <Text style={[awesome,hero,baseColor,styles.statItemIcon]}>
-        <Icon size={20} color={baseColor.color} name={item.icon} />
+        <Icon size={30} style={styles.statItemIcon} name={item.icon} />
       </Text>
     </View>
   )};
