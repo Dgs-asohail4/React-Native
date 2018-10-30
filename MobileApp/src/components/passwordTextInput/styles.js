@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import {scaleVertical, scale} from '../../utils/scale'
 export default class StyleSheetFactory {
     static getSheet(theme) {
         return StyleSheet.create({
@@ -6,8 +7,30 @@ export default class StyleSheetFactory {
                 fontSize: 24,
               },
               button: {
-                right: 17,
+                 top:18,
+                 right:10,
               },
+
+              input:{
+                width:300,
+                height:60,
+                paddingHorizontal:10,
+                backgroundColor:theme.colors.control.base,
+                borderWidth:1,
+                borderRadius:20,
+                borderColor:theme.colors.border.base,
+                marginVertical:scaleVertical(4),
+
+              },
+
+              container:{
+                backgroundColor: theme.colors.control.background
+              },
+              label: {
+                color:theme.colors.input.label,
+                position: 'absolute',
+                right: 0,
+            }
         })
     }
 };
