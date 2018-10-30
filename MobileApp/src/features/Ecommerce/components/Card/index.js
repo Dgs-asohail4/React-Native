@@ -82,7 +82,7 @@ export default class Ecommerce extends Component {
     extractItemKey = (item) => `${item.id}`;
 
     renderItem = ({ item }) => {
-      const { gradient, Icon } = this.getCardStyle(item.type);
+      const { gradient, icon } = this.getCardStyle(item.type);
       const { firstPart, lastPart } = this.prepareCardNo(item.cardNo);
       var styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
       const {header2,header4,header6,inverseColor}=this.props.globalStyles.textStyle;
@@ -100,8 +100,14 @@ export default class Ecommerce extends Component {
           end={{ x: 1, y: 0.5 }}
           style={styles.background}>
           <View style={styles.header}>
-            <Text style={[header4,inverseColor]}>{item.bank}</Text>
-            <Image source={this.getCardStyle.icon} />
+          <View style={[{flexDirection:'row', alignItems:'center'}]}>
+            <View style={[{flex:1,flexDirection:'row'}]}>
+              <Text style={[header4,inverseColor]}>{item.bank}</Text>
+            </View>
+            <View style={[{justifyContent:'space-evenly', marginVertical:10}]}>
+              <Image source={icon} />
+            </View>
+          </View>
           </View>
           <View style={styles.content}>
             <View style={styles.cardNoContainer}>
