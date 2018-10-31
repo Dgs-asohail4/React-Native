@@ -71,11 +71,15 @@ export default class MyTextInput extends Component {
     labelStyle = [labelS, labelStyle];
     inputProps.style = [input, inputStyle];
     //inputProps.placeholderTextColor = placeholderColor;
-    container ={...container,...style};
+   container ={...container,...style};
     return (
-      <TouchableOpacity activeOpacity={1} onPress={this.focusInput} style={container}>
-        {label && this._displayLabel(label, labelStyle)}
-        <TextInput underlineColorAndroid='transparent' ref={'input'} {...inputProps}/>
+      <TouchableOpacity activeOpacity={1} onPress={this.focusInput} style={{flexDirection:'row', alignItems:'center'}}>
+        <View style={[{flex:1,flexDirection:'row'}]}>
+            {label && this._displayLabel(label, labelStyle)}
+        </View>
+        <View style={[{justifyContent:'space-evenly'}]}>
+          <TextInput underlineColorAndroid='transparent' ref={'input'} {...inputProps}/>
+        </View>
       </TouchableOpacity>
     );
   }
