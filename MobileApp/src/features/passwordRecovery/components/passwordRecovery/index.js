@@ -40,6 +40,7 @@ export default class PasswordRecovery extends Component {
           </View>
           <View style={styles.content}>
           <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             placeholder='Email'
             autoCapitalize="none"
             autoCorrect={false}

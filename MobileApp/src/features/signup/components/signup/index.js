@@ -16,7 +16,7 @@ import Button from '../../../../components/button';
 import { DEFUALT_THEME, DARK_THEME} from '../../../../global/config'
 import Theme from '../../../../global/theme'
 import {PopScreen} from '../../../../navigation/helper'
-import {scaleModerate} from '../../../../utils/scale'
+import {scaleModerate, scaleVertical} from '../../../../utils/scale'
 import CustomizedTextInput from '../../../../components/textInput/container'
 
 export default class SignUp extends React.Component {
@@ -68,6 +68,7 @@ renderImage = (styles) => (
       <View style={styles.content}>
       <View>
           <CustomizedTextInput
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
           placeholder='Name'
           autoCapitalize="none"
           autoCorrect={false}
@@ -79,6 +80,7 @@ renderImage = (styles) => (
           onChangeText={val => this.onChangeText('name', val)}
         />
         <CustomizedTextInput
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
           placeholder='Email'
           autoCapitalize="none"
           autoCorrect={false}
@@ -90,17 +92,19 @@ renderImage = (styles) => (
           onChangeText={val => this.onChangeText('email', val)}
         />
         <CustomizedTextInput
-        placeholder='Password'
-        autoCapitalize="none"
-        autoCorrect={false}
-        backgroundColor={Theme[this.props.theme].colors.control.background}
-        borderColor={Theme[this.props.theme].colors.border.base}
-        borderRadius={24}
-        placeholderTextColor={baseColor.color}
-        value={this.state.password}
-        onChangeText={val => this.onChangeText('password', val)}
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
+          placeholder='Password'
+          autoCapitalize="none"
+          autoCorrect={false}
+          backgroundColor={Theme[this.props.theme].colors.control.background}
+          borderColor={Theme[this.props.theme].colors.border.base}
+          borderRadius={24}
+          placeholderTextColor={baseColor.color}
+          value={this.state.password}
+          onChangeText={val => this.onChangeText('password', val)}
       />
       <CustomizedTextInput
+        contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
         placeholder='Confirm Password'
         autoCapitalize="none"
         autoCorrect={false}

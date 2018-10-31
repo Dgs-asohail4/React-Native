@@ -11,3 +11,8 @@ export const getTheme = (state) => ({
 export const getStyles = (state) => ({
     globalStyles : state.splash.globalTheme
 });
+
+
+export const getUser = (state) => ({
+    user:state.login.user
+})

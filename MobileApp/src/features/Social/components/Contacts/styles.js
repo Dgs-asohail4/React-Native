@@ -6,10 +6,10 @@ export default class StyleSheetFactory {
                 backgroundColor: theme.colors.screen.base,
               },
               searchContainer: {
-                backgroundColor: theme.colors.screen.bold,
-                paddingHorizontal: 16,
-                paddingVertical: 10,
-                height: 60,
+                backgroundColor: theme.colors.screen.base,
+                height: 50,
+                marginHorizontal:15,
+                marginVertical:20,
                 alignItems: 'center',
               },
               container: {

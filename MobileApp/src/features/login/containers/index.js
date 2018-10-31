@@ -1,6 +1,8 @@
 
 import Login from '../components/login'
 import LoginV2 from '../components/login2'
+import LoginChadJson from '../components/loginChadJson'
+
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 import * as actionsNav from '../../../navigation/actions'
@@ -18,3 +20,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 export const _Login = connect(mapStateToProps, mapDispatchToProps)(Login);
 export const _LoginV2 = connect(mapStateToProps, mapDispatchToProps)(LoginV2);
+export const LoginV3 = connect(mapStateToProps, mapDispatchToProps)(LoginChadJson);

@@ -20,7 +20,7 @@ export default class Social extends Component {
   renderAttachment = (item) => {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
     const hasAttachment = item.attach !== undefined;
-    return hasAttachment ? <View /> : <Image style={styles.attachment} source={item.attach} />;
+    return hasAttachment ? (<View />) : (<Image style={styles.attachment} source={item.attach} />);
   };
 
   renderItem = ({ item }) => {
@@ -30,7 +30,7 @@ export default class Social extends Component {
     <View style={styles.container}>
       <Avatar
         img={item.user.photo}
-        circle
+        small
         style={styles.avatar}
         //badge={item.type}
       />
@@ -49,7 +49,7 @@ export default class Social extends Component {
         {this.renderAttachment(item)}
       </View>
     </View>
-  
+
   )}
 
   render() {

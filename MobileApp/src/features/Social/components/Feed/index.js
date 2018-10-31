@@ -29,16 +29,16 @@ export default class Social extends Component {
           style={styles.avatar}
           img={item.user.photo}
         />
-        <View>
+        <View style={{marginVertical:10}}>
           <Text style={[header4,baseColor]}>{`${item.user.firstName} ${item.user.lastName}`}</Text>
           <Text style={[secondary2,hintColor]}>{moment().add(item.time, 'seconds').fromNow()}</Text>
         </View>
       </View>
       <Image style={[{width:null,height:200}]}source={item.photo} />
       <View>
-        <Text style={[primary3,baseColor]}>{item.text}</Text>
+        <Text style={[primary3,baseColor,{margin:10}]}>{item.text}</Text>
       </View>
-      <View style={[{paddingTop:10,paddingBottom:20}]}>
+      <View style={[{marginVertical:20}]}>
         <SocialBar />
       </View >
     </View>
