@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import {scaleVertical} from '../../../../utils/scale';
+import {scaleVertical, scale} from '../../../../utils/scale';
 export default class StyleSheetFactory {
   static getSheet(theme) {
   return StyleSheet.create({
     input: {
-        width: 350,
+        width: scale(350),
         fontSize: 18,
         fontWeight: '500',
         height: 55,
