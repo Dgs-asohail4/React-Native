@@ -6,14 +6,14 @@ const getBasic = (theme) => ({
     basic:{
         input: {
             //fontFamily: theme => theme.fonts.family.bold,
-            color: theme => theme.colors.text.base,
+            color: theme.colors.text.base,
          //   placeholderTextColor: theme => theme.colors.input.placeholder,
         },
         container:{
             backgroundColor: theme => theme.colors.control.background,
         },
         label:{
-            color: theme => theme.colors.input.label,
+            color: theme.colors.input.label,
         }
 
     }
