@@ -26,6 +26,7 @@ export default class CutomizedTextInput extends Component {
     placeholder: 'Type your Input',
     error : false,
     iconName : null,
+    iconSize: 20,
     iconPos : 'left',
     theme : DEFUALT_THEME,
     contentContainerStyle:{}
@@ -48,6 +49,7 @@ export default class CutomizedTextInput extends Component {
           placeholderTextColor,
           placeholder,
           error,
+          iconSize,
           iconName,
           iconPos,
           inputStyle,
@@ -67,17 +69,17 @@ export default class CutomizedTextInput extends Component {
 
     return (
         <View style={[containerStyle, error ? styles.textInvalid : containerStyle, contentContainerStyle]}>
-        {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={20} color = {iconColor} /> }
-        <TextInput
-          {...attributes}
-          style={[iconPos == 'right' ? styles.searchSectionLeft : _inputStyle]}
-          placeholder={placeholder}
-          onChangeText={(searchString) => {this.setState({searchString})}}
-          underlineColorAndroid="transparent"
-          placeholderTextColor={placeholderTextColor}
+          {this.props.iconName && this.props.iconPos == 'left' && <Icon style={[styles.searchIcon]} name={iconName} size={iconSize} color = {iconColor} /> }
+          <TextInput
+            {...attributes}
+            style={[iconPos == 'right' ? styles.searchSectionLeft : _inputStyle]}
+            placeholder={placeholder}
+            onChangeText={(searchString) => {this.setState({searchString})}}
+            underlineColorAndroid="transparent"
+            placeholderTextColor={placeholderTextColor}
 
-        />
-        {this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchIconRight]} name={iconName} size={20} color = {iconColor} /> }
+          />
+          {this.props.iconName && this.props.iconPos == 'right' && <Icon style={[styles.searchIconRight]} name={iconName} size={iconSize} color = {iconColor} /> }
         </View>
 
 

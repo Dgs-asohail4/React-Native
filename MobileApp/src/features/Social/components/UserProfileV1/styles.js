@@ -38,6 +38,7 @@ export default class StyleSheetFactory {
                 paddingVertical: 8,
               },
               button: {
+                backgroundColor: theme.colors.screen.base,
                 flex: 1,
                 alignSelf: 'center',
               },

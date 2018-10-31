@@ -8,6 +8,13 @@ const Routes = [
         childrens: []
     },
     {
+        name:'auth.login',
+        title:'Login',
+        icon:'',
+        screen:Screens.LoginV3,
+        childrens: []
+    },
+    {
         name:'app.splash',
         title:'Splash',
         icon:'',
@@ -259,7 +266,7 @@ const Routes = [
         icon:'',
         screen:Screens.Themes,
         childrens: []
-    }
+    },
     // {
     //     name:'app.buttonlist',
     //     title:'Button Example',
@@ -358,13 +365,13 @@ const Routes = [
     //     screen:Screens.CardView,
     //     childrens: []
     // },
-    // {
-    //     name:'app.pushnotification',
-    //     title:'Push Notification',
-    //     icon:'md-notifications-outline',
-    //     screen:Screens.PushNotificationScreen,
-    //     childrens: []
-    // }
+     {
+        name:'app.pushnotification',
+        title:'Push Notification',
+        icon:'md-notifications-outline',
+        screen:Screens.PushNotificationScreen,
+        childrens: []
+    }
 ];
 
 const AuthMenuRoutes = Routes.find((x)=>x.name=="menu.auth").childrens

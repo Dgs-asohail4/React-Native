@@ -13,3 +13,7 @@ export function requireAuthentication(){
         return dispatch(api.requireLogin(types.REQUIRE_LOGIN))
     }
 }
+
+export function setUser(user){
+    return {type:types.SET_USER, payload:user}
+}

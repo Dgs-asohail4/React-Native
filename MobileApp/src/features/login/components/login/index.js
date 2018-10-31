@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Image,
   Text,
+  ToastAndroid,
   KeyboardAvoidingView,
   ScrollView,
   Dimensions,
@@ -14,7 +15,7 @@ import StyleSheetFactory from './styles';
 import {USER_KEY, DEFUALT_THEME} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 import Icon from 'react-native-vector-icons/Ionicons'
-import {scaleModerate} from '../../../../utils/scale'
+import {scaleModerate, scaleVertical} from '../../../../utils/scale'
 
 import CustomizedTextInput from '../../../../components/textInput/container';
 import Button from '../../../../components/button';
@@ -27,7 +28,7 @@ export default class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
-      username: 'ahsan.sohail@ibex.co', password: 'Password123'
+      username: 'chad.reycenga@ibex.co', password: 'Password123'
     }
     // this.props.navigator.setDrawerEnabled({
     //   side: "left",
@@ -48,7 +49,6 @@ export default class Login extends Component {
     this.setState({ [key]: value })
   }
   signIn = async () => {
-    console.log(this.props);
     const { username, password } = this.state
     try {
        // login with provider
@@ -59,8 +59,12 @@ export default class Login extends Component {
         return;
        }
 
+
+
        const user = await AsyncStorage.setItem(USER_KEY, username)
-       console.log('user successfully signed in!', user)
+       this.props.setUser(username);
+       console.log('user successfully signed in!', username)
+      // this.props.navigation.
        ChangeStack(this.props, "Home", "Home", true);
 
     }catch (err) {
@@ -130,6 +134,7 @@ export default class Login extends Component {
             </TouchableOpacity>
           </View>
           <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             placeholder='Username'
             autoCapitalize="none"
             autoCorrect={false}
@@ -141,9 +146,11 @@ export default class Login extends Component {
             onChangeText={val => this.onChangeText('username', val)}
           />
           <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             placeholder='Password'
             autoCapitalize="none"
             autoCorrect={false}
+            secureTextEntry
             backgroundColor={Theme[this.props.theme].colors.control.background}
             borderColor={Theme[this.props.theme].colors.border.base}
             borderRadius={24}

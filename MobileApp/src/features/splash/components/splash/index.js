@@ -42,7 +42,7 @@ export default class Splash extends React.Component {
         clearInterval(this.timer);
         setTimeout(() => {
           StatusBar.setHidden(false, 'slide');
-          ChangeStack(this.props, "Home", "Home", true);
+          ChangeStack(this.props, "Auth", "Auth", true);
         }, timeFrame);
       } else {
         let random = Math.random() * 0.5;

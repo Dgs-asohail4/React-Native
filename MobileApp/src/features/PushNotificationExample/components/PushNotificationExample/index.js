@@ -3,7 +3,8 @@ import { Text, View } from 'react-native';
 import styles from './styles';
 import Button from '../../../../components/button'
 import { pushNotifications } from '../../../../global/services'
-
+import Theme from '../../../../global/theme'
+import GradientButton from '../../../../components/GradientButton/container'
 export default class PushNotificationExample extends Component {
 
   handleOnPress = () => {
@@ -12,14 +13,17 @@ export default class PushNotificationExample extends Component {
 
 
   render() {
+    const {header5,baseColor} = this.props.globalStyles.textStyle;
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:Theme[this.props.theme].colors.screen.base}}>
+        <Text style={[header5,baseColor, {marginVertical:20}]}>
           Press the button to see push Notification
         </Text>
-        <Button
-          text={'Press Me'}
-          onPress={this.handleOnPress}/>
+        <GradientButton
+          text='Press Me'
+          colors={Theme[this.props.theme].colors.gradients.base}
+          onPress={this.handleOnPress}
+        />
       </View>
     );
   }

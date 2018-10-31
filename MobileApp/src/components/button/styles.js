@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   
   buttonStyle: {
     alignSelf:"center",
-    marginBottom:30,
+    marginBottom:20,
     marginTop:10,
     borderColor:'white',
     padding:10,

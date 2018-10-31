@@ -44,7 +44,7 @@ const generateStack = (routeName, title, showHeader = true, showDrawer = true) =
 
         }
     };
-    flatRoutes[route.name] = wrapToRoute(route, route.name.contains("menu") ? false : true );
+    flatRoutes[route.name] = wrapToRoute(route,  route.name.contains("menu") ? false :true );
     for (let child of route.childrens) {
         flatRoutes[child.name] = wrapToRoute(child, undefined, !child.name.contains('auth'));
     }

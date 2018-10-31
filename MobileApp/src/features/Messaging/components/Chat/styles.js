@@ -61,7 +61,7 @@ export default class StyleSheetFactory {
                 backgroundColor:theme.colors.gradients.base[0],
                 width: 40,
                 height: 40,
-                marginLeft: 10,
+                margin: 15,
               },
         })
     }

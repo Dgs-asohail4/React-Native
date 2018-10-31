@@ -58,7 +58,7 @@ export default class PasswordTextInput extends Component {
 
     return (
 
-    <View style={styles.container}>
+    <View>
       {this._displayLabel(this.renderInputLabel(), styles.label)}
       <TextInput
         autoCapitalize='none'
