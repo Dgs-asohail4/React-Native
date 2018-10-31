@@ -19,7 +19,8 @@ export default class Social extends Component {
 
   constructor(props) {
     super(props);
-    const id = this.props.navigation.getParam('id', 1);
+    console.log(props);
+    const id = this.props.navigation.getParam('id', props.user.contains('chad') ? 1 : 2);
     this.state.data = data.getUser(id);
   }
 

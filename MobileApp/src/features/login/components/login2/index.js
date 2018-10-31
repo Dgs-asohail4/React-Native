@@ -14,7 +14,7 @@ import StyleSheetFactory from './styles';
 import {USER_KEY, DEFUALT_THEME, DARK_THEME} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 import Icon from 'react-native-vector-icons/Ionicons'
-import {scaleModerate} from '../../../../utils/scale'
+import {scaleModerate, scaleVertical} from '../../../../utils/scale'
 
 import CustomizedTextInput from '../../../../components/textInput/container';
 import Button from '../../../../components/button';
@@ -60,6 +60,8 @@ export default class Login extends Component {
        }
 
        const user = await AsyncStorage.setItem(USER_KEY, username)
+       this.props.setUser(user);
+
        console.log('user successfully signed in!', user)
        ChangeStack(this.props, "Home", "Home", true);
 
@@ -113,6 +115,7 @@ export default class Login extends Component {
       </View>
         <View style={styles.content}>
           <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             autoCapitalize="none"
             autoCorrect={false}
             backgroundColor={Theme[this.props.theme].colors.control.background}
@@ -123,7 +126,9 @@ export default class Login extends Component {
             onChangeText={val => this.onChangeText('username', val)}
           />
           <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             autoCapitalize="none"
+            secureTextEntry
             autoCorrect={false}
             backgroundColor={Theme[this.props.theme].colors.control.background}
             borderColor={Theme[this.props.theme].colors.border.base}

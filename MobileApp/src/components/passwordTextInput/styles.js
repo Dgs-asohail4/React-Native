@@ -14,8 +14,8 @@ export default class StyleSheetFactory {
               input:{
                 width:scale(250),
                 height:60,
-                paddingHorizontal:10,
-                backgroundColor:theme.colors.control.base,
+                paddingHorizontal:20,
+                backgroundColor:theme.colors.control.background,
                 borderWidth:1,
                 borderRadius:20,
                 borderColor:theme.colors.border.base,

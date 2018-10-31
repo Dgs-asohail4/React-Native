@@ -7,6 +7,7 @@ import MyTextInput from '../../../../components/MyTextInput/container'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
+import CustomizedTextInput from '../../../../components/textInput/container'
 
 export default class Social extends Component {
 
@@ -25,13 +26,14 @@ export default class Social extends Component {
 
   onSearchInputChanged = (event) => {
     const pattern = new RegExp(event.nativeEvent.text, 'i');
-    const contacts = _.filter(this.state.data.original, contact => {
-      const filterResult = {
+    const contacts = this.state.data.original.filter(function(contact){
+    const filterResult= {
         firstName: contact.firstName.search(pattern),
         lastName: contact.lastName.search(pattern),
-      };
+      }
       return filterResult.firstName !== -1 || filterResult.lastName !== -1 ? contact : undefined;
     });
+
     this.setState({
       data: {
         original: this.state.data.original,
@@ -50,8 +52,8 @@ export default class Social extends Component {
     return(
     <TouchableOpacity onPress={() => this.onItemPressed(item)}>
       <View style={styles.container}>
-        <Avatar circle style={styles.avatar} img={item.photo} />
-        <Text style={baseColor}>{`${item.firstName} ${item.lastName}`}</Text>
+        <Avatar small style={styles.avatar} img={item.photo} />
+        <Text style={[baseColor, {fontSize:22}]}>{`${item.firstName} ${item.lastName}`}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -71,18 +73,26 @@ export default class Social extends Component {
 
   renderHeader = () => {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
-    const {row,baseColor}=this.props.globalStyles.textStyle
+    const {row,baseColor,hintColor}=this.props.globalStyles.textStyle
    return(
-   <View style={styles.searchContainer}>
-      <MyTextInput
+     <View style={{backgroundColor:Theme[this.props.theme].colors.screen.bold}}>
+      <CustomizedTextInput
+        contentContainerStyle={styles.searchContainer}
         autoCapitalize='none'
         autoCorrect={false}
         onChange={this.onSearchInputChanged}
-        label={this.renderHeaderLabel()}
-        style={[row,baseColor]}
         placeholder='Search'
-      />
-    </View>
+        borderRadius = {20}
+        borderWidth = {1}
+        borderColor = {Theme[this.props.theme].colors.border.base}
+        iconColor = {hintColor.color}
+        inputColor = {baseColor.color}
+        placeholderTextColor = {Theme[this.props.theme].colors.input.placeholder}
+        error = {false}
+        iconName = 'ios-search'
+        iconPos = 'left'
+        />
+      </View>
    )
   };
 

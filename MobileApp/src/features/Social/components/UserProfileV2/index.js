@@ -14,8 +14,15 @@ export default class Social extends Component {
   };
 
   state = {
-    data: data.getUser(),
-  };
+    data:undefined
+  }
+
+  constructor(props) {
+    super(props);
+    const id = this.props.navigation.getParam('id', props.user.contains('chad') ? 1 : 2);
+    this.state.data = data.getUser(id);
+  }
+
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     const {primary,header2,baseColor,header3,hintColor,secondary1,moon,large}=this.props.globalStyles.textStyle;
