@@ -49,7 +49,6 @@ export default class Social extends Component {
         {this.renderAttachment(item)}
       </View>
     </View>
-
   )}
 
   render() {
