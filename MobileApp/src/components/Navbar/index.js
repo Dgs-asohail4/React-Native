@@ -66,7 +66,7 @@ export default class NavBar extends React.Component {
   renderCustomTitleItem = (title, options, styles, textStyle) => (
     <View
       style={styles.title}>
-      <Text style={[textStyle.primary,textStyle.baseColor,textStyle.header4]}>{title}</Text>
+      {options}
     </View>
   );
 

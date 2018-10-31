@@ -8,6 +8,7 @@ import Drawer from './src/components/drawer/container'
 import {items} from './src/components/drawer/draweritems';
 import DrawerIcon from './src/components/navIcons/drawerIcon'
 import {data} from './src/global/data'
+import {scale} from './src/utils/scale'
 
 const store = configureStore();
 pushNotifications.configure();
@@ -43,7 +44,7 @@ const RootStack = StackNavigator({
 			drawerCloseRoute: 'DrawerClose',
 			drawerToggleRoute: 'DrawerToggle',
 			drawerPosition:'left',
-			drawerWidth:330,
+			drawerWidth:scale(300),
 			drawerIcon : (<DrawerIcon />),
 			contentComponent: (props) => <Drawer {...props}/>
 		}),

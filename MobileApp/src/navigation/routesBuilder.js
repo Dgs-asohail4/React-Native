@@ -20,10 +20,8 @@ const generateStack = (routeName, title, showHeader = true, showDrawer = true) =
     let wrapToRoute = (route, drawer = false, header = true) => {
         return {
           screen: route.screen,
-          title: route.title,
           navigationOptions: ({ navigation }) => showHeader ? ({
             gesturesEnabled: false,
-            headerTitle:route.title,
             header: (props) => header ? renderHeader(navigation, props, route.title, drawer) : null,
           }) : ({header:null})
           //{

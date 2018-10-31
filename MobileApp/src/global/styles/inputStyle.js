@@ -22,7 +22,7 @@ const getBasic = (theme) => ({
 const getRouded = (theme) => ({
     rounded:{
         container:{
-            fontSize: theme => theme.fonts.sizes.h6,
+            fontSize: theme.fonts.sizes.h6,
             borderWidth: 1,
             borderBottonWidth: 1,
         },
@@ -41,14 +41,13 @@ const getRight = (theme) => ({
     right:{
         input: {
             textAlign: 'right',
-            marginTop: {
-                ios: scaleVertical(18),
-                android: scaleVertical(11),
-            },
+            marginTop:
+               scaleVertical(11),
+
         },
         label: {
-            fontFamily: theme => theme.fonts.family.light,
-            fontSize: theme => theme.fonts.sizes.small,
+            fontFamily: theme.fonts.family.light,
+            fontSize: theme.fonts.sizes.small,
         },
         container: {
             marginVertical: 4,
@@ -60,7 +59,7 @@ const getRight = (theme) => ({
 const getRow = (theme)=>({
     row:{
         input: {
-            width:350,
+            width:scale(300),
             marginVertical: 0,
             marginHorizontal: 0,
             marginTop: 0,
