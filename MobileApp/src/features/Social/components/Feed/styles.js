@@ -11,7 +11,6 @@ export default class StyleSheetFactory {
                 paddingHorizontal: 8,
                 marginBottom:20,
                 backgroundColor:theme.colors.screen.base
-
               },
               avatar: {
                 marginRight: 16,
