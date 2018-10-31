@@ -3,12 +3,15 @@ export default class StyleSheetFactory {
     static getSheet(theme) {
         return StyleSheet.create({
             container: {
-                backgroundColor: theme.colors.screen.scroll,
-                paddingVertical: 8,
-                paddingHorizontal: 10,
+                backgroundColor: theme.colors.screen.primary,
+                paddingVertical: 20,
+                paddingHorizontal: 14,
               },
               card: {
-                marginVertical: 8,
+                paddingHorizontal: 8,
+                marginBottom:20,
+                backgroundColor:theme.colors.screen.base
+               
               },
               avatar: {
                 marginRight: 16,
