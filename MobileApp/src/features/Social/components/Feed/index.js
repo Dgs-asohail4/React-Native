@@ -23,7 +23,7 @@ export default class Social extends Component {
     const{header4,hintColor,secondary2,baseColor,primary3}=this.props.globalStyles.textStyle
     return(
     <View style={styles.card}>
-      <View>
+      <View style={{flex:1,flexDirection:'row'}}>
         <Avatar
           small
           style={styles.avatar}
@@ -38,7 +38,7 @@ export default class Social extends Component {
       <View>
         <Text style={[primary3,baseColor]}>{item.text}</Text>
       </View>
-      <View style={[{paddingTop:10}]}>
+      <View style={[{paddingTop:10,paddingBottom:20}]}>
         <SocialBar />
       </View >
     </View>
