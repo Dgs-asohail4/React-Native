@@ -2,7 +2,7 @@ import Drawer from '../components/drawer/container';
 import Home from '../features/home/containers';
 import HomeNew from '../features/home2/containers';
 import Splash from '../features/splash/containers';
-import { _Login, _LoginV2} from '../features/login/containers';
+import { _Login, _LoginV2, LoginV3} from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
 import buttonScreen from '../features/buttonScreen/containers'
@@ -62,6 +62,7 @@ export {
     _menuNavigation,
     _menuOthers,
     _menuSocial,
+    LoginV3,
    // _menuWalkthrough,
     CardView,
     PushNotificationScreen,

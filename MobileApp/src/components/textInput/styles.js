@@ -5,8 +5,6 @@ export default class StyleSheetFactory {
         return StyleSheet.create({
             searchSection: {
                 flexDirection: 'row',
-                marginVertical:10,
-                marginHorizontal:5,
             },
             searchSectionWoIcon: {
                 marginRight : 13,
@@ -15,11 +13,10 @@ export default class StyleSheetFactory {
             },
             searchSectionLeft: {
                 paddingRight : 0,
-                paddingLeft : 46,
             },
             searchIcon: {
                 alignItems : 'center',
-                padding:15,
+                paddingHorizontal:15,
             },
             searchIconRight: {
                 alignItems : 'center',
@@ -27,9 +24,7 @@ export default class StyleSheetFactory {
             },
             input:{
                 flex:1,
-                padding:20,
                 fontSize:18,
-
             },
             textInvalid: {
                 borderColor : 'red'
