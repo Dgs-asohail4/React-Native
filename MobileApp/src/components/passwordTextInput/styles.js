@@ -12,7 +12,7 @@ export default class StyleSheetFactory {
               },
 
               input:{
-                width:300,
+                width:scale(250),
                 height:60,
                 paddingHorizontal:10,
                 backgroundColor:theme.colors.control.base,

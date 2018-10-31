@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import StyleSheetFactory from './styles';
 import Theme from '../../../../global/theme'
 
 export default class ChatTitle extends Component {
+
   render() {
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
     const {header5,secondar3,secondaryColor,baseColor} = this.props.globalStyles.textStyle;
@@ -15,5 +16,6 @@ export default class ChatTitle extends Component {
         <Text style={[secondar3,secondaryColor]}>Online</Text>
       </View>
     </TouchableOpacity>
-    )}
+    )
+  }
 }

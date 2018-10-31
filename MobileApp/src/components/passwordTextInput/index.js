@@ -34,8 +34,7 @@ export default class PasswordTextInput extends Component {
     } else {
       return React.cloneElement(label, {
         onPress: (e) => {
-          this.refs.input.focus();
-          label.props.onPress && label.props.onPress(e)
+         label.props.onPress && label.props.onPress(e)
         },
         style: [labelStyle, label.props.style]
       });
@@ -59,18 +58,18 @@ export default class PasswordTextInput extends Component {
 
     return (
 
-    <View activeOpacity={1} onPress={this.focusInput} style={styles.container}>
+    <View style={styles.container}>
       {this._displayLabel(this.renderInputLabel(), styles.label)}
       <TextInput
-      autoCapitalize='none'
-      style={[styles.input]}
-      autoCorrect={false}
-      placeholder={"Code"}
-      ref={'input'}
-      underlineColorAndroid='transparent'
-      placeholderTextColor={baseColor.color}
-      secureTextEntry={this.state.hidden}
-      {...this.props}
+        autoCapitalize='none'
+        style={[styles.input]}
+        autoCorrect={false}
+        placeholder={"Code"}
+        ref={'input'}
+        underlineColorAndroid='transparent'
+        placeholderTextColor={baseColor.color}
+        secureTextEntry={this.state.hidden}
+        {...this.props}
     />
     </View>
 

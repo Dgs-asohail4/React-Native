@@ -22,7 +22,7 @@ export default class Chat extends Component {
     const user = data.getUser(userId);
     return ({
       headerTitle: (<ChatTitleComp user={user} navigation={navigation} onNavigationTitlePressed={Chat.onNavigationTitlePressed} />),
-      headerRight: Chat.renderNavigationAvatar(navigation, user),
+      headerRight: Chat.renderNavigationAvatar(navigation,user)
     });
   };
 
@@ -31,7 +31,7 @@ export default class Chat extends Component {
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.listRef.scrollToEnd();
+      this.refs.listRef.scrollToEnd();
     });
   }
 
@@ -43,9 +43,9 @@ export default class Chat extends Component {
 
   scrollToEnd = () => {
     if (Platform.OS === 'ios') {
-      this.listRef.scrollToEnd();
+      this.refs.listRef.scrollToEnd();
     } else {
-      setTimeout(this.listRef.scrollToEnd,100)
+      this.refs.listRef.scrollToEnd()
     //  _.delay(this.listRef.scrollToEnd, 100);
     }
   };
@@ -138,15 +138,17 @@ export default class Chat extends Component {
     const {header5,secondar3,secondaryColor,baseColor,awesome} = this.props.globalStyles.textStyle;
     return(
     <KeyboardAvoidingView
-    style={styles.container}
+      style={styles.container}
       onResponderRelease={Keyboard.dismiss}>
       <FlatList
-        ref={this.setListRef}
+        ref={"listRef"}
         extraData={this.state}
         style={styles.list}
         data={this.state.data.messages}
         keyExtractor={this.extractItemKey}
         renderItem={this.renderItem}
+        onContentSizeChange={this.scrollToEnd}
+        onLayout={this.scrollToEnd}
       />
       <View style={styles.footer}>
         <TouchableOpacity style={styles.plus} >
@@ -158,6 +160,7 @@ export default class Chat extends Component {
           style={styles.input}
           onFocus={this.scrollToEnd}
           onBlur={this.scrollToEnd}
+          placeholderTextColor={baseColor.color}
           onChangeText={this.onInputChanged}
           value={this.state.message}
           placeholder="Add a comment..."

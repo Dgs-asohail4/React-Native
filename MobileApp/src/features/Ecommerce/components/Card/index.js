@@ -145,46 +145,46 @@ export default class Ecommerce extends Component {
     styles = {...styles, ...credit}
       return (
         <View style={styles.root}>
-      <FlatList
-        style={styles.list}
-        showsVerticalScrollIndicator={false}
-        ListFooterComponent={this.renderFooter}
-        keyExtractor={this.extractItemKey}
-        data={this.state.data}
-        renderItem={this.renderItem}
-      />
-      <Modal
-        animationType="fade"
-        transparent
-        onRequestClose={() => this.setModalVisible(false)}
-        visible={this.state.modalVisible}>
-        <View style={styles.popupOverlay}>
-          <View style={styles.popup}>
-            <View style={styles.popupContent}>
-              <Text style={[styles.popupHeader,header4, baseColor]}>Enter security code</Text>
-              <PasswordTextInput />
-            </View>
-            <View style={styles.popupButtons}>
-              <TouchableOpacity
-                onPress={() => this.setModalVisible(false)}
-                style={[styles.popupButton,{justifyContent:'center'}]}
+          <FlatList
+            style={styles.list}
+            showsVerticalScrollIndicator={false}
+            ListFooterComponent={this.renderFooter}
+            keyExtractor={this.extractItemKey}
+            data={this.state.data}
+            renderItem={this.renderItem}
+         />
+          <Modal
+            animationType="fade"
+            transparent
+            onRequestClose={() => this.setModalVisible(false)}
+            visible={this.state.modalVisible}>
+            <View style={styles.popupOverlay}>
+              <View style={styles.popup}>
+                <View style={styles.popupContent}>
+                  <Text style={[styles.popupHeader,header4, baseColor]}>Enter security code</Text>
+                  <PasswordTextInput />
+                </View>
+                <View style={styles.popupButtons}>
+                  <TouchableOpacity
+                    onPress={() => this.setModalVisible(false)}
+                    style={[styles.popupButton,{justifyContent:'center'}]}
 
-                >
-                <Text style={[light,{textAlign:'center'},baseColor]}>CANCEL</Text>
-              </TouchableOpacity>
-              <View style={styles.separator} />
-              <TouchableOpacity
-                onPress={() => this.setModalVisible(false)}
-                style={[styles.popupButton,{justifyContent:'center'}]}
+                    >
+                    <Text style={[light,{textAlign:'center'},baseColor]}>CANCEL</Text>
+                  </TouchableOpacity>
+                  <View style={styles.separator} />
+                  <TouchableOpacity
+                    onPress={() => this.setModalVisible(false)}
+                    style={[styles.popupButton,{justifyContent:'center'}]}
 
-                >
-                <Text style={[{textAlign:'center'},baseColor]}>OK</Text>
-              </TouchableOpacity>
+                    >
+                    <Text style={[{textAlign:'center'},baseColor]}>OK</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
-          </View>
+          </Modal>
         </View>
-      </Modal>
-    </View>
       );
     }
   }

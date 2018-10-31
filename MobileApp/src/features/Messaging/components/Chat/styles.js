@@ -8,9 +8,9 @@ export default class StyleSheetFactory {
               },
               input:{
                 backgroundColor:theme.colors.control.background,
-                borderRadius:15,
-                padding:5,
-                width:300,
+                borderRadius:20,
+                padding:10,
+                width:scale(250),
               },
               avatar: {
                 marginRight: 16,
