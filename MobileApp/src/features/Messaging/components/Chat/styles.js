@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {scale} from '../../../../utils/scale'
+import {scale, scaleVertical} from '../../../../utils/scale'
 export default class StyleSheetFactory {
     static getSheet(theme) {
         return StyleSheet.create({
@@ -9,8 +9,7 @@ export default class StyleSheetFactory {
               input:{
                 backgroundColor:theme.colors.control.background,
                 borderRadius:20,
-                padding:10,
-                width:scale(250),
+                width:scale(230),
               },
               avatar: {
                 marginRight: 16,
@@ -24,7 +23,7 @@ export default class StyleSheetFactory {
               },
               footer: {
                 flexDirection: 'row',
-                minHeight: 60,
+                minHeight: 40,
                 padding: 10,
                 backgroundColor: theme.colors.screen.alter,
               },
@@ -59,9 +58,9 @@ export default class StyleSheetFactory {
                 alignItems:'center',
                 borderColor:theme.colors.border.base,
                 backgroundColor:theme.colors.gradients.base[0],
-                width: 40,
-                height: 40,
-                margin: 15,
+                width: scale(40),
+                height: scale(40),
+                marginHorizontal:15
               },
         })
     }

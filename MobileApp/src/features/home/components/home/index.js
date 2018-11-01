@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Home extends Component {
   static navigationOptions = ({navigation}) => ({
-    headerTitle: 'Grid Menu'.toUpperCase(),
+    title: 'Grid Menu'.toUpperCase(),
   });
 
     constructor(props){
