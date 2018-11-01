@@ -74,7 +74,6 @@ export default class CutomizedTextInput extends Component {
             {...attributes}
             style={[iconPos == 'right' ? styles.searchSectionLeft : _inputStyle]}
             placeholder={placeholder}
-            onChangeText={(searchString) => {this.setState({searchString})}}
             underlineColorAndroid="transparent"
             placeholderTextColor={placeholderTextColor}
 

@@ -46,7 +46,7 @@ export default class Themes extends Component {
         <GradientButton
           text='APPLY'
           colors={Theme[this.props.theme].colors.gradients.base}
-          onPress={this.onDarkThemeApplyButtonPressed}
+          onPress={this.onLightThemeApplyButtonPressed}
         />
       </View>
       <View style={styles.container}>
