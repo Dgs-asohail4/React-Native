@@ -28,16 +28,20 @@ export default class FindFriends extends Component {
   };
   render() {
     const color = this.props.selected ? this.props.color : Theme[this.props.theme].colors.disabled
-    const {header6,awesome,small}=this.props.globalStyles.textStyle;
+    const {header6,awesome,baseColor}=this.props.globalStyles.textStyle;
     const styles = StyleSheetFactory.getSheet(Theme[this.props.theme])
     return (
       <TouchableOpacity style={[styles.wrapper, this.props.style]} onPress={this.props.onPress}>
         <View style={styles.container}>
           <View style={styles.text}>
-            <Icon style={[awesome,styles.icon]} name={this.props.icon} color={color} size={25} />
-            <Text style={[header6,color ]}>{`Find Friends With ${this.props.text}`}</Text>
+            <Text style={[styles.icon,awesome, { color }]}>
+            <Icon color={color} size={20} name={this.props.icon} /> 
+            </Text>
+            <Text style={[header6,{color}]}>{`Find Friends With ${this.props.text}`}</Text>
           </View>
-          <Icon style={[small,awesome]} name={'md-chevron-right'} color={color} size={25} />
+          <Text small style={[awesome, {color} ]}>
+            <Icon color={color} size={20} name={'chevron-right'} />
+          </Text>
         </View>
       </TouchableOpacity>
     );

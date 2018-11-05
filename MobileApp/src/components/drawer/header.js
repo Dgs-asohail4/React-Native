@@ -19,7 +19,7 @@ export default class Header extends Component{
     render(){
         const styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);
         return (
-            <Image source={this.getThemeImageSource(this.props.theme)} style={styles.icon}/>
+            <Image source={this.getThemeImageSource(this.props.theme)} style={styles.headerIcon}/>
 
         )
     }

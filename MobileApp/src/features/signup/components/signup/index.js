@@ -16,7 +16,8 @@ import Button from '../../../../components/button';
 import { DEFUALT_THEME, DARK_THEME} from '../../../../global/config'
 import Theme from '../../../../global/theme'
 import {PopScreen} from '../../../../navigation/helper'
-import {scaleModerate} from '../../../../utils/scale'
+import {scaleModerate, scaleVertical} from '../../../../utils/scale'
+import CustomizedTextInput from '../../../../components/textInput/container'
 
 export default class SignUp extends React.Component {
   static navigationOptions = ({navigation}) => ({
@@ -66,40 +67,59 @@ renderImage = (styles) => (
         </View>
       <View style={styles.content}>
       <View>
-        <TextInput
-          style={styles.input}
-          placeholder='Username'
+          <CustomizedTextInput
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
+          placeholder='Name'
           autoCapitalize="none"
-          placeholderTextColor='grey'
-          onChangeText={val => this.onChangeText('username', val)}
+          autoCorrect={false}
+          backgroundColor={Theme[this.props.theme].colors.control.background}
+          borderColor={Theme[this.props.theme].colors.border.base}
+          borderRadius={24}
+          placeholderTextColor={baseColor.color}
+          value={this.state.name}
+          onChangeText={val => this.onChangeText('name', val)}
         />
-        <TextInput
-          style={styles.input}
-          placeholder='Password'
-          secureTextEntry={true}
-          autoCapitalize="none"
-          placeholderTextColor='grey'
-          onChangeText={val => this.onChangeText('password', val)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder='Confirm Password'
-          autoCapitalize="none"
-          placeholderTextColor='grey'
-          onChangeText={val => this.onChangeText('confirm password', val)}
-        />
-        <TextInput
-          style={styles.input}
+        <CustomizedTextInput
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
           placeholder='Email'
           autoCapitalize="none"
-          placeholderTextColor='grey'
+          autoCorrect={false}
+          backgroundColor={Theme[this.props.theme].colors.control.background}
+          borderColor={Theme[this.props.theme].colors.border.base}
+          borderRadius={24}
+          placeholderTextColor={baseColor.color}
+          value={this.state.email}
           onChangeText={val => this.onChangeText('email', val)}
         />
+        <CustomizedTextInput
+          contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
+          placeholder='Password'
+          autoCapitalize="none"
+          autoCorrect={false}
+          backgroundColor={Theme[this.props.theme].colors.control.background}
+          borderColor={Theme[this.props.theme].colors.border.base}
+          borderRadius={24}
+          placeholderTextColor={baseColor.color}
+          value={this.state.password}
+          onChangeText={val => this.onChangeText('password', val)}
+      />
+      <CustomizedTextInput
+        contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
+        placeholder='Confirm Password'
+        autoCapitalize="none"
+        autoCorrect={false}
+        backgroundColor={Theme[this.props.theme].colors.control.background}
+        borderColor={Theme[this.props.theme].colors.border.base}
+        borderRadius={24}
+        placeholderTextColor={baseColor.color}
+        value={this.state.confirmpassword}
+        onChangeText={val => this.onChangeText('cpassword', val)}
+      />
         <Button style={styles.save}
           text='Sign Up'
           borderRadius={20}
           color={Theme[this.props.theme].colors.gradients.base[0]}
-          style={[{width: 350},{height:50},baseColor]}
+          style={[{width: 300},{height:50},baseColor]}
           onPress={this.signUp}
         />
       </View>

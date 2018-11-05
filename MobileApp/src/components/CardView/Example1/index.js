@@ -4,21 +4,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import Theme from '../../../global/theme'
 // import img from '../../../global/assets/img/photo1.png'
-
+import SocialBar from '../../SocialBar/container'
 export default class MyCardView1 extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   static defaultProps = {
-    
+
       titleText : 'Hello World',
       subtitleText : '5 Minutes Ago',
       //image : img,
       likesCount : '18',
       commentsCount : '50',
       sharesCount : '800',
-      blog : false 
+      blog : false
   };
 
   render() {
@@ -36,12 +36,12 @@ export default class MyCardView1 extends Component {
       const {baseColor, header4, inverseColor,secondary2, hintColor,awesome,primary, primary4} = this.props.globalStyles.textStyle
     if(blog){
       const style = this.props.globalStyles.modalStyle.getBlog(this.props.theme)
-     
+
       styles = {...styles, ...style}
     }
 
     return (
-      
+
       // =================================01====================================
       <View style = {[styles.container,{backgroundColor:backgroundColor, borderColor:backgroundColor}]}>
 
@@ -59,22 +59,11 @@ export default class MyCardView1 extends Component {
         </View>
 
         <View style={[styles.footer]}>
-          <View style={styles.rowGrey}>
-            <Icon name = 'heart' size = {20} color={baseColor.color}/>
-            <Text style={[styles.buttonTextStyleGrey,awesome,primary,baseColor] } >{this.props.likesCount} Likes</Text>
-          </View>
-          <View style={styles.rowGrey}>
-            <Icon name = 'comment-o' size = {20} color={hintColor.color}/>
-            <Text style={[styles.buttonTextStyleGrey,primary4, hintColor]}>{this.props.commentsCount} Comments</Text>
-          </View>
-            <View style={styles.rowGrey}>
-              <Icon name = 'user-o' size = {20} color={hintColor.color} />
-              <Text style={[styles.buttonTextStyleGrey,primary4, hintColor]}>{this.props.sharesCount} Shares</Text>
-          </View>    
-        </View> 
+          <SocialBar showLabel />
+        </View>
       </View>
 
-  
+
     );
   }
 }

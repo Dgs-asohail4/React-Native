@@ -18,7 +18,7 @@ export default class Articles extends Component {
   }
 
   onAvatarPressed = () => {
-    this.props.navigation.navigate('social.userprofile1', { id: this.data.user.id });
+    this.props.navigation.navigate('social.userprofilev1', { id: this.data.user.id });
   };
   render() {
     var styles = StyleSheetFactory.getSheet(Theme[this.props.theme]);

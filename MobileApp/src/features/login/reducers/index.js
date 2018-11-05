@@ -7,6 +7,7 @@ const DEFAULT_STATE = {
     login:false,
     loading : false,
     error:false,
+    user:'chad',
     errorMessage: "",
     payload :{}
 }
@@ -18,6 +19,8 @@ export default function reducer(state = DEFAULT_STATE, action){
             return {...state, loading:false, login:true, error:false, errorMessage:"", payload:action.payload}
         case types.LOGIN + ERROR_PREFIX:
             return {...state, loading:false,login:false,error:true, errorMessage:""}
+        case types.SET_USER:
+            return {...state, user:action.payload}
         default:
             return state;
     }

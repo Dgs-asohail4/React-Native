@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, ScrollView } from 'react-native';
 import styles from './styles';
-
+import Theme from '../../../../global/theme'
 
 import {
   LineChart,
@@ -12,18 +12,23 @@ import {
 } from 'react-native-chart-kit'
 
 const screenWidth = Dimensions.get('window').width
-const chartConfig = {
-  backgroundGradientFrom: '#1E2923',
-  backgroundGradientTo: '#08130D',
-  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`
-}
+const chartConfig = (theme) => ({
+  backgroundColor:Theme[theme].colors.control.background,
+  backgroundGradientFrom: Theme[theme].colors.gradients.axp[0],
+  backgroundGradientTo: Theme[theme].colors.gradients.axp[1],
+//  color: (theme) => Theme[theme].colors.text.base
+})
 
 
 export default class ChartExamples extends Component {
+
+
   render() {
+    const {baseColor} = this.props.globalStyles.textStyle;
+
     return (
-      <ScrollView>
-      <Text>
+      <ScrollView style={{backgroundColor:Theme[this.props.theme].colors.screen.scroll}}>
+      <Text style={[baseColor]}>
         Bezier Line Chart
       </Text>
           <LineChart
@@ -42,23 +47,14 @@ export default class ChartExamples extends Component {
             }}
             width={Dimensions.get('window').width} // from react-native
             height={220}
-            chartConfig={{
-              backgroundColor: '#e26a00',
-              backgroundGradientFrom: '#fb8c00',
-              backgroundGradientTo: '#ffa726',
-              decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              style: {
-                borderRadius: 16
-              }
-            }}
+            chartConfig={chartConfig(this.props.theme)}
             bezier
             style={{
               marginVertical: 8,
               borderRadius: 16
             }}
           />
-          <Text>
+        <Text style={[baseColor]}>
           Bezier Line Chart 2
         </Text>
           <LineChart
@@ -70,18 +66,18 @@ export default class ChartExamples extends Component {
           }}
           width={screenWidth}
           height={220}
-          chartConfig={chartConfig}
+          chartConfig={chartConfig(this.props.theme)}
         />
-        <Text>
+        <Text style={[baseColor]}>
           Bezier Progress Chart
         </Text>
         <ProgressChart
           data={[0.4, 0.6, 0.8]}
           width={screenWidth}
           height={220}
-          chartConfig={chartConfig}
+          chartConfig={chartConfig(this.props.theme)}
         />
-        <Text>
+        <Text style={[baseColor]}>
             Bezier Bar Chart
           </Text>
         <BarChart
@@ -93,10 +89,10 @@ export default class ChartExamples extends Component {
           }}
           width={screenWidth}
           height={220}
-          chartConfig={chartConfig}
+          chartConfig={chartConfig(this.props.theme)}
         />
 
-        <Text>
+        <Text style={[baseColor]}>
          Bezier Pie Chart
         </Text>
         <PieChart
@@ -109,12 +105,12 @@ export default class ChartExamples extends Component {
           ]}
           width={screenWidth}
           height={220}
-          chartConfig={chartConfig}
+          chartConfig={chartConfig(this.props.theme)}
           accessor="population"
           backgroundColor="transparent"
           paddingLeft="15"
         />
-        <Text>
+        <Text style={[baseColor]}>
         Bezier Commit Map
        </Text>
 
@@ -136,7 +132,7 @@ export default class ChartExamples extends Component {
           numDays={105}
           width={screenWidth}
           height={220}
-          chartConfig={chartConfig}
+          chartConfig={chartConfig(this.props.theme)}
         />
     </ScrollView>
     );

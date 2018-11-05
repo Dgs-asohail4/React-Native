@@ -1,6 +1,6 @@
 import {Routes} from './routes';
 import React from 'react'
-import {StackNavigator} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation'
 import { COLOR_PRIMARY, TEXT_COLOR_PRIMARY } from '../global/theme/default';
 import DrawerIcon from '../components/navIcons/drawerIcon';
 import BackButton from '../components/navIcons/backbutton';
@@ -20,10 +20,8 @@ const generateStack = (routeName, title, showHeader = true, showDrawer = true) =
     let wrapToRoute = (route, drawer = false, header = true) => {
         return {
           screen: route.screen,
-          title: route.title,
           navigationOptions: ({ navigation }) => showHeader ? ({
             gesturesEnabled: false,
-            headerTitle:route.title,
             header: (props) => header ? renderHeader(navigation, props, route.title, drawer) : null,
           }) : ({header:null})
           //{
@@ -46,11 +44,11 @@ const generateStack = (routeName, title, showHeader = true, showDrawer = true) =
 
         }
     };
-    flatRoutes[route.name] = wrapToRoute(route, route.name.contains("menu") ? false : true );
+    flatRoutes[route.name] = wrapToRoute(route,  route.name.contains("menu") ? false :true );
     for (let child of route.childrens) {
         flatRoutes[child.name] = wrapToRoute(child, undefined, !child.name.contains('auth'));
     }
-    const stack =  StackNavigator(flatRoutes, {
+    const stack =  createStackNavigator(flatRoutes, {
         initialRouteName: route.name,
     })
     return stack;

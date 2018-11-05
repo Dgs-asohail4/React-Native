@@ -8,6 +8,13 @@ const Routes = [
         childrens: []
     },
     {
+        name:'auth.login',
+        title:'Login',
+        icon:'',
+        screen:Screens.LoginV3,
+        childrens: []
+    },
+    {
         name:'app.splash',
         title:'Splash',
         icon:'',
@@ -207,7 +214,19 @@ const Routes = [
             {
                 name:'dashboard.dashboard',
                 title:'Dashboard',
-                screen:Screens.ChartScreen,
+                screen:Screens._Dashboard,
+                children:[]
+            },
+            {
+                name:'dashboard.dashboard2',
+                title:'Saad',
+                screen:Screens._Dashboard2,
+                children:[]
+            },
+            {
+                name:'dashboard.dashboard3',
+                title:'Ahsan',
+                screen:Screens._Dashboard3,
                 children:[]
             }
         ]
@@ -259,14 +278,14 @@ const Routes = [
         icon:'',
         screen:Screens.Themes,
         childrens: []
-    }
-    // {
-    //     name:'app.buttonlist',
-    //     title:'Button Example',
-    //     icon:'md-radio-button-on',
-    //     screen:Screens.buttonScreen,
-    //     childrens: []
-    // },
+    },
+    {
+        name:'app.snapcarousel',
+        title:'Snap Carousel',
+        icon:'md-radio-button-on',
+        screen:Screens.SnapCarousel,
+        childrens: []
+    },
     // {
     //     name:'app.swipelist',
     //     title:'Swiper',
@@ -358,13 +377,13 @@ const Routes = [
     //     screen:Screens.CardView,
     //     childrens: []
     // },
-    // {
-    //     name:'app.pushnotification',
-    //     title:'Push Notification',
-    //     icon:'md-notifications-outline',
-    //     screen:Screens.PushNotificationScreen,
-    //     childrens: []
-    // }
+     {
+        name:'app.pushnotification',
+        title:'Push Notification',
+        icon:'md-notifications-outline',
+        screen:Screens.PushNotificationScreen,
+        childrens: []
+    }
 ];
 
 const AuthMenuRoutes = Routes.find((x)=>x.name=="menu.auth").childrens

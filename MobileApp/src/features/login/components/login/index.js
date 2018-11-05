@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Image,
   Text,
+  ToastAndroid,
   KeyboardAvoidingView,
   ScrollView,
   Dimensions,
@@ -14,9 +15,9 @@ import StyleSheetFactory from './styles';
 import {USER_KEY, DEFUALT_THEME} from '../../../../global/config'
 import {ChangeStack, PushNewScreen} from '../../../../navigation/helper';
 import Icon from 'react-native-vector-icons/Ionicons'
-import {scaleModerate} from '../../../../utils/scale'
+import {scaleModerate, scaleVertical} from '../../../../utils/scale'
 
-import CustomizedTextInput from '../../../../components/textInput';
+import CustomizedTextInput from '../../../../components/textInput/container';
 import Button from '../../../../components/button';
 import Theme from '../../../../global/theme'
 
@@ -27,7 +28,7 @@ export default class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
-      username: 'ahsan.sohail@ibex.co', password: 'Password123'
+      username: 'chad.reycenga@ibex.co', password: 'Password123'
     }
     // this.props.navigator.setDrawerEnabled({
     //   side: "left",
@@ -48,7 +49,6 @@ export default class Login extends Component {
     this.setState({ [key]: value })
   }
   signIn = async () => {
-    console.log(this.props);
     const { username, password } = this.state
     try {
        // login with provider
@@ -59,8 +59,12 @@ export default class Login extends Component {
         return;
        }
 
+
+
        const user = await AsyncStorage.setItem(USER_KEY, username)
-       console.log('user successfully signed in!', user)
+       this.props.setUser(username);
+       console.log('user successfully signed in!', username)
+      // this.props.navigation.
        ChangeStack(this.props, "Home", "Home", true);
 
     }catch (err) {
@@ -130,35 +134,35 @@ export default class Login extends Component {
             </TouchableOpacity>
           </View>
           <CustomizedTextInput
-            style={styles.input}
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             placeholder='Username'
             autoCapitalize="none"
             autoCorrect={false}
-            borderRadius={20}
-            //backgroundColor={'#ff9147'}
+            backgroundColor={Theme[this.props.theme].colors.control.background}
+            borderColor={Theme[this.props.theme].colors.border.base}
+            borderRadius={24}
+            placeholderTextColor={baseColor.color}
             value={this.state.username}
-            placeholderTextColor='black'
-            //inputColor={TEXT_COLOR_PRIMARY}
             onChangeText={val => this.onChangeText('username', val)}
           />
           <CustomizedTextInput
-            style={styles.input}
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
             placeholder='Password'
-            borderRadius={20}
-
             autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry
+            backgroundColor={Theme[this.props.theme].colors.control.background}
+            borderColor={Theme[this.props.theme].colors.border.base}
+            borderRadius={24}
+            placeholderTextColor={baseColor.color}
             value={this.state.password}
-            secureTextEntry={true}
-           // backgroundColor={'#ff9147'}
-           // inputColor={TEXT_COLOR_PRIMARY}
-            placeholderTextColor='black'
             onChangeText={val => this.onChangeText('password', val)}
           />
               <Button
                   text='LOGIN'
-                  borderRadius={20}
+                  borderRadius={24}
                   color={Theme[this.props.theme].colors.gradients.base[0]}
-                  style={[{width: 350},{height:50},baseColor,styles.save]}
+                  style={[{width: 300},{height:50},baseColor,styles.save]}
                   textStyle={[inverseColor]}
                   onPress={this.signIn}
                 />

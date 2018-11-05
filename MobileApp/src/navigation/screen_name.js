@@ -2,7 +2,7 @@ import Drawer from '../components/drawer/container';
 import Home from '../features/home/containers';
 import HomeNew from '../features/home2/containers';
 import Splash from '../features/splash/containers';
-import { _Login, _LoginV2} from '../features/login/containers';
+import { _Login, _LoginV2, LoginV3} from '../features/login/containers';
 import Signup from '../features/signup/containers';
 import ScreenNew from '../features/screen2/containers';
 import buttonScreen from '../features/buttonScreen/containers'
@@ -30,11 +30,12 @@ import {_Chat,_ChatList,_Comments} from '../features/Messaging/containers'
 import {_Card, _AddCardtoForm} from '../features/Ecommerce/containers'
 import Themes from '../features/Themes/containers'
 import Walkthrogh from '../features/Walkthrough/containers'
-import Dashboard from '../features/Dashboard/containers'
+import {_Dashboard, _Dashboard2, _Dashboard3} from '../features/Dashboard/containers'
 import Settings from '../features/Other/containers'
 import PasswordRecovery from '../features/passwordRecovery/containers'
-
+import SnapCarousel from '../features/SnapCarousel/containers'
 export {
+    SnapCarousel,
     Drawer,
     Home,
     HomeNew,
@@ -62,6 +63,7 @@ export {
     _menuNavigation,
     _menuOthers,
     _menuSocial,
+    LoginV3,
    // _menuWalkthrough,
     CardView,
     PushNotificationScreen,
@@ -86,7 +88,7 @@ export {
     _Card, _AddCardtoForm,
     Themes,
     Walkthrogh,
-    Dashboard,
+    _Dashboard, _Dashboard2, _Dashboard3,
     Settings,
     PasswordRecovery
 

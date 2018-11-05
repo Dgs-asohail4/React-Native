@@ -7,7 +7,7 @@ import {goBack} from '../../../../navigation/helper'
 import {scaleVertical} from '../../../../utils/scale';
 import {scaleModerate} from '../../../../utils/scale'
 import { DEFUALT_THEME } from '../../../../global/config';
-
+import CustomizedTextInput from '../../../../components/textInput/container'
 export default class PasswordRecovery extends Component {
   static navigationOptions = {
     header: null,
@@ -39,7 +39,16 @@ export default class PasswordRecovery extends Component {
             <Text style={[h1, baseColor]}>Password Recovery</Text>
           </View>
           <View style={styles.content}>
-        <TextInput style={styles.input} placeholder='Email' />
+          <CustomizedTextInput
+            contentContainerStyle={{marginVertical:scaleVertical(10),padding:6}}
+            placeholder='Email'
+            autoCapitalize="none"
+            autoCorrect={false}
+            backgroundColor={Theme[this.props.theme].colors.control.background}
+            borderColor={Theme[this.props.theme].colors.border.base}
+            borderRadius={24}
+            placeholderTextColor={baseColor.color}
+        />
         <Text style={[secondary5, secondaryColor, center]}>
             Enter your email below to receive your password reset instructions
         </Text>
@@ -48,7 +57,7 @@ export default class PasswordRecovery extends Component {
         text='SEND'
         borderRadius={20}
         color={Theme[this.props.theme].colors.gradients.base[0]}
-        style={[{width: 350},{height:50},baseColor,styles.save]}
+        style={[{width: 300},{height:50},baseColor,styles.save]}
         onPress={this.onSendButtonPressed}
       />
       </KeyboardAvoidingView>
