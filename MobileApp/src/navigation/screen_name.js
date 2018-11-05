@@ -30,7 +30,7 @@ import {_Chat,_ChatList,_Comments} from '../features/Messaging/containers'
 import {_Card, _AddCardtoForm} from '../features/Ecommerce/containers'
 import Themes from '../features/Themes/containers'
 import Walkthrogh from '../features/Walkthrough/containers'
-import Dashboard from '../features/Dashboard/containers'
+import {_Dashboard, _Dashboard2, _Dashboard3} from '../features/Dashboard/containers'
 import Settings from '../features/Other/containers'
 import PasswordRecovery from '../features/passwordRecovery/containers'
 import SnapCarousel from '../features/SnapCarousel/containers'
@@ -88,7 +88,7 @@ export {
     _Card, _AddCardtoForm,
     Themes,
     Walkthrogh,
-    Dashboard,
+    _Dashboard, _Dashboard2, _Dashboard3,
     Settings,
     PasswordRecovery
 

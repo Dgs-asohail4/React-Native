@@ -214,7 +214,19 @@ const Routes = [
             {
                 name:'dashboard.dashboard',
                 title:'Dashboard',
-                screen:Screens.Dashboard,
+                screen:Screens._Dashboard,
+                children:[]
+            },
+            {
+                name:'dashboard.dashboard2',
+                title:'Saad',
+                screen:Screens._Dashboard2,
+                children:[]
+            },
+            {
+                name:'dashboard.dashboard3',
+                title:'Ahsan',
+                screen:Screens._Dashboard3,
                 children:[]
             }
         ]
