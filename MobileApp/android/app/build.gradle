@@ -159,6 +159,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-config')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"
@@ -166,6 +167,7 @@ dependencies {
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-svg')
     implementation project(':react-native-push-notification')
+   // implementation project(':react-native-code-push')
 }
 
 // Run this once to be able to run the application with BUCK
@@ -175,3 +177,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"

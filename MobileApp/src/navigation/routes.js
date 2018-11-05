@@ -267,13 +267,13 @@ const Routes = [
         screen:Screens.Themes,
         childrens: []
     },
-    // {
-    //     name:'app.buttonlist',
-    //     title:'Button Example',
-    //     icon:'md-radio-button-on',
-    //     screen:Screens.buttonScreen,
-    //     childrens: []
-    // },
+    {
+        name:'app.snapcarousel',
+        title:'Snap Carousel',
+        icon:'md-radio-button-on',
+        screen:Screens.SnapCarousel,
+        childrens: []
+    },
     // {
     //     name:'app.swipelist',
     //     title:'Swiper',

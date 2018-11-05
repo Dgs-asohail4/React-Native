@@ -17,6 +17,7 @@ export const items = [
     {id:11,name:'Other', icon: 'md-apps', navigateTo: 'menu.other'},
     {id:12,name:'Themes', icon: 'md-images', navigateTo: 'app.theme'},
     {id:13,name:'Push Notification',icon:'md-notifications-outline',navigateTo:'app.pushnotification'},
+    {id:14,name:'Snap Carousel',icon:'md-albums',navigateTo:'app.snapcarousel'},
     // {id:14,name:'Chart Example', icon: 'md-pie', navigateTo: 'app.chartexample'},
     // {id:15,name:'Auth',icon:'md-list',navigateTo:'menu.auth'},
     // {id:17,name:'Card View',icon:'md-card',navigateTo:'app.cardView'},

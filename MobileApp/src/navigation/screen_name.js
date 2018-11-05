@@ -33,8 +33,9 @@ import Walkthrogh from '../features/Walkthrough/containers'
 import Dashboard from '../features/Dashboard/containers'
 import Settings from '../features/Other/containers'
 import PasswordRecovery from '../features/passwordRecovery/containers'
-
+import SnapCarousel from '../features/SnapCarousel/containers'
 export {
+    SnapCarousel,
     Drawer,
     Home,
     HomeNew,

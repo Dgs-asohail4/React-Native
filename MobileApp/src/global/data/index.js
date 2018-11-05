@@ -5,6 +5,7 @@ import articles from './raw/articles';
 import notifications from './raw/notifications';
 import conversations from './raw/conversations';
 import cards from './raw/cards';
+import { ENTRIES1, ENTRIES2 } from './raw/entries';
 
 class DataProvider {
   getUser(id = 1) {
@@ -42,6 +43,10 @@ class DataProvider {
 
   getCards() {
     return cards;
+  }
+
+  getEntries(){
+    return {ENTRIES1, ENTRIES2};
   }
 
   populateData() {
