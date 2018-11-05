@@ -60,7 +60,7 @@ class Drawer extends Component {
       <View style={styles.root}>
         <ScrollView
           showsVerticalScrollIndicator={false}>
-          <View style={[styles.container, styles.content]}>
+          <View style={[styles.header, styles.content]}>
             <Header theme={this.props.theme}/>
             <Text style={[primary,baseColor,logo, header1]}>UI Kit</Text>
           </View>
