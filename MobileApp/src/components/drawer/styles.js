@@ -10,6 +10,12 @@ export default class StyleSheetFactory {
 				borderTopWidth: StyleSheet.hairlineWidth,
 				borderColor: theme.colors.border.base,
 			  },
+			header:{
+				height: 100,
+				paddingHorizontal: 16,
+				borderTopWidth: StyleSheet.hairlineWidth,
+				borderColor: theme.colors.border.base,
+			},
 			root: {
 				paddingTop: Platform.OS === 'ios' ? 20 : 0,
 				backgroundColor: theme.colors.screen.base,
@@ -22,6 +28,11 @@ export default class StyleSheetFactory {
 			icon: {
 				marginRight: 13,
 			},
+			headerIcon:{
+				marginRight: 13,
+				width:200,
+				height:70
+			}
 		})
 	}
 }
