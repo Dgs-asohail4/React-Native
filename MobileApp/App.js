@@ -58,16 +58,22 @@ const RootStack = createStackNavigator({
 });
 
 export default class App extends React.Component {
+
+
+	componentDidMount(){
+		console.log(Config);
+	}
+
 	render() {
-		// if(Config.IS_STORYBOOK == true){
-		// 	return <StoryBook />
-		// } else {
-		// 	return(
-		// 		<Provider store={store}>
-		// 			<RootStack />
-		// 		</Provider>
-		// 	)
-		// }
+		if(Config.IS_STORYBOOK == "true"){
+			return <StoryBook />
+		} else {
+			return(
+				<Provider store={store}>
+					<RootStack />
+				</Provider>
+			)
+		}
 
 		// return(
 		// 			<Provider store={store}>
@@ -75,7 +81,7 @@ export default class App extends React.Component {
 		// 			</Provider>
 		// 		)
 
-		return <StoryBook />
+		// return <StoryBook />
 	}
 }
 
