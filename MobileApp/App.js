@@ -69,11 +69,13 @@ export default class App extends React.Component {
 		// 	)
 		// }
 
-		return(
-					<Provider store={store}>
-						<RootStack />
-					</Provider>
-				)
+		// return(
+		// 			<Provider store={store}>
+		// 				<RootStack />
+		// 			</Provider>
+		// 		)
+
+		return <StoryBook />
 	}
 }
 
